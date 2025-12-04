@@ -8,6 +8,7 @@ from .parser import MibParser
 from .serializer import JsonSerializer
 from .tree import MibTree
 from .models import MibNode, MibData
+from .dependency_resolver import MibDependencyResolver
 
 __version__ = "0.1.0"
-__all__ = ["MibParser", "JsonSerializer", "MibTree", "MibNode", "MibData"]
+__all__ = ["MibParser", "JsonSerializer", "MibTree", "MibNode", "MibData", "MibDependencyResolver"]

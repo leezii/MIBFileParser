@@ -1,34 +1,45 @@
 """
-Core MIB parser using pysmi.
+Core MIB parser using pysmi with proper compilation and dependency resolution.
 """
 
 import os
 from pathlib import Path
 from typing import List, Optional, Set, Dict, Any
 from datetime import datetime
+from pysmi.compiler import MibCompiler
 from pysmi.parser import SmiStarParser
+from pysmi.codegen import JsonCodeGen
+from pysmi.writer import FileWriter
+from pysmi.reader import FileReader
+from pysmi.borrower import AnyFileBorrower
 from pysmi import debug
 from pysmi.error import PySmiError
 
 from .models import MibData, MibNode
+from .dependency_resolver import MibDependencyResolver
 
 
 class MibParser:
-    """Main class for parsing MIB files using pysmi."""
+    """Main class for parsing MIB files using pysmi with proper compilation."""
 
-    def __init__(self, mib_sources: Optional[List[str]] = None, debug_mode: bool = False):
+    def __init__(self, mib_sources: Optional[List[str]] = None, debug_mode: bool = False, resolve_dependencies: bool = True):
         """
         Initialize the MIB parser.
 
         Args:
             mib_sources: List of directories to search for MIB files
             debug_mode: Enable debug output
+            resolve_dependencies: Whether to resolve MIB dependencies
         """
         if debug_mode:
             debug.set_logger(debug.Debug('reader', 'compiler'))
 
-        self.mib_sources = mib_sources or []
-        self.parser = SmiStarParser()
+        self.mib_sources = mib_sources or self._get_default_mib_sources()
+        self.resolve_dependencies = resolve_dependencies
+        self.dependency_resolver = MibDependencyResolver() if resolve_dependencies else None
+        self.compiled_mibs = {}  # Cache for compiled MIBs
+        self._used_temp_dirs = set()  # Track used temp directories
+        self._setup_compiler()
 
     def _get_default_mib_sources(self) -> List[str]:
         """Get default MIB source directories."""
@@ -51,9 +62,35 @@ class MibParser:
 
         return sources
 
+    def _setup_compiler(self):
+        """Setup the MIB compiler with proper configuration."""
+        # Create parser
+        parser = SmiStarParser()
+
+        # Setup JSON code generation
+        json_codegen = JsonCodeGen()
+
+        # Create writer (directory-based) for JSON output
+        writer = FileWriter(str(Path.cwd() / "compiled_mibs"))
+
+        # Create compiler with required components
+        self.mib_compiler = MibCompiler(parser, json_codegen, writer)
+
+        # Add MIB sources using the correct API
+        for source in self.mib_sources:
+            if os.path.exists(source):
+                reader = FileReader(source)
+                self.mib_compiler.add_sources(reader)
+
+        # Setup MIB borrower for dependency resolution
+        for source in self.mib_sources:
+            if os.path.exists(source):
+                borrower = AnyFileBorrower(FileReader(source))
+                self.mib_compiler.add_borrowers(borrower)
+
     def parse_mib_file(self, file_path: str) -> MibData:
         """
-        Parse a single MIB file using pysmi parser directly.
+        Parse a single MIB file using pysmi compiler with dependency resolution.
 
         Args:
             file_path: Path to the MIB file
@@ -69,30 +106,289 @@ class MibParser:
             raise FileNotFoundError(f"MIB file not found: {file_path}")
 
         try:
-            # Use pysmi parser to parse the MIB file directly
-            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
-                mib_content = f.read()
+            # If dependency resolution is enabled, first resolve dependencies
+            if self.resolve_dependencies:
+                self._resolve_dependencies_in_directory(str(file_path.parent))
 
-            # Parse the MIB content
-            mib_ast = self.parser.parse(mib_content, src=str(file_path))
+            # Extract actual MIB name from file content
+            mib_name = self._extract_mib_name_from_content(file_path)
 
-            # Extract MIB name from the parsed AST
-            mib_name = self._extract_mib_name_from_ast(mib_ast) or file_path.stem
+            # Create a temporary directory with properly named MIB files
+            import tempfile
+            import shutil
 
-            # Create MibData object
-            mib_data = MibData(
-                name=mib_name,
-                description=f"Parsed from {file_path.name}",
-                last_updated=datetime.now()
-            )
+            temp_dir = Path(tempfile.mkdtemp())
+            temp_mib_file = temp_dir / f"{mib_name}.mib"
 
-            # Process the parsed AST to extract nodes
-            self._process_ast_nodes(mib_ast, mib_data, mib_name)
+            # Copy the MIB file to temp directory with correct name
+            shutil.copy2(file_path, temp_mib_file)
 
-            return mib_data
+            # Create a fresh compiler for this MIB to avoid state issues
+            parser = SmiStarParser()
+            json_codegen = JsonCodeGen()
+            writer = FileWriter(str(Path.cwd() / "compiled_mibs"))
+            compiler = MibCompiler(parser, json_codegen, writer)
 
+            # Add temp directory as source
+            temp_reader = FileReader(str(temp_dir))
+            compiler.add_sources(temp_reader)
+
+            # Add MIB sources
+            for source in self.mib_sources:
+                if os.path.exists(source):
+                    reader = FileReader(source)
+                    compiler.add_sources(reader)
+
+            # Setup borrower for temp directory
+            temp_borrower = AnyFileBorrower(temp_reader)
+            compiler.add_borrowers(temp_borrower)
+
+            try:
+                # Use pysmi compiler to compile the MIB by name
+                result = compiler.compile(mib_name)
+
+                # Check compilation result - handle different API versions
+                success = False
+                if mib_name in result:
+                    status_obj = result[mib_name]
+                    # Try different possible status methods/attributes
+                    if hasattr(status_obj, 'getStatus'):
+                        success = status_obj.getStatus() == 'success'
+                    elif hasattr(status_obj, 'status'):
+                        success = str(status_obj.status) == 'success'
+                    else:
+                        # Check the string representation for common success indicators
+                        status_str = str(status_obj).lower()
+                        success = 'success' in status_str or 'built' in status_str or 'compiled' in status_str
+            finally:
+                # Clean up temp directory
+                shutil.rmtree(temp_dir, ignore_errors=True)
+
+            if success:
+                # Read the compiled JSON output (try both with and without .json extension)
+                compiled_file = Path.cwd() / "compiled_mibs" / f"{mib_name}"
+                if compiled_file.exists():
+                    import json
+                    with open(compiled_file, 'r') as f:
+                        compiled_data = json.load(f)
+                    return self._extract_mib_data_from_pysmi(compiled_data, mib_name, file_path)
+                else:
+                    # Try with .json extension
+                    compiled_file_json = Path.cwd() / "compiled_mibs" / f"{mib_name}.json"
+                    if compiled_file_json.exists():
+                        import json
+                        with open(compiled_file_json, 'r') as f:
+                            compiled_data = json.load(f)
+                        return self._extract_mib_data_from_pysmi(compiled_data, mib_name, file_path)
+                    else:
+                        raise Exception(f"Compiled output file not found: {compiled_file} or {compiled_file_json}")
+            else:
+                raise Exception(f"Failed to compile MIB file: {file_path}")
+
+        except PySmiError as e:
+            raise Exception(f"SMI error while parsing {file_path}: {e}")
         except Exception as e:
             raise Exception(f"Error parsing MIB file {file_path}: {e}")
+
+    def _resolve_dependencies_in_directory(self, directory_path: str):
+        """解析指定目录中的 MIB 依赖关系"""
+        if self.dependency_resolver is None:
+            return
+
+        # 只解析一次依赖关系
+        if not self.dependency_resolver.mib_files:
+            self.dependency_resolver.parse_mib_dependencies(directory_path)
+
+        # Add MIB sources in compilation order
+        compilation_order = self.dependency_resolver.get_compilation_order()
+        for mib_name in compilation_order:
+            if mib_name in self.dependency_resolver.mib_files:
+                mib_file = self.dependency_resolver.mib_files[mib_name]
+                mib_dir = Path(mib_file.file_path).parent
+                if str(mib_dir) not in self.mib_sources:
+                    self.mib_compiler.add_sources(str(mib_dir))
+
+    def _extract_mib_name_from_content(self, file_path: Path) -> str:
+        """Extract the actual MIB name from file content by looking for DEFINITIONS."""
+        try:
+            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+
+            # Look for pattern: NAME DEFINITIONS ::= BEGIN
+            import re
+            match = re.search(r'(\w+(?:-\w+)*)\s+DEFINITIONS\s*::=\s*BEGIN', content, re.IGNORECASE)
+            if match:
+                return match.group(1)
+            else:
+                # Fallback to filename-based extraction
+                mib_name = file_path.stem
+                if mib_name and mib_name[0].isdigit():
+                    parts = mib_name.split('_', 1)
+                    if len(parts) > 1:
+                        return parts[1]
+                return mib_name
+        except Exception:
+            # Fallback to filename-based extraction
+            mib_name = file_path.stem
+            if mib_name and mib_name[0].isdigit():
+                parts = mib_name.split('_', 1)
+                if len(parts) > 1:
+                    return parts[1]
+            return mib_name
+
+    def _extract_mib_data_from_pysmi(self, compiled_data: Dict, mib_name: str, file_path: Path) -> MibData:
+        """Extract MIB data from pysmi compiled JSON output"""
+        mib_data = MibData(
+            name=mib_name,
+            description=f"Compiled from {file_path.name}",
+            last_updated=datetime.now()
+        )
+
+        # Handle pysmi JSON structure
+        if isinstance(compiled_data, dict):
+            # Extract imports
+            if 'imports' in compiled_data:
+                imports_data = compiled_data['imports']
+                if isinstance(imports_data, dict):
+                    mib_data.imports = list(imports_data.keys())
+                else:
+                    mib_data.imports = list(imports_data)
+
+            # Process nodes from compiled data - pysmi outputs each node as a top-level key
+            for key, value in compiled_data.items():
+                # Skip meta and imports sections
+                if key in ['imports', 'meta', 'dependencies', 'description']:
+                    continue
+
+                # Each other key should be a MIB node
+                if isinstance(value, dict) and 'class' in value:
+                    mib_node = self._extract_node_data_from_pysmi(key, value, mib_name)
+                    mib_data.add_node(mib_node)
+
+        # For backward compatibility, handle object-based data
+        elif hasattr(compiled_data, 'imports'):
+            # Extract imports and dependencies
+            if hasattr(compiled_data, 'imports'):
+                mib_data.imports = list(compiled_data.imports)
+
+            if hasattr(compiled_data, 'dependencies'):
+                mib_data.module_dependencies = list(compiled_data.dependencies)
+
+            # Extract description if available
+            if hasattr(compiled_data, 'description'):
+                mib_data.description = compiled_data.description
+
+            # Process nodes from compiled data
+            if hasattr(compiled_data, 'nodes'):
+                for node_name, node_data in compiled_data.nodes.items():
+                    mib_node = self._extract_node_data_from_pysmi(node_name, node_data, mib_name)
+                    mib_data.add_node(mib_node)
+
+        return mib_data
+
+    def _extract_node_data_from_pysmi(self, node_name: str, node_data: Any, module: str) -> MibNode:
+        """Extract data for a single MIB node from pysmi output."""
+        # Handle both dict and object-based node data
+        if isinstance(node_data, dict):
+            # Extract OID
+            oid = node_data.get('oid', f"1.2.3.1")
+
+            # Extract description
+            description = node_data.get('description')
+
+            # Extract syntax information
+            syntax = node_data.get('syntax')
+
+            # Extract access information
+            access = node_data.get('access')
+            max_access = node_data.get('max_access')
+
+            # Extract status
+            status = node_data.get('status')
+
+            # Extract parent information
+            parent_name = node_data.get('parent')
+
+            # Extract text convention
+            text_convention = node_data.get('text_convention')
+
+            # Extract units
+            units = node_data.get('units')
+
+            # Extract reference
+            reference = node_data.get('reference')
+
+            # Extract default value
+            defval = node_data.get('defval')
+
+            # Extract hint
+            hint = node_data.get('hint')
+
+        else:
+            # Extract OID
+            oid = getattr(node_data, 'oid', f"1.2.3.1")
+
+            # Extract description
+            description = getattr(node_data, 'description', None)
+
+            # Extract syntax information
+            syntax = None
+            if hasattr(node_data, 'syntax'):
+                syntax = str(node_data.syntax)
+
+            # Extract access information
+            access = getattr(node_data, 'access', None)
+            max_access = getattr(node_data, 'max_access', None)
+
+            # Extract status
+            status = getattr(node_data, 'status', None)
+
+            # Extract parent information
+            parent_name = None
+            if hasattr(node_data, 'parent'):
+                parent_name = str(node_data.parent)
+
+            # Extract text convention
+            text_convention = getattr(node_data, 'text_convention', None)
+
+            # Extract units
+            units = getattr(node_data, 'units', None)
+
+            # Extract reference
+            reference = getattr(node_data, 'reference', None)
+
+            # Extract default value
+            defval = getattr(node_data, 'defval', None)
+
+            # Extract hint
+            hint = getattr(node_data, 'hint', None)
+
+        return MibNode(
+            name=node_name,
+            oid=oid,
+            description=description,
+            syntax=syntax,
+            access=access,
+            status=status,
+            parent_name=parent_name,
+            module=module,
+            text_convention=text_convention,
+            units=units,
+            max_access=max_access,
+            reference=reference,
+            defval=defval,
+            hint=hint,
+        )
+
+    def _extract_mib_name_from_ast(self, ast):
+        """Extract MIB name from parsed AST"""
+        # This method is not used in the current implementation
+        return None
+
+    def _process_ast_nodes(self, ast, mib_data, mib_name):
+        """Process AST to extract MIB nodes"""
+        # This method is not used in the current implementation
+        pass
 
     def _extract_mib_name_from_ast(self, ast):
         """Extract MIB name from parsed AST"""

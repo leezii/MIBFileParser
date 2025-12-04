@@ -1,0 +1,328 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-network-wired"></i> MIB Files</h1>
+            <div>
+                <button class="btn btn-outline-secondary" onclick="toggleView()">
+                    <i class="fas fa-th"></i> Toggle View
+                </button>
+                <button class="btn btn-primary" onclick="refreshData()">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Overview -->
+{% if stats %}
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ stats.total_mibs }}</h4>
+                        <p class="card-text">Total MIBs</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-file-alt fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ stats.total_nodes }}</h4>
+                        <p class="card-text">Total Nodes</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-sitemap fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ stats.mibs_with_data }}</h4>
+                        <p class="card-text">MIBs with Data</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-database fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">{{ "%.1f"|format(stats.total_size / 1024 / 1024) }}MB</h4>
+                        <p class="card-text">Total Size</p>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="fas fa-hdd fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Error message -->
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    <i class="fas fa-exclamation-triangle"></i> {{ error }}
+</div>
+{% endif %}
+
+<!-- MIB List -->
+<div id="mib-container">
+    {% if mibs %}
+        <!-- All MIBs Combined Option -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card border-primary">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-globe"></i> All MIBs Combined
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <p class="mb-0">View all MIB modules in a single unified tree structure. This combines all available MIB files into one comprehensive view.</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="{{ url_for('main.view_mib', mib_name='ALL_MIBS') }}" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-sitemap"></i> View All MIBs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid View -->
+        <div id="grid-view" class="row">
+            {% for mib in mibs %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 mib-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="card-title mb-0">{{ mib.name }}</h6>
+                        <span class="badge bg-primary">{{ mib.nodes_count or 0 }} nodes</span>
+                    </div>
+                    <div class="card-body">
+                        {% if mib.description %}
+                            <p class="card-text text-muted small">{{ mib.description[:100] }}{% if mib.description|length > 100 %}...{% endif %}</p>
+                        {% endif %}
+
+                        <div class="row text-center small text-muted">
+                            <div class="col-6">
+                                <i class="fas fa-download"></i> {{ "%.1f"|format(mib.size / 1024) }}KB
+                            </div>
+                            <div class="col-6">
+                                <i class="fas fa-link"></i> {{ mib.imports_count or 0 }} imports
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="btn-group w-100" role="group">
+                            <a href="{{ url_for('main.view_mib', mib_name=mib.name) }}" class="btn btn-primary">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                            <button class="btn btn-outline-secondary" onclick="showMibDetails('{{ mib.name }}')">
+                                <i class="fas fa-info-circle"></i> Info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Table View -->
+        <div id="table-view" class="table-responsive" style="display: none;">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Nodes</th>
+                        <th>Imports</th>
+                        <th>Size</th>
+                        <th>Last Modified</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mib in mibs %}
+                    <tr>
+                        <td><strong>{{ mib.name }}</strong></td>
+                        <td>
+                            {% if mib.description %}
+                                {{ mib.description[:80] }}{% if mib.description|length > 80 %}...{% endif %}
+                            {% else %}
+                                <span class="text-muted">No description</span>
+                            {% endif %}
+                        </td>
+                        <td><span class="badge bg-primary">{{ mib.nodes_count or 0 }}</span></td>
+                        <td><span class="badge bg-info">{{ mib.imports_count or 0 }}</span></td>
+                        <td>{{ "%.1f"|format(mib.size / 1024) }}KB</td>
+                        <td>{{ mib.last_modified[:10] if mib.last_modified else 'Unknown' }}</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a href="{{ url_for('main.view_mib', mib_name=mib.name) }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn btn-sm btn-outline-secondary" onclick="showMibDetails('{{ mib.name }}')">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="text-center py-5">
+            <i class="fas fa-folder-open fa-3x text-muted mb-3"></i>
+            <h3 class="text-muted">No MIB files found</h3>
+            <p class="text-muted">
+                Make sure you have JSON output files in the <code>output/</code> directory.
+                You can generate them by running the MIB parser.
+            </p>
+            <a href="{{ url_for('main.about_page') }}" class="btn btn-outline-primary">
+                <i class="fas fa-question-circle"></i> Learn More
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+<!-- MIB Details Modal -->
+<div class="modal fade" id="mibDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">MIB Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="mib-details-content">
+                    <!-- Content will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="view-mib-btn">View MIB</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentView = 'grid';
+
+function toggleView() {
+    const gridView = document.getElementById('grid-view');
+    const tableView = document.getElementById('table-view');
+
+    if (currentView === 'grid') {
+        gridView.style.display = 'none';
+        tableView.style.display = 'block';
+        currentView = 'table';
+    } else {
+        gridView.style.display = 'flex';
+        tableView.style.display = 'none';
+        currentView = 'grid';
+    }
+}
+
+function refreshData() {
+    location.reload();
+}
+
+function showMibDetails(mibName) {
+    fetch(`/api/mibs/${mibName}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const mib = data.data;
+                const content = document.getElementById('mib-details-content');
+
+                let html = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Basic Information</h6>
+                            <table class="table table-sm">
+                                <tr><td><strong>Name:</strong></td><td>${mib.name}</td></tr>
+                                <tr><td><strong>Description:</strong></td><td>${mib.description || 'No description'}</td></tr>
+                                <tr><td><strong>Nodes:</strong></td><td>${Object.keys(mib.nodes || {}).length}</td></tr>
+                                <tr><td><strong>Imports:</strong></td><td>${(mib.imports || []).length}</td></tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Imports</h6>
+                            <div class="imports-list" style="max-height: 200px; overflow-y: auto;">
+                `;
+
+                if (mib.imports && mib.imports.length > 0) {
+                    mib.imports.forEach(imp => {
+                        html += `<span class="badge bg-secondary me-1 mb-1">${imp}</span>`;
+                    });
+                } else {
+                    html += '<p class="text-muted">No imports</p>';
+                }
+
+                html += `
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                content.innerHTML = html;
+
+                // Set up the view button
+                document.getElementById('view-mib-btn').onclick = function() {
+                    window.location.href = `/mib/${mibName}`;
+                };
+
+                // Show modal
+                new bootstrap.Modal(document.getElementById('mibDetailsModal')).show();
+            } else {
+                alert('Error loading MIB details: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error loading MIB details');
+        });
+}
+
+// Initialize tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,75 @@
+{
+  "_metadata": {
+    "exported_at": "2025-12-05T00:13:55.087213",
+    "version": "1.0",
+    "type": "oid_mapping",
+    "mib_count": 1
+  },
+  "oid_to_name": {
+    "1.3.6.1.4.1.2011.2.25.3.40.1": {
+      "name": "optixGlobalSnmp",
+      "module": "OPTIX-GLOBAL-SNMP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1.2": {
+      "name": "optixIp",
+      "module": "OPTIX-GLOBAL-SNMP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.1.1": {
+      "name": "optixSnmpTrapCtrl",
+      "module": "OPTIX-GLOBAL-SNMP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1": {
+      "name": "optixSnmpTrapCtrlEntry",
+      "module": "OPTIX-GLOBAL-SNMP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.1.1.1": {
+      "name": "optixSnmpTrapCtrlTable",
+      "module": "OPTIX-GLOBAL-SNMP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1.3": {
+      "name": "optixState",
+      "module": "OPTIX-GLOBAL-SNMP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1.1": {
+      "name": "optixTrapOid",
+      "module": "OPTIX-GLOBAL-SNMP-MIB",
+      "description": null
+    }
+  },
+  "name_to_oid": {
+    "optixGlobalSnmp": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.1",
+      "module": "OPTIX-GLOBAL-SNMP-MIB"
+    },
+    "optixIp": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1.2",
+      "module": "OPTIX-GLOBAL-SNMP-MIB"
+    },
+    "optixSnmpTrapCtrl": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1",
+      "module": "OPTIX-GLOBAL-SNMP-MIB"
+    },
+    "optixSnmpTrapCtrlEntry": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1",
+      "module": "OPTIX-GLOBAL-SNMP-MIB"
+    },
+    "optixSnmpTrapCtrlTable": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1.1",
+      "module": "OPTIX-GLOBAL-SNMP-MIB"
+    },
+    "optixState": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1.3",
+      "module": "OPTIX-GLOBAL-SNMP-MIB"
+    },
+    "optixTrapOid": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1.1",
+      "module": "OPTIX-GLOBAL-SNMP-MIB"
+    }
+  }
+}

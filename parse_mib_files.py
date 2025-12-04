@@ -28,9 +28,64 @@ def parse_mib_directory(mib_dir_path, output_dir_path):
     parser = MibParser(debug_mode=False)  # 关闭调试模式
     serializer = JsonSerializer(indent=2)
 
-    # 查找所有 MIB 文件
-    mib_files = list(mib_dir.glob("*.mib"))
+    # 查找所有 MIB 文件 (包括 .mib 和 .MIB 扩展名)
+    mib_files = list(mib_dir.glob("*.mib")) + list(mib_dir.glob("*.MIB"))
     print(f"找到 {len(mib_files)} 个 MIB 文件")
+
+    # 使用依赖解析器确定正确的解析顺序
+    print("\n正在分析 MIB 文件依赖关系...")
+    try:
+        dependency_resolver = parser.dependency_resolver
+        if dependency_resolver:
+            dependency_resolver.parse_mib_dependencies(str(mib_dir))
+
+            # 打印依赖信息
+            dependency_resolver.print_dependency_info()
+
+            # 获取编译顺序
+            compilation_order = dependency_resolver.get_compilation_order()
+
+            # 按照依赖顺序重新排列文件
+            ordered_mib_files = []
+            mib_file_map = {str(f): f for f in mib_files}
+
+            for mib_name in compilation_order:
+                # 查找包含此 MIB 名称的文件
+                found_file = None
+                for file_path in mib_files:
+                    try:
+                        file_mib_name = parser._extract_mib_name_from_content(file_path)
+                        if file_mib_name == mib_name:
+                            found_file = file_path
+                            break
+                    except:
+                        pass
+
+                if found_file:
+                    ordered_mib_files.append(found_file)
+                else:
+                    print(f"Warning: Could not find file for MIB {mib_name}")
+
+            # 添加未在依赖图中的文件
+            for mib_file in mib_files:
+                if mib_file not in ordered_mib_files:
+                    ordered_mib_files.append(mib_file)
+
+            mib_files = ordered_mib_files
+        else:
+            print("依赖解析器未启用，使用文件名排序")
+            mib_files.sort()
+    except Exception as e:
+        print(f"依赖分析失败，使用文件名排序: {e}")
+        mib_files.sort()
+
+    print(f"\n将按以下顺序解析 MIB 文件:")
+    for i, f in enumerate(mib_files, 1):
+        try:
+            mib_name = parser._extract_mib_name_from_content(f)
+            print(f"  {i}. {f.name} -> {mib_name}")
+        except:
+            print(f"  {i}. {f.name}")
 
     # 存储所有解析结果
     all_mib_data = []

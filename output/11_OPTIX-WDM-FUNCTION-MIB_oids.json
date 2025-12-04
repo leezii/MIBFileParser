@@ -1,0 +1,282 @@
+{
+  "_metadata": {
+    "exported_at": "2025-12-05T00:13:55.217545",
+    "version": "1.0",
+    "type": "oid_mapping",
+    "mib_count": 1
+  },
+  "oid_to_name": {
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.1": {
+      "name": "optixGetBid",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.1": {
+      "name": "optixGetBidAndBdtype",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1": {
+      "name": "optixGetPortInfoEntry",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.6": {
+      "name": "optixGetPortInfoName",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.5": {
+      "name": "optixGetPortInfoPaylodType",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.2": {
+      "name": "optixGetPortInfoPort",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.20": {
+      "name": "optixGetPortInfoTable",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.3": {
+      "name": "optixGetPortInfoType",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.4": {
+      "name": "optixGetPortInfoWorkMode",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.3": {
+      "name": "optixGetPortState",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1": {
+      "name": "optixGetPortStateEntry",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.2": {
+      "name": "optixGetPortStatePort",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.30": {
+      "name": "optixGetPortStateTable",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10": {
+      "name": "optixWDMBdFunction",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20": {
+      "name": "optixWDMDeviceMgr",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.10.10.1": {
+      "name": "optixWDMFanEntry",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.10": {
+      "name": "optixWDMFanMgr",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.10.10": {
+      "name": "optixWDMFanTable",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10": {
+      "name": "optixWDMFunction",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.10.1.1": {
+      "name": "optixWDMGetBdInfoBID",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.10.1.2": {
+      "name": "optixWDMGetBdInfoData",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.10.1": {
+      "name": "optixWDMGetBdInfoEntry",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.10.10.10": {
+      "name": "optixWDMGetBdInfoTable",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.10.10.1.1": {
+      "name": "optixWDMGetFanBID",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.10.10.1.2": {
+      "name": "optixWDMGetFanSpeed",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.20.10.1.1": {
+      "name": "optixWDMGetPsuBID",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.20.10.1.2": {
+      "name": "optixWDMGetPsuPowerConsumption",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.20.10.1": {
+      "name": "optixWDMPsuEntry",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.20": {
+      "name": "optixWDMPsuMgr",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.4.70.20.20.10": {
+      "name": "optixWDMPsuTable",
+      "module": "OPTIX-WDM-FUNCTION-MIB",
+      "description": null
+    }
+  },
+  "name_to_oid": {
+    "optixGetBid": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetBidAndBdtype": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortInfoEntry": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortInfoName": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.6",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortInfoPaylodType": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.5",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortInfoPort": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.2",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortInfoTable": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortInfoType": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.3",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortInfoWorkMode": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.4",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortState": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.3",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortStateEntry": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortStatePort": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.2",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixGetPortStateTable": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMBdFunction": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMDeviceMgr": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMFanEntry": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10.10.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMFanMgr": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMFanTable": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10.10",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMFunction": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMGetBdInfoBID": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.10.1.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMGetBdInfoData": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.10.1.2",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMGetBdInfoEntry": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.10.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMGetBdInfoTable": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.10",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMGetFanBID": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10.10.1.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMGetFanSpeed": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10.10.1.2",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMGetPsuBID": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20.10.1.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMGetPsuPowerConsumption": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20.10.1.2",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMPsuEntry": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20.10.1",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMPsuMgr": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    },
+    "optixWDMPsuTable": {
+      "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20.10",
+      "module": "OPTIX-WDM-FUNCTION-MIB"
+    }
+  }
+}

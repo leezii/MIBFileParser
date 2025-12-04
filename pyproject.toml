@@ -5,6 +5,8 @@ description = "A Python library for parsing MIB files using pysmi and exporting 
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
+    "flask>=3.1.2",
+    "flask-cors>=6.0.1",
     "pysmi>=0.3.4",
     "pysnmp>=4.4.12",
 ]

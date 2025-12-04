@@ -1,0 +1,449 @@
+{
+  "optixGlobalTrap": {
+    "name": "optixGlobalTrap",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40",
+    "description": null,
+    "syntax": null,
+    "access": null,
+    "status": null,
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "optixTrapsCommon": {
+    "name": "optixTrapsCommon",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10",
+    "description": null,
+    "syntax": null,
+    "access": null,
+    "status": null,
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "optixTrapsPM": {
+    "name": "optixTrapsPM",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20",
+    "description": null,
+    "syntax": null,
+    "access": null,
+    "status": null,
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "optixTrapsTrPer": {
+    "name": "optixTrapsTrPer",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.50",
+    "description": null,
+    "syntax": null,
+    "access": null,
+    "status": null,
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptAlmName": {
+    "name": "rptAlmName",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.10",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "AlarmEventType"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtDataPmName": {
+    "name": "rptEvtDataPmName",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.270",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "DataPmEventType"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtDateTime": {
+    "name": "rptEvtDateTime",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.40",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtEndTime": {
+    "name": "rptEvtEndTime",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.260",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtMonValue": {
+    "name": "rptEvtMonValue",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.90",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtNtfcnCde": {
+    "name": "rptEvtNtfcnCde",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.60",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "AlmDataNtfcnCdeType"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtNumber": {
+    "name": "rptEvtNumber",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.120",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "Unsigned32"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtObjType": {
+    "name": "rptEvtObjType",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.220",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "ObjType"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtPara": {
+    "name": "rptEvtPara",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.240",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtParaLen": {
+    "name": "rptEvtParaLen",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.230",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "Counter32"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtPeriod": {
+    "name": "rptEvtPeriod",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.130",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "period15m": 1,
+          "period1day": 2
+        }
+      },
+      "type": "INTEGER"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtSrvEff": {
+    "name": "rptEvtSrvEff",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.50",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "AlmDataSrvEffType"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtStartTime": {
+    "name": "rptEvtStartTime",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.250",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "DateAndTime"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtState": {
+    "name": "rptEvtState",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.160",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 3,
+          "start": 1
+        }
+      },
+      "type": "INTEGER"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtThValue": {
+    "name": "rptEvtThValue",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.100",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "Counter64"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtValue": {
+    "name": "rptEvtValue",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.210",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "DisplayString"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptEvtVldty": {
+    "name": "rptEvtVldty",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.140",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "ValidflagType"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "rptPmName": {
+    "name": "rptPmName",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.190",
+    "description": null,
+    "syntax": {
+      "class": "type",
+      "type": "PerformanceEventType"
+    },
+    "access": null,
+    "status": "current",
+    "parent_name": null,
+    "children": [],
+    "module": "OPTIX-GLOBAL-TRAPS-MIB",
+    "text_convention": null,
+    "units": null,
+    "max_access": null,
+    "reference": null,
+    "defval": null,
+    "hint": null
+  },
+  "_metadata": {
+    "exported_at": "2025-12-05T00:13:55.904907",
+    "version": "1.0",
+    "type": "tree_structure",
+    "mib_name": "OPTIX-GLOBAL-TRAPS-MIB"
+  }
+}

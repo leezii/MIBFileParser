@@ -1,0 +1,450 @@
+{
+  "summary": {
+    "total_mibs": 12,
+    "total_nodes": 6184,
+    "total_imports": 66
+  },
+  "mib_details": [
+    {
+      "name": "OPTIX-OID-MIB",
+      "description": "Compiled from 01_OPTIX-OID-MIB.mib",
+      "nodes_count": 8,
+      "imports_count": 4,
+      "root_nodes": 8,
+      "max_depth": 0,
+      "leaf_nodes": 8,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "huawei",
+          "oid": "1.3.6.1.4.1.2011",
+          "description": null
+        },
+        {
+          "name": "optixCommon",
+          "oid": "1.3.6.1.4.1.2011.2.25.3",
+          "description": null
+        },
+        {
+          "name": "optixCommonGlobal",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40",
+          "description": null
+        },
+        {
+          "name": "optixCommonSnmp",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.1",
+          "description": null
+        },
+        {
+          "name": "optixProvision",
+          "oid": "1.3.6.1.4.1.2011.2.25.4",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-GLOBAL-TC-MIB",
+      "description": "Compiled from 02_OPTIX-GLOBAL-TC-MIB.mib",
+      "nodes_count": 15,
+      "imports_count": 5,
+      "root_nodes": 15,
+      "max_depth": 0,
+      "leaf_nodes": 15,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "AlarmEventType",
+          "oid": "1.2.3.1",
+          "description": null
+        },
+        {
+          "name": "AlmDataNtfcnCdeType",
+          "oid": "1.2.3.1",
+          "description": null
+        },
+        {
+          "name": "AlmDataSrvEffType",
+          "oid": "1.2.3.1",
+          "description": null
+        },
+        {
+          "name": "DataPmEventType",
+          "oid": "1.2.3.1",
+          "description": null
+        },
+        {
+          "name": "DirectionType",
+          "oid": "1.2.3.1",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-GLOBAL-SNMP-MIB",
+      "description": "Compiled from 10_OPTIX-GLOBAL-SNMP-MIB.MIB",
+      "nodes_count": 7,
+      "imports_count": 5,
+      "root_nodes": 7,
+      "max_depth": 0,
+      "leaf_nodes": 7,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "optixGlobalSnmp",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.1",
+          "description": null
+        },
+        {
+          "name": "optixIp",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1.2",
+          "description": null
+        },
+        {
+          "name": "optixSnmpTrapCtrl",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1",
+          "description": null
+        },
+        {
+          "name": "optixSnmpTrapCtrlEntry",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1.1.1",
+          "description": null
+        },
+        {
+          "name": "optixSnmpTrapCtrlTable",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.1.1.1",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-COMMON-SNMP-MIB",
+      "description": "Compiled from 12_OPTIX-COMMON-SNMP-MIB.MIB",
+      "nodes_count": 2,
+      "imports_count": 5,
+      "root_nodes": 2,
+      "max_depth": 0,
+      "leaf_nodes": 2,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "optixSnmp",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.1.10",
+          "description": null
+        },
+        {
+          "name": "optixSnmpTrap",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.1.10.1",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-WDM-FUNCTION-MIB",
+      "description": "Compiled from 11_OPTIX-WDM-FUNCTION-MIB.mib",
+      "nodes_count": 30,
+      "imports_count": 5,
+      "root_nodes": 30,
+      "max_depth": 0,
+      "leaf_nodes": 30,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "optixGetBid",
+          "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.1",
+          "description": null
+        },
+        {
+          "name": "optixGetBidAndBdtype",
+          "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.1",
+          "description": null
+        },
+        {
+          "name": "optixGetPortInfoEntry",
+          "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1",
+          "description": null
+        },
+        {
+          "name": "optixGetPortInfoName",
+          "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.6",
+          "description": null
+        },
+        {
+          "name": "optixGetPortInfoPaylodType",
+          "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.5",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-GLOBAL-PM-MIB",
+      "description": "Compiled from 05_OPTIX-GLOBAL-PM-MIB.mib",
+      "nodes_count": 9,
+      "imports_count": 6,
+      "root_nodes": 9,
+      "max_depth": 0,
+      "leaf_nodes": 9,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "optixGlobalPER",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.20",
+          "description": null
+        },
+        {
+          "name": "optixGlobalPM",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.10",
+          "description": null
+        },
+        {
+          "name": "pmHistCtr",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.10.10",
+          "description": null
+        },
+        {
+          "name": "pmHistCtrEnableFlag",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.10.10.10.1.4",
+          "description": null
+        },
+        {
+          "name": "pmHistCtrEntry",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.10.10.10.1",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-GLOBAL-NGWDM-MIB",
+      "description": "Compiled from 08_OPTIX-GLOBAL.mib",
+      "nodes_count": 3462,
+      "imports_count": 6,
+      "root_nodes": 3462,
+      "max_depth": 0,
+      "leaf_nodes": 3462,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "board",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.50.21",
+          "description": null
+        },
+        {
+          "name": "boardPer15MCurDateTime",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.50.21.10.1.4",
+          "description": null
+        },
+        {
+          "name": "boardPer15MCurEid",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.50.21.10.1.1",
+          "description": null
+        },
+        {
+          "name": "boardPer15MCurEntry",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.50.21.10.1",
+          "description": null
+        },
+        {
+          "name": "boardPer15MCurMonValue",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.50.21.10.1.2",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-GLOBAL-TRAPS-MIB",
+      "description": "Compiled from 03_OPTIX-GLOBAL-TRAPS-MIB.mib",
+      "nodes_count": 22,
+      "imports_count": 6,
+      "root_nodes": 22,
+      "max_depth": 0,
+      "leaf_nodes": 22,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "optixGlobalTrap",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40",
+          "description": null
+        },
+        {
+          "name": "optixTrapsCommon",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10",
+          "description": null
+        },
+        {
+          "name": "optixTrapsPM",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20",
+          "description": null
+        },
+        {
+          "name": "optixTrapsTrPer",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.50",
+          "description": null
+        },
+        {
+          "name": "rptAlmName",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.10.10",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-GLOBAL-PER-MIB",
+      "description": "Compiled from 07_OPTIX-GLOBAL-PER-MIB.mib",
+      "nodes_count": 8,
+      "imports_count": 6,
+      "root_nodes": 8,
+      "max_depth": 0,
+      "leaf_nodes": 8,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "optixGlobalPER",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.20",
+          "description": null
+        },
+        {
+          "name": "per15mMonitorEndTime",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.20.10.10.20",
+          "description": null
+        },
+        {
+          "name": "per15mMonitorStartTime",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.20.10.10.10",
+          "description": null
+        },
+        {
+          "name": "per15mMonitorTime",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.20.10.10",
+          "description": null
+        },
+        {
+          "name": "per24hMonitorEndTime",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.20.10.20.20",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-GLOBAL-PER-TRAPS-NGWDM-MIB",
+      "description": "Compiled from 04_OPTIX-GLOBAL-PER-TRAPS.mib",
+      "nodes_count": 1347,
+      "imports_count": 6,
+      "root_nodes": 1347,
+      "max_depth": 0,
+      "leaf_nodes": 1347,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "optixTrapsPER",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.30",
+          "description": null
+        },
+        {
+          "name": "perEvtAainpavg",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.30.16479",
+          "description": null
+        },
+        {
+          "name": "perEvtAainpcur",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.30.15498",
+          "description": null
+        },
+        {
+          "name": "perEvtAainpmax",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.30.15496",
+          "description": null
+        },
+        {
+          "name": "perEvtAainpmin",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.30.15497",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-GLOBAL-ALM-MIB",
+      "description": "Compiled from 06_OPTIX-GLOBAL-ALM-MIB.mib",
+      "nodes_count": 1155,
+      "imports_count": 7,
+      "root_nodes": 1155,
+      "max_depth": 0,
+      "leaf_nodes": 1155,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "almActiveTimeout",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.40.573",
+          "description": null
+        },
+        {
+          "name": "almAdCheckFail",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.40.269",
+          "description": null
+        },
+        {
+          "name": "almAftfecUncor",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.40.14615",
+          "description": null
+        },
+        {
+          "name": "almAlcAdjustFail",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.40.13134",
+          "description": null
+        },
+        {
+          "name": "almAlcCommFail",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.40.12845",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": "Compiled from 09_OPTIX-GLOBAL-PM-TRAPS-MIB.mib",
+      "nodes_count": 119,
+      "imports_count": 5,
+      "root_nodes": 119,
+      "max_depth": 0,
+      "leaf_nodes": 119,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "optixTrapsPM",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20",
+          "description": null
+        },
+        {
+          "name": "pmETHALI",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.131",
+          "description": null
+        },
+        {
+          "name": "pmETHDROP",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.121",
+          "description": null
+        },
+        {
+          "name": "pmETHFCS",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.132",
+          "description": null
+        },
+        {
+          "name": "pmETHFRG",
+          "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.124",
+          "description": null
+        }
+      ]
+    }
+  ]
+}

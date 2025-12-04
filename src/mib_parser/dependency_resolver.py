@@ -30,7 +30,7 @@ class MibDependencyResolver:
     def parse_mib_dependencies(self, mib_directory: str) -> Dict[str, MibFile]:
         """解析 MIB 目录中的所有文件的依赖关系"""
         mib_dir = Path(mib_directory)
-        mib_files = list(mib_dir.glob("*.mib"))
+        mib_files = list(mib_dir.glob("*.mib")) + list(mib_dir.glob("*.MIB"))
 
         # 首先解析所有文件的基本信息
         for mib_file in mib_files:
@@ -51,16 +51,34 @@ class MibDependencyResolver:
         return self.mib_files
 
     def _extract_mib_name(self, file_path: Path) -> str:
-        """从文件路径提取 MIB 名称"""
-        # 从文件名提取（去掉前缀数字和扩展名）
-        stem = file_path.stem
-        # 如果以数字开头，去掉数字前缀
-        if stem and stem[0].isdigit():
-            # 找到第一个非数字字符
-            for i, char in enumerate(stem):
-                if not char.isdigit():
-                    return stem[i:]
-        return stem
+        """从文件内容提取实际的 MIB 名称"""
+        try:
+            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+
+            # 查找 MIB 名称 DEFINITIONS ::= BEGIN 模式
+            import re
+            match = re.search(r'(\w+(?:-\w+)*)\s+DEFINITIONS\s*::=\s*BEGIN', content, re.IGNORECASE)
+            if match:
+                return match.group(1)
+
+            # 如果无法从内容中提取，回退到文件名方法
+            stem = file_path.stem
+            if stem and stem[0].isdigit():
+                # 找到第一个非数字字符
+                for i, char in enumerate(stem):
+                    if not char.isdigit():
+                        return stem[i:]
+            return stem
+
+        except Exception:
+            # 回退到文件名方法
+            stem = file_path.stem
+            if stem and stem[0].isdigit():
+                for i, char in enumerate(stem):
+                    if not char.isdigit():
+                        return stem[i:]
+            return stem
 
     def _extract_imports_exports(self, file_path: Path) -> Tuple[Set[str], Set[str]]:
         """从 MIB 文件中提取导入和导出"""
@@ -71,16 +89,16 @@ class MibDependencyResolver:
             with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
 
-            # 解析 IMPORTS 部分
-            imports_match = re.search(r'IMPORTS\s+(.*?)\s*FROM', content, re.DOTALL | re.IGNORECASE)
+            # 解析 IMPORTS 部分 - 修复正则表达式
+            imports_match = re.search(r'IMPORTS\s+(.*?)\s*;', content, re.DOTALL | re.IGNORECASE)
             if imports_match:
                 imports_section = imports_match.group(1)
-                # 提取所有导入的标识符
-                import_names = re.findall(r'(\w+(?:-\w+)*)\s*\n', imports_section)
-                for name in import_names:
-                    name = name.strip()
-                    if name and name.upper() != 'FROM':
-                        imports.add(name)
+                # 使用更准确的正则表达式提取 FROM 语句
+                from_matches = re.findall(r'\s+FROM\s+(\w+(?:-\w+)*)', imports_section, re.IGNORECASE)
+                for module_name in from_matches:
+                    module_name = module_name.strip()
+                    if module_name:
+                        imports.add(module_name)
 
             # 解析定义的 OBJECT IDENTIFIER 和其他标识符
             # 简化版本：查找所有 OBJECT IDENTIFIER 定义

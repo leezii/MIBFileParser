@@ -1,0 +1,4302 @@
+{
+  "imports": {
+    "OPTIX-GLOBAL-TRAPS-MIB": [
+      "optixGlobalTrap",
+      "rptEvtDateTime",
+      "rptEvtObjType",
+      "rptEvtPara",
+      "rptEvtParaLen",
+      "rptEvtPeriod",
+      "rptEvtValue",
+      "rptEvtVldty"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///var/folders/3d/b49qmsm54n3gm9wc66cnt3n40000gn/T/tmp2930sart/OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB.mib",
+      "Produced by pysmi-1.6.2 at Fri Dec  5 00:13:56 2025",
+      "On host zhideMac-mini.local platform Darwin version 25.1.0 by user zhili",
+      "Using Python version 3.12.11 (main, Aug 18 2025, 19:02:39) [Clang 20.1.4 ]"
+    ],
+    "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+  },
+  "optixTrapsPM": {
+    "class": "objectidentity",
+    "name": "optixTrapsPM",
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20"
+  },
+  "pmETHALI": {
+    "class": "notificationtype",
+    "name": "pmETHALI",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.131",
+    "status": "current"
+  },
+  "pmETHDROP": {
+    "class": "notificationtype",
+    "name": "pmETHDROP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.121",
+    "status": "current"
+  },
+  "pmETHFCS": {
+    "class": "notificationtype",
+    "name": "pmETHFCS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.132",
+    "status": "current"
+  },
+  "pmETHFRG": {
+    "class": "notificationtype",
+    "name": "pmETHFRG",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.124",
+    "status": "current"
+  },
+  "pmETHJAB": {
+    "class": "notificationtype",
+    "name": "pmETHJAB",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.125",
+    "status": "current"
+  },
+  "pmETHOVER": {
+    "class": "notificationtype",
+    "name": "pmETHOVER",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.123",
+    "status": "current"
+  },
+  "pmETHRXTHROUGHPUTAVG": {
+    "class": "notificationtype",
+    "name": "pmETHRXTHROUGHPUTAVG",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.685",
+    "status": "current"
+  },
+  "pmETHRXTHROUGHPUTMAX": {
+    "class": "notificationtype",
+    "name": "pmETHRXTHROUGHPUTMAX",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.683",
+    "status": "current"
+  },
+  "pmETHRXTHROUGHPUTMIN": {
+    "class": "notificationtype",
+    "name": "pmETHRXTHROUGHPUTMIN",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.684",
+    "status": "current"
+  },
+  "pmETHTXTHROUGHPUTAVG": {
+    "class": "notificationtype",
+    "name": "pmETHTXTHROUGHPUTAVG",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.688",
+    "status": "current"
+  },
+  "pmETHTXTHROUGHPUTMAX": {
+    "class": "notificationtype",
+    "name": "pmETHTXTHROUGHPUTMAX",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.686",
+    "status": "current"
+  },
+  "pmETHTXTHROUGHPUTMIN": {
+    "class": "notificationtype",
+    "name": "pmETHTXTHROUGHPUTMIN",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.687",
+    "status": "current"
+  },
+  "pmETHUNDER": {
+    "class": "notificationtype",
+    "name": "pmETHUNDER",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.122",
+    "status": "current"
+  },
+  "pmOCPRXPKT64": {
+    "class": "notificationtype",
+    "name": "pmOCPRXPKT64",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.1",
+    "status": "current"
+  },
+  "pmOCPRXPKT65": {
+    "class": "notificationtype",
+    "name": "pmOCPRXPKT65",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.2",
+    "status": "current"
+  },
+  "pmPKT1024": {
+    "class": "notificationtype",
+    "name": "pmPKT1024",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.146",
+    "status": "current"
+  },
+  "pmPKT128": {
+    "class": "notificationtype",
+    "name": "pmPKT128",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.143",
+    "status": "current"
+  },
+  "pmPKT1519": {
+    "class": "notificationtype",
+    "name": "pmPKT1519",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.147",
+    "status": "current"
+  },
+  "pmPKT256": {
+    "class": "notificationtype",
+    "name": "pmPKT256",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.144",
+    "status": "current"
+  },
+  "pmPKT512": {
+    "class": "notificationtype",
+    "name": "pmPKT512",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.145",
+    "status": "current"
+  },
+  "pmPKT64": {
+    "class": "notificationtype",
+    "name": "pmPKT64",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.141",
+    "status": "current"
+  },
+  "pmPKT65": {
+    "class": "notificationtype",
+    "name": "pmPKT65",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.142",
+    "status": "current"
+  },
+  "pmPORTRXBWUTILIZATION": {
+    "class": "notificationtype",
+    "name": "pmPORTRXBWUTILIZATION",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.567",
+    "status": "current"
+  },
+  "pmPORTRXBWUTILIZATIONAVG": {
+    "class": "notificationtype",
+    "name": "pmPORTRXBWUTILIZATIONAVG",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.840",
+    "status": "current"
+  },
+  "pmPORTRXBWUTILIZATIONMAX": {
+    "class": "notificationtype",
+    "name": "pmPORTRXBWUTILIZATIONMAX",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.841",
+    "status": "current"
+  },
+  "pmPORTRXBWUTILIZATIONMIN": {
+    "class": "notificationtype",
+    "name": "pmPORTRXBWUTILIZATIONMIN",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.839",
+    "status": "current"
+  },
+  "pmPORTTXBWUTILIZATION": {
+    "class": "notificationtype",
+    "name": "pmPORTTXBWUTILIZATION",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.568",
+    "status": "current"
+  },
+  "pmPORTTXBWUTILIZATIONAVG": {
+    "class": "notificationtype",
+    "name": "pmPORTTXBWUTILIZATIONAVG",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.843",
+    "status": "current"
+  },
+  "pmPORTTXBWUTILIZATIONMAX": {
+    "class": "notificationtype",
+    "name": "pmPORTTXBWUTILIZATIONMAX",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.844",
+    "status": "current"
+  },
+  "pmPORTTXBWUTILIZATIONMIN": {
+    "class": "notificationtype",
+    "name": "pmPORTTXBWUTILIZATIONMIN",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.842",
+    "status": "current"
+  },
+  "pmPortrxbytesavailability868": {
+    "class": "notificationtype",
+    "name": "pmPortrxbytesavailability868",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtDataPmName"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtMonValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtThValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.868",
+    "status": "current"
+  },
+  "pmPortrxbytesavailability869": {
+    "class": "notificationtype",
+    "name": "pmPortrxbytesavailability869",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtDataPmName"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtMonValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtThValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.869",
+    "status": "current"
+  },
+  "pmRXBBAD": {
+    "class": "notificationtype",
+    "name": "pmRXBBAD",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.128",
+    "status": "current"
+  },
+  "pmRXBGOOD": {
+    "class": "notificationtype",
+    "name": "pmRXBGOOD",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.126",
+    "status": "current"
+  },
+  "pmRXBPS": {
+    "class": "notificationtype",
+    "name": "pmRXBPS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.679",
+    "status": "current"
+  },
+  "pmRXBRDCAST": {
+    "class": "notificationtype",
+    "name": "pmRXBRDCAST",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.115",
+    "status": "current"
+  },
+  "pmRXBRDCASTRATIO": {
+    "class": "notificationtype",
+    "name": "pmRXBRDCASTRATIO",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.957",
+    "status": "current"
+  },
+  "pmRXCTLPKTS": {
+    "class": "notificationtype",
+    "name": "pmRXCTLPKTS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.194",
+    "status": "current"
+  },
+  "pmRXDROPRATIO": {
+    "class": "notificationtype",
+    "name": "pmRXDROPRATIO",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.692",
+    "status": "current"
+  },
+  "pmRXGOODFULLFRAMESPEED": {
+    "class": "notificationtype",
+    "name": "pmRXGOODFULLFRAMESPEED",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.190",
+    "status": "current"
+  },
+  "pmRXMULCAST": {
+    "class": "notificationtype",
+    "name": "pmRXMULCAST",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.114",
+    "status": "current"
+  },
+  "pmRXOCTETS": {
+    "class": "notificationtype",
+    "name": "pmRXOCTETS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.200",
+    "status": "current"
+  },
+  "pmRXPAUSE": {
+    "class": "notificationtype",
+    "name": "pmRXPAUSE",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.119",
+    "status": "current"
+  },
+  "pmRXPBAD": {
+    "class": "notificationtype",
+    "name": "pmRXPBAD",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.944",
+    "status": "current"
+  },
+  "pmRXPGOOD": {
+    "class": "notificationtype",
+    "name": "pmRXPGOOD",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.946",
+    "status": "current"
+  },
+  "pmRXPKT1024": {
+    "class": "notificationtype",
+    "name": "pmRXPKT1024",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.106",
+    "status": "current"
+  },
+  "pmRXPKT128": {
+    "class": "notificationtype",
+    "name": "pmRXPKT128",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.103",
+    "status": "current"
+  },
+  "pmRXPKT1519": {
+    "class": "notificationtype",
+    "name": "pmRXPKT1519",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.139",
+    "status": "current"
+  },
+  "pmRXPKT256": {
+    "class": "notificationtype",
+    "name": "pmRXPKT256",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.104",
+    "status": "current"
+  },
+  "pmRXPKT512": {
+    "class": "notificationtype",
+    "name": "pmRXPKT512",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.105",
+    "status": "current"
+  },
+  "pmRXPKT64": {
+    "class": "notificationtype",
+    "name": "pmRXPKT64",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.101",
+    "status": "current"
+  },
+  "pmRXPKT65": {
+    "class": "notificationtype",
+    "name": "pmRXPKT65",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.102",
+    "status": "current"
+  },
+  "pmRXPKTS": {
+    "class": "notificationtype",
+    "name": "pmRXPKTS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.201",
+    "status": "current"
+  },
+  "pmRXPPS": {
+    "class": "notificationtype",
+    "name": "pmRXPPS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.681",
+    "status": "current"
+  },
+  "pmRXPTPANNOUNCE": {
+    "class": "notificationtype",
+    "name": "pmRXPTPANNOUNCE",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.823",
+    "status": "current"
+  },
+  "pmRXPTPDELAYREQ": {
+    "class": "notificationtype",
+    "name": "pmRXPTPDELAYREQ",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.829",
+    "status": "current"
+  },
+  "pmRXPTPDELAYRESP": {
+    "class": "notificationtype",
+    "name": "pmRXPTPDELAYRESP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.831",
+    "status": "current"
+  },
+  "pmRXPTPFOLLOWUP": {
+    "class": "notificationtype",
+    "name": "pmRXPTPFOLLOWUP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.827",
+    "status": "current"
+  },
+  "pmRXPTPPDELAYREQ": {
+    "class": "notificationtype",
+    "name": "pmRXPTPPDELAYREQ",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.833",
+    "status": "current"
+  },
+  "pmRXPTPPDELAYRESP": {
+    "class": "notificationtype",
+    "name": "pmRXPTPPDELAYRESP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.835",
+    "status": "current"
+  },
+  "pmRXPTPPDELAYRESPFUP": {
+    "class": "notificationtype",
+    "name": "pmRXPTPPDELAYRESPFUP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.837",
+    "status": "current"
+  },
+  "pmRXPTPSYNC": {
+    "class": "notificationtype",
+    "name": "pmRXPTPSYNC",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.825",
+    "status": "current"
+  },
+  "pmRXUNICAST": {
+    "class": "notificationtype",
+    "name": "pmRXUNICAST",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.113",
+    "status": "current"
+  },
+  "pmRxfullbgood": {
+    "class": "notificationtype",
+    "name": "pmRxfullbgood",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtDataPmName"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtMonValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtThValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.192",
+    "status": "current"
+  },
+  "pmTXBBAD": {
+    "class": "notificationtype",
+    "name": "pmTXBBAD",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.129",
+    "status": "current"
+  },
+  "pmTXBGOOD": {
+    "class": "notificationtype",
+    "name": "pmTXBGOOD",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.127",
+    "status": "current"
+  },
+  "pmTXBPS": {
+    "class": "notificationtype",
+    "name": "pmTXBPS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.680",
+    "status": "current"
+  },
+  "pmTXBRDCAST": {
+    "class": "notificationtype",
+    "name": "pmTXBRDCAST",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.118",
+    "status": "current"
+  },
+  "pmTXBRDCASTRATIO": {
+    "class": "notificationtype",
+    "name": "pmTXBRDCASTRATIO",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.958",
+    "status": "current"
+  },
+  "pmTXCTLPKTS": {
+    "class": "notificationtype",
+    "name": "pmTXCTLPKTS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.195",
+    "status": "current"
+  },
+  "pmTXDROPRATIO": {
+    "class": "notificationtype",
+    "name": "pmTXDROPRATIO",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.693",
+    "status": "current"
+  },
+  "pmTXETHDROP": {
+    "class": "notificationtype",
+    "name": "pmTXETHDROP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.196",
+    "status": "current"
+  },
+  "pmTXETHOVER": {
+    "class": "notificationtype",
+    "name": "pmTXETHOVER",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.197",
+    "status": "current"
+  },
+  "pmTXGOODFULLFRAMESPEED": {
+    "class": "notificationtype",
+    "name": "pmTXGOODFULLFRAMESPEED",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.191",
+    "status": "current"
+  },
+  "pmTXMULCAST": {
+    "class": "notificationtype",
+    "name": "pmTXMULCAST",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.117",
+    "status": "current"
+  },
+  "pmTXOCTETS": {
+    "class": "notificationtype",
+    "name": "pmTXOCTETS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.199",
+    "status": "current"
+  },
+  "pmTXPAUSE": {
+    "class": "notificationtype",
+    "name": "pmTXPAUSE",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.120",
+    "status": "current"
+  },
+  "pmTXPBAD": {
+    "class": "notificationtype",
+    "name": "pmTXPBAD",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.945",
+    "status": "current"
+  },
+  "pmTXPGOOD": {
+    "class": "notificationtype",
+    "name": "pmTXPGOOD",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.947",
+    "status": "current"
+  },
+  "pmTXPKT1024": {
+    "class": "notificationtype",
+    "name": "pmTXPKT1024",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.112",
+    "status": "current"
+  },
+  "pmTXPKT128": {
+    "class": "notificationtype",
+    "name": "pmTXPKT128",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.109",
+    "status": "current"
+  },
+  "pmTXPKT1519": {
+    "class": "notificationtype",
+    "name": "pmTXPKT1519",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.140",
+    "status": "current"
+  },
+  "pmTXPKT256": {
+    "class": "notificationtype",
+    "name": "pmTXPKT256",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.110",
+    "status": "current"
+  },
+  "pmTXPKT512": {
+    "class": "notificationtype",
+    "name": "pmTXPKT512",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.111",
+    "status": "current"
+  },
+  "pmTXPKT64": {
+    "class": "notificationtype",
+    "name": "pmTXPKT64",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.107",
+    "status": "current"
+  },
+  "pmTXPKT65": {
+    "class": "notificationtype",
+    "name": "pmTXPKT65",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.108",
+    "status": "current"
+  },
+  "pmTXPKTS": {
+    "class": "notificationtype",
+    "name": "pmTXPKTS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.198",
+    "status": "current"
+  },
+  "pmTXPPS": {
+    "class": "notificationtype",
+    "name": "pmTXPPS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.682",
+    "status": "current"
+  },
+  "pmTXPTPANNOUNCE": {
+    "class": "notificationtype",
+    "name": "pmTXPTPANNOUNCE",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.824",
+    "status": "current"
+  },
+  "pmTXPTPDELAYREQ": {
+    "class": "notificationtype",
+    "name": "pmTXPTPDELAYREQ",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.830",
+    "status": "current"
+  },
+  "pmTXPTPDELAYRESP": {
+    "class": "notificationtype",
+    "name": "pmTXPTPDELAYRESP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.832",
+    "status": "current"
+  },
+  "pmTXPTPFOLLOWUP": {
+    "class": "notificationtype",
+    "name": "pmTXPTPFOLLOWUP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.828",
+    "status": "current"
+  },
+  "pmTXPTPPDELAYREQ": {
+    "class": "notificationtype",
+    "name": "pmTXPTPPDELAYREQ",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.834",
+    "status": "current"
+  },
+  "pmTXPTPPDELAYRESP": {
+    "class": "notificationtype",
+    "name": "pmTXPTPPDELAYRESP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.836",
+    "status": "current"
+  },
+  "pmTXPTPPDELAYRESPFUP": {
+    "class": "notificationtype",
+    "name": "pmTXPTPPDELAYRESPFUP",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.838",
+    "status": "current"
+  },
+  "pmTXPTPSYNC": {
+    "class": "notificationtype",
+    "name": "pmTXPTPSYNC",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.826",
+    "status": "current"
+  },
+  "pmTXUNICAST": {
+    "class": "notificationtype",
+    "name": "pmTXUNICAST",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.116",
+    "status": "current"
+  },
+  "pmTxfullbgood": {
+    "class": "notificationtype",
+    "name": "pmTxfullbgood",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtDataPmName"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtMonValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+        "object": "rptEvtThValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.193",
+    "status": "current"
+  },
+  "pmVCGRXBWUTILIZATION": {
+    "class": "notificationtype",
+    "name": "pmVCGRXBWUTILIZATION",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.985",
+    "status": "current"
+  },
+  "pmVCGRXBWUTILIZATIONAVG": {
+    "class": "notificationtype",
+    "name": "pmVCGRXBWUTILIZATIONAVG",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.987",
+    "status": "current"
+  },
+  "pmVCGRXBWUTILIZATIONMAX": {
+    "class": "notificationtype",
+    "name": "pmVCGRXBWUTILIZATIONMAX",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.988",
+    "status": "current"
+  },
+  "pmVCGRXBWUTILIZATIONMIN": {
+    "class": "notificationtype",
+    "name": "pmVCGRXBWUTILIZATIONMIN",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.986",
+    "status": "current"
+  },
+  "pmVCGRXDROPPKTS": {
+    "class": "notificationtype",
+    "name": "pmVCGRXDROPPKTS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.982",
+    "status": "current"
+  },
+  "pmVCGRXDROPRATIO": {
+    "class": "notificationtype",
+    "name": "pmVCGRXDROPRATIO",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.981",
+    "status": "current"
+  },
+  "pmVCGRXGOODPACKETS": {
+    "class": "notificationtype",
+    "name": "pmVCGRXGOODPACKETS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.354",
+    "status": "current"
+  },
+  "pmVCGRXOCTETS": {
+    "class": "notificationtype",
+    "name": "pmVCGRXOCTETS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.350",
+    "status": "current"
+  },
+  "pmVCGRXPACKETS": {
+    "class": "notificationtype",
+    "name": "pmVCGRXPACKETS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.352",
+    "status": "current"
+  },
+  "pmVCGRXSPEED": {
+    "class": "notificationtype",
+    "name": "pmVCGRXSPEED",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.356",
+    "status": "current"
+  },
+  "pmVCGTXBWUTILIZATION": {
+    "class": "notificationtype",
+    "name": "pmVCGTXBWUTILIZATION",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.989",
+    "status": "current"
+  },
+  "pmVCGTXBWUTILIZATIONAVG": {
+    "class": "notificationtype",
+    "name": "pmVCGTXBWUTILIZATIONAVG",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.991",
+    "status": "current"
+  },
+  "pmVCGTXBWUTILIZATIONMAX": {
+    "class": "notificationtype",
+    "name": "pmVCGTXBWUTILIZATIONMAX",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.992",
+    "status": "current"
+  },
+  "pmVCGTXBWUTILIZATIONMIN": {
+    "class": "notificationtype",
+    "name": "pmVCGTXBWUTILIZATIONMIN",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.990",
+    "status": "current"
+  },
+  "pmVCGTXDROPPKTS": {
+    "class": "notificationtype",
+    "name": "pmVCGTXDROPPKTS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.977",
+    "status": "current"
+  },
+  "pmVCGTXDROPRATIO": {
+    "class": "notificationtype",
+    "name": "pmVCGTXDROPRATIO",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.978",
+    "status": "current"
+  },
+  "pmVCGTXGOODPACKETS": {
+    "class": "notificationtype",
+    "name": "pmVCGTXGOODPACKETS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.355",
+    "status": "current"
+  },
+  "pmVCGTXOCTETS": {
+    "class": "notificationtype",
+    "name": "pmVCGTXOCTETS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.351",
+    "status": "current"
+  },
+  "pmVCGTXPACKETS": {
+    "class": "notificationtype",
+    "name": "pmVCGTXPACKETS",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.353",
+    "status": "current"
+  },
+  "pmVCGTXSPEED": {
+    "class": "notificationtype",
+    "name": "pmVCGTXSPEED",
+    "objects": [
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPeriod"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtValue"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtVldty"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtDateTime"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtObjType"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtParaLen"
+      },
+      {
+        "module": "OPTIX-GLOBAL-TRAPS-MIB",
+        "object": "rptEvtPara"
+      }
+    ],
+    "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.357",
+    "status": "current"
+  }
+}

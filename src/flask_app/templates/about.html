@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center mb-4"><i class="fas fa-info-circle"></i> About {{ app_name }}</h1>
+
+                <div class="row">
+                    <div class="col-md-4 text-center mb-4">
+                        <i class="fas fa-network-wired fa-4x text-primary mb-3"></i>
+                        <h4>MIB Visualization</h4>
+                        <p class="text-muted">
+                            Interactive tree visualization of MIB (Management Information Base) data structures.
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <i class="fas fa-search fa-4x text-info mb-3"></i>
+                        <h4>Powerful Search</h4>
+                        <p class="text-muted">
+                            Search across all MIBs by node names, OIDs, or descriptions.
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <i class="fas fa-chart-bar fa-4x text-success mb-3"></i>
+                        <h4>Statistics</h4>
+                        <p class="text-muted">
+                            Comprehensive statistics and analysis of MIB structures.
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h3><i class="fas fa-code"></i> Technical Details</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Backend Technologies</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> Python 3.8+</li>
+                            <li><i class="fas fa-check text-success"></i> Flask Web Framework</li>
+                            <li><i class="fas fa-check text-success"></i> pysmi MIB Parser</li>
+                            <li><i class="fas fa-check text-success"></i> JSON Data Storage</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Frontend Technologies</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> Bootstrap 5</li>
+                            <li><i class="fas fa-check text-success"></i> D3.js for Visualization</li>
+                            <li><i class="fas fa-check text-success"></i> Font Awesome Icons</li>
+                            <li><i class="fas fa-check text-success"></i> Responsive Design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h3><i class="fas fa-book"></i> How to Use</h3>
+                <ol>
+                    <li>
+                        <strong>Parse MIB Files:</strong> First, run the MIB parser to convert your .mib files into JSON format:
+                        <pre><code>python parse_mib_files.py</code></pre>
+                    </li>
+                    <li>
+                        <strong>Start the Application:</strong> Launch the Flask web application:
+                        <pre><code>python -m flask_app.app</code></pre>
+                    </li>
+                    <li>
+                        <strong>View MIBs:</strong> Open your browser and navigate to <code>http://localhost:5000</code>
+                    </li>
+                    <li>
+                        <strong>Explore:</strong> Browse MIB files, search for nodes, and interact with tree visualizations.
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h3><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><kbd>Ctrl+K</kbd> or <kbd>Cmd+K</kbd> - Focus search</li>
+                            <li><kbd>Escape</kbd> - Clear search</li>
+                            <li><kbd>Enter</kbd> - Submit search</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><kbd>Click node</kbd> - Expand/collapse tree</li>
+                            <li><kbd>Hover node</kbd> - Show tooltip</li>
+                            <li><kbd>Back button</kbd> - Navigate back</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h3><i class="fas fa-question-circle"></i> Features</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-sitemap"></i> Tree Visualization</h5>
+                        <ul>
+                            <li>Interactive D3.js tree diagrams</li>
+                            <li>Expand/collapse nodes</li>
+                            <li>Node search and highlighting</li>
+                            <li>Zoom and pan controls</li>
+                        </ul>
+
+                        <h5 class="mt-3"><i class="fas fa-search"></i> Search Capabilities</h5>
+                        <ul>
+                            <li>Search by node name</li>
+                            <li>Search by OID</li>
+                            <li>Search in descriptions</li>
+                            <li>Filter by specific MIB</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-chart-line"></i> Statistics & Analysis</h5>
+                        <ul>
+                            <li>MIB file statistics</li>
+                            <li>Tree depth analysis</li>
+                            <li>Node type distribution</li>
+                            <li>Import dependency tracking</li>
+                        </ul>
+
+                        <h5 class="mt-3"><i class="fas fa-download"></i> Export Options</h5>
+                        <ul>
+                            <li>Export tree data as JSON</li>
+                            <li>Export node lists as CSV</li>
+                            <li>Save tree diagrams as SVG</li>
+                            <li>Print-friendly views</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="text-center">
+                    <h4><i class="fas fa-code"></i> Version {{ version }}</h4>
+                    <p class="text-muted">
+                        Built with <i class="fas fa-heart text-danger"></i> for network management professionals.
+                    </p>
+                    <div class="mt-3">
+                        <a href="{{ url_for('main.index') }}" class="btn btn-primary me-2">
+                            <i class="fas fa-home"></i> Back to Home
+                        </a>
+                        <a href="https://github.com" class="btn btn-outline-secondary">
+                            <i class="fab fa-github"></i> View Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

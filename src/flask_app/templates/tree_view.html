@@ -1,0 +1,651 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1><i class="fas fa-sitemap"></i> {{ mib_name }}</h1>
+                {% if mib_data and mib_data.description %}
+                    <p class="text-muted">{{ mib_data.description }}</p>
+                {% endif %}
+            </div>
+            <div>
+                <button class="btn btn-outline-secondary" onclick="resetZoom()">
+                    <i class="fas fa-compress"></i> Reset Zoom
+                </button>
+                <button class="btn btn-outline-info" onclick="expandAll()">
+                    <i class="fas fa-expand"></i> Expand All
+                </button>
+                <button class="btn btn-outline-info" onclick="collapseAll()">
+                    <i class="fas fa-compress-alt"></i> Collapse All
+                </button>
+                <a href="{{ url_for('main.index') }}" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Bar -->
+{% if tree_data and tree_data.statistics %}
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body py-2">
+                <div class="row text-center">
+                    <div class="col-md-2">
+                        <small class="text-muted">Total Nodes</small><br>
+                        <strong>{{ tree_data.statistics.total_nodes }}</strong>
+                    </div>
+                    <div class="col-md-2">
+                        <small class="text-muted">Root Nodes</small><br>
+                        <strong>{{ tree_data.statistics.root_nodes }}</strong>
+                    </div>
+                    <div class="col-md-2">
+                        <small class="text-muted">Leaf Nodes</small><br>
+                        <strong>{{ tree_data.statistics.leaf_nodes }}</strong>
+                    </div>
+                    <div class="col-md-2">
+                        <small class="text-muted">Max Depth</small><br>
+                        <strong>{{ tree_data.statistics.max_depth }}</strong>
+                    </div>
+                    <div class="col-md-2">
+                        <small class="text-muted">Branching Nodes</small><br>
+                        <strong>{{ tree_data.statistics.branching_nodes }}</strong>
+                    </div>
+                    <div class="col-md-2">
+                        <small class="text-muted">Avg Children</small><br>
+                        <strong>{{ tree_data.statistics.average_children }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Main Content Area -->
+<div class="row">
+    <!-- Tree Visualization -->
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-sitemap"></i> Tree Structure</h5>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-outline-primary btn-sm" onclick="expandAll()">
+                        <i class="fas fa-expand"></i> Expand All
+                    </button>
+                    <button class="btn btn-outline-primary btn-sm" onclick="collapseAll()">
+                        <i class="fas fa-compress-alt"></i> Collapse All
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div id="tree-container" style="height: 600px; overflow-y: auto; padding: 20px; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.5;">
+                    <div id="tree-text"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side Panel -->
+    <div class="col-lg-4">
+        <!-- Search -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-search"></i> Search in {{ mib_name }}</h6>
+            </div>
+            <div class="card-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="tree-search" placeholder="Search nodes...">
+                    <button class="btn btn-outline-secondary" onclick="searchTree()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div id="search-results" class="mt-2"></div>
+            </div>
+        </div>
+
+        <!-- Node Details -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-info-circle"></i> Node Details</h6>
+            </div>
+            <div class="card-body">
+                <div id="node-details">
+                    <p class="text-muted text-center">Click on a node to view details</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-palette"></i> Legend</h6>
+            </div>
+            <div class="card-body">
+                <div class="legend-item mb-2">
+                    <span class="badge bg-success">📁 Root</span> - Root node
+                </div>
+                <div class="legend-item mb-2">
+                    <span class="badge bg-primary">📂 Branch</span> - Node with children
+                </div>
+                <div class="legend-item mb-2">
+                    <span class="badge bg-warning text-dark">📄 Leaf</span> - Node without children
+                </div>
+                <div class="legend-item mb-2">
+                    <span class="badge bg-danger">🔍 Match</span> - Search result
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Export Modal -->
+<div class="modal fade" id="exportModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Export Tree Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Select export format:</p>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-primary" onclick="exportTree('json')">
+                        <i class="fas fa-file-code"></i> Export as JSON
+                    </button>
+                    <button class="btn btn-outline-success" onclick="exportTree('csv')">
+                        <i class="fas fa-file-csv"></i> Export as CSV
+                    </button>
+                    <button class="btn btn-outline-info" onclick="exportTree('svg')">
+                        <i class="fas fa-file-image"></i> Export as SVG
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+#tree-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.tree-node {
+    cursor: pointer;
+    padding: 4px 8px;
+    user-select: none;
+    white-space: nowrap;
+    position: relative;
+    border-radius: 3px;
+    margin-bottom: 2px;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    /* Ensure indentation from JavaScript is preserved */
+    box-sizing: border-box;
+}
+
+.tree-node:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.tree-toggle {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+    margin-right: 12px;
+    font-weight: bold;
+    color: #495057;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+/* Enhanced tree connecting lines for better visualization */
+.tree-node[data-depth="1"] {
+    border-left: 3px solid #007bff;
+}
+
+.tree-node[data-depth="2"] {
+    border-left: 3px solid #28a745;
+}
+
+.tree-node[data-depth="3"] {
+    border-left: 3px solid #ffc107;
+}
+
+.tree-node[data-depth="4"] {
+    border-left: 3px solid #dc3545;
+}
+
+.tree-node[data-depth="5"] {
+    border-left: 3px solid #6f42c1;
+}
+
+.tree-node[data-depth="6"] {
+    border-left: 3px solid #fd7e14;
+}
+
+/* Special handling for root node */
+.tree-node[data-depth="0"] {
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.tree-node.expanded > .tree-toggle {
+    color: #007bff;
+}
+
+.tree-node.collapsed > .tree-toggle {
+    color: #6c757d;
+}
+
+
+.tree-content {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.tree-content.root {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+}
+
+.tree-content.branch {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.tree-content.leaf {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.tree-content.highlight {
+    background-color: #f8d7da;
+    color: #721c24;
+    animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+#search-results .badge {
+    margin: 2px;
+    cursor: pointer;
+}
+
+.node-info-table {
+    font-size: 12px;
+}
+
+.node-info-table td {
+    padding: 2px 4px;
+    vertical-align: top;
+}
+
+.node-info-table td:first-child {
+    font-weight: bold;
+    width: 80px;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Tree data from server
+const treeData = {{ tree_data|tojson|safe }};
+const mibName = "{{ mib_name }}";
+
+let currentRoot = treeData;
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Sort children by OID at all levels
+    sortChildrenByOid(currentRoot);
+    renderTree();
+    setupEventListeners();
+});
+
+function sortChildrenByOid(node) {
+    if (node.children && node.children.length > 0) {
+        // Sort children by OID numerically
+        node.children.sort((a, b) => {
+            if (!a.oid) return -1;
+            if (!b.oid) return 1;
+
+            // Split OID into numbers and compare numerically
+            const aParts = a.oid.split('.').map(Number);
+            const bParts = b.oid.split('.').map(Number);
+
+            const maxLength = Math.max(aParts.length, bParts.length);
+            for (let i = 0; i < maxLength; i++) {
+                const aVal = aParts[i] || 0;
+                const bVal = bParts[i] || 0;
+                if (aVal !== bVal) {
+                    return aVal - bVal;
+                }
+            }
+            return 0;
+        });
+
+        // Recursively sort grandchildren
+        node.children.forEach(child => sortChildrenByOid(child));
+    }
+}
+
+function getDepthColor(depth) {
+    const colors = [
+        '#6c757d', // depth 0 (root) - gray
+        '#007bff', // depth 1 - blue
+        '#28a745', // depth 2 - green
+        '#ffc107', // depth 3 - yellow
+        '#dc3545', // depth 4 - red
+        '#6f42c1', // depth 5 - purple
+        '#fd7e14', // depth 6 - orange
+        '#20c997', // depth 7 - teal
+        '#e83e8c', // depth 8 - pink
+        '#17a2b8', // depth 9 - cyan
+    ];
+    return colors[depth % colors.length];
+}
+
+function renderTree() {
+    const container = document.getElementById('tree-text');
+    container.innerHTML = '';
+    renderNode(currentRoot, container, 0);
+}
+
+function renderNode(node, container, depth) {
+    const nodeDiv = document.createElement('div');
+    nodeDiv.className = 'tree-node';
+    nodeDiv.setAttribute('data-depth', depth);
+
+    // Clear indentation - each level gets 40px separation
+    const baseIndent = 0;
+    const indentPerLevel = 40;
+    const totalIndent = baseIndent + (depth * indentPerLevel);
+
+    // Apply indentation
+    nodeDiv.style.marginLeft = totalIndent + 'px';
+    nodeDiv.style.paddingLeft = '10px'; // Small padding for visual clarity
+
+    // Add visual depth indicator
+    if (depth > 0) {
+        nodeDiv.style.backgroundColor = `rgba(248, 249, 250, ${0.95 - (depth * 0.03)})`;
+        nodeDiv.style.borderLeft = `4px solid ${getDepthColor(depth)}`;
+    }
+
+    // Determine node type
+    const isRoot = depth === 0;
+    const hasChildren = node.children && node.children.length > 0;
+    const isExpanded = !node._collapsed;
+
+    // Set toggle state
+    if (hasChildren) {
+        nodeDiv.className += isExpanded ? ' expanded' : ' collapsed';
+    }
+
+    // Create toggle button
+    const toggle = document.createElement('span');
+    toggle.className = 'tree-toggle';
+    if (hasChildren) {
+        toggle.textContent = isExpanded ? '▼' : '▶';
+        toggle.onclick = function(e) {
+            e.stopPropagation();
+            toggleNode(node);
+        };
+    } else {
+        toggle.textContent = '•';
+        toggle.style.color = '#6c757d';
+    }
+
+    // Create node content
+    const content = document.createElement('span');
+    content.className = 'tree-content';
+    if (isRoot) {
+        content.className += ' root';
+        content.textContent = '📁 ' + node.name;
+    } else if (hasChildren) {
+        content.className += ' branch';
+        content.textContent = '📂 ' + node.name;
+    } else {
+        content.className += ' leaf';
+        content.textContent = '📄 ' + node.name;
+    }
+
+    // Add OID if available
+    if (node.oid) {
+        const oidSpan = document.createElement('span');
+        oidSpan.style.color = '#6c757d';
+        oidSpan.style.fontSize = '12px';
+        oidSpan.style.marginLeft = '8px';
+        oidSpan.textContent = `(${node.oid})`;
+        content.appendChild(oidSpan);
+    }
+
+    // Add MIB origin if available (for combined MIB view)
+    if (node.mib_origin && node.mib_origin !== mibName) {
+        const mibSpan = document.createElement('span');
+        mibSpan.style.color = '#6c42c1';
+        mibSpan.style.fontSize = '11px';
+        mibSpan.style.marginLeft = '8px';
+        mibSpan.style.fontWeight = 'bold';
+        mibSpan.style.padding = '2px 6px';
+        mibSpan.style.borderRadius = '3px';
+        mibSpan.style.backgroundColor = '#f3e5f5';
+        mibSpan.textContent = `[${node.mib_origin}]`;
+        content.appendChild(mibSpan);
+    }
+
+    nodeDiv.appendChild(toggle);
+    nodeDiv.appendChild(content);
+
+    // Add click handler for node details
+    nodeDiv.onclick = function() {
+        showNodeDetails(node);
+        highlightNode(node.name);
+    };
+
+    container.appendChild(nodeDiv);
+
+    // Render children if expanded
+    if (hasChildren && isExpanded) {
+        node.children.forEach(child => {
+            renderNode(child, container, depth + 1);
+        });
+    }
+
+    // Store collapse state
+    if (hasChildren && node._collapsed === undefined) {
+        node._collapsed = false;
+    }
+}
+
+function toggleNode(node) {
+    if (node.children && node.children.length > 0) {
+        node._collapsed = !node._collapsed;
+        renderTree();
+    }
+}
+
+function showNodeDetails(nodeData) {
+    const detailsDiv = document.getElementById('node-details');
+
+    let html = `
+        <h6>${nodeData.name}</h6>
+        <table class="table table-sm node-info-table">
+    `;
+
+    if (nodeData.oid) {
+        html += `<tr><td><strong>OID:</strong></td><td><code>${nodeData.oid}</code></td></tr>`;
+    }
+    if (nodeData.description) {
+        html += `<tr><td><strong>Desc:</strong></td><td>${nodeData.description}</td></tr>`;
+    }
+    if (nodeData.syntax) {
+        html += `<tr><td><strong>Syntax:</strong></td><td><code>${nodeData.syntax}</code></td></tr>`;
+    }
+    if (nodeData.access) {
+        html += `<tr><td><strong>Access:</strong></td><td>${nodeData.access}</td></tr>`;
+    }
+    if (nodeData.status) {
+        html += `<tr><td><strong>Status:</strong></td><td>${nodeData.status}</td></tr>`;
+    }
+    if (nodeData.module) {
+        html += `<tr><td><strong>Module:</strong></td><td>${nodeData.module}</td></tr>`;
+    }
+
+    html += `</table>`;
+
+    detailsDiv.innerHTML = html;
+}
+
+function highlightNode(nodeName) {
+    // Remove previous highlights
+    document.querySelectorAll('.tree-content.highlight').forEach(el => {
+        el.classList.remove('highlight');
+    });
+
+    // Add highlight to matching nodes
+    document.querySelectorAll('.tree-node').forEach(node => {
+        const content = node.querySelector('.tree-content');
+        if (content && content.textContent.includes(nodeName)) {
+            content.classList.add('highlight');
+            // Scroll to node if not visible
+            node.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+}
+
+function searchTree() {
+    const query = document.getElementById('tree-search').value.toLowerCase();
+    if (!query) {
+        document.getElementById('search-results').innerHTML = '';
+        return;
+    }
+
+    // Search in current tree data
+    const results = [];
+
+    function searchNodes(node) {
+        if (node.name.toLowerCase().includes(query) ||
+            (node.oid && node.oid.toLowerCase().includes(query))) {
+            results.push(node);
+        }
+
+        if (node.children) {
+            node.children.forEach(searchNodes);
+        }
+    }
+
+    searchNodes(currentRoot);
+
+    // Display results
+    const resultsDiv = document.getElementById('search-results');
+    if (results.length > 0) {
+        resultsDiv.innerHTML = `
+            <p><strong>${results.length} results:</strong></p>
+            ${results.map(node => `
+                <span class="badge bg-secondary me-1 mb-1" onclick="highlightNode('${node.name}')">
+                    ${node.name}
+                </span>
+            `).join('')}
+        `;
+    } else {
+        resultsDiv.innerHTML = '<p class="text-muted">No results found</p>';
+    }
+}
+
+function expandAll() {
+    function expand(node) {
+        if (node.children && node.children.length > 0) {
+            node._collapsed = false;
+            node.children.forEach(expand);
+        }
+    }
+
+    expand(currentRoot);
+    renderTree();
+}
+
+function collapseAll() {
+    function collapse(node) {
+        if (node.children && node.children.length > 0) {
+            node._collapsed = true;
+            node.children.forEach(collapse);
+        }
+    }
+
+    if (currentRoot.children && currentRoot.children.length > 0) {
+        currentRoot.children.forEach(collapse);
+    }
+    renderTree();
+}
+
+function setupEventListeners() {
+    // Search input
+    document.getElementById('tree-search').addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+            searchTree();
+        }
+    });
+
+    // Auto-expand search results
+    document.getElementById('tree-search').addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase();
+        if (query.length > 2) {
+            searchTree();
+        } else if (query.length === 0) {
+            document.getElementById('search-results').innerHTML = '';
+        }
+    });
+}
+
+function exportTree(format) {
+    // Simple text export
+    if (format === 'text') {
+        let text = `Tree Structure for ${mibName}\n`;
+        text += '=' .repeat(50) + '\n\n';
+
+        function exportNode(node, depth) {
+            const indent = '  '.repeat(depth);
+            let line = `${indent}${node.name}`;
+            if (node.oid) {
+                line += ` (${node.oid})`;
+            }
+            text += line + '\n';
+
+            if (node.children && !node._collapsed) {
+                node.children.forEach(child => exportNode(child, depth + 1));
+            }
+        }
+
+        exportNode(currentRoot, 0);
+
+        // Create download
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${mibName}_tree.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+}
+</script>
+{% endblock %}

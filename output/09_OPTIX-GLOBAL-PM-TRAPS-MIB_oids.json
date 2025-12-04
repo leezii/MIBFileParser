@@ -1,0 +1,1083 @@
+{
+  "_metadata": {
+    "exported_at": "2025-12-05T00:13:56.683400",
+    "version": "1.0",
+    "type": "oid_mapping",
+    "mib_count": 1
+  },
+  "oid_to_name": {
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20": {
+      "name": "optixTrapsPM",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.131": {
+      "name": "pmETHALI",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.121": {
+      "name": "pmETHDROP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.132": {
+      "name": "pmETHFCS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.124": {
+      "name": "pmETHFRG",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.125": {
+      "name": "pmETHJAB",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.123": {
+      "name": "pmETHOVER",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.685": {
+      "name": "pmETHRXTHROUGHPUTAVG",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.683": {
+      "name": "pmETHRXTHROUGHPUTMAX",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.684": {
+      "name": "pmETHRXTHROUGHPUTMIN",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.688": {
+      "name": "pmETHTXTHROUGHPUTAVG",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.686": {
+      "name": "pmETHTXTHROUGHPUTMAX",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.687": {
+      "name": "pmETHTXTHROUGHPUTMIN",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.122": {
+      "name": "pmETHUNDER",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.1": {
+      "name": "pmOCPRXPKT64",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.2": {
+      "name": "pmOCPRXPKT65",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.146": {
+      "name": "pmPKT1024",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.143": {
+      "name": "pmPKT128",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.147": {
+      "name": "pmPKT1519",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.144": {
+      "name": "pmPKT256",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.145": {
+      "name": "pmPKT512",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.141": {
+      "name": "pmPKT64",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.142": {
+      "name": "pmPKT65",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.567": {
+      "name": "pmPORTRXBWUTILIZATION",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.840": {
+      "name": "pmPORTRXBWUTILIZATIONAVG",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.841": {
+      "name": "pmPORTRXBWUTILIZATIONMAX",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.839": {
+      "name": "pmPORTRXBWUTILIZATIONMIN",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.568": {
+      "name": "pmPORTTXBWUTILIZATION",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.843": {
+      "name": "pmPORTTXBWUTILIZATIONAVG",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.844": {
+      "name": "pmPORTTXBWUTILIZATIONMAX",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.842": {
+      "name": "pmPORTTXBWUTILIZATIONMIN",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.868": {
+      "name": "pmPortrxbytesavailability868",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.869": {
+      "name": "pmPortrxbytesavailability869",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.128": {
+      "name": "pmRXBBAD",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.126": {
+      "name": "pmRXBGOOD",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.679": {
+      "name": "pmRXBPS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.115": {
+      "name": "pmRXBRDCAST",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.957": {
+      "name": "pmRXBRDCASTRATIO",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.194": {
+      "name": "pmRXCTLPKTS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.692": {
+      "name": "pmRXDROPRATIO",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.190": {
+      "name": "pmRXGOODFULLFRAMESPEED",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.114": {
+      "name": "pmRXMULCAST",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.200": {
+      "name": "pmRXOCTETS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.119": {
+      "name": "pmRXPAUSE",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.944": {
+      "name": "pmRXPBAD",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.946": {
+      "name": "pmRXPGOOD",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.106": {
+      "name": "pmRXPKT1024",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.103": {
+      "name": "pmRXPKT128",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.139": {
+      "name": "pmRXPKT1519",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.104": {
+      "name": "pmRXPKT256",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.105": {
+      "name": "pmRXPKT512",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.101": {
+      "name": "pmRXPKT64",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.102": {
+      "name": "pmRXPKT65",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.201": {
+      "name": "pmRXPKTS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.681": {
+      "name": "pmRXPPS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.823": {
+      "name": "pmRXPTPANNOUNCE",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.829": {
+      "name": "pmRXPTPDELAYREQ",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.831": {
+      "name": "pmRXPTPDELAYRESP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.827": {
+      "name": "pmRXPTPFOLLOWUP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.833": {
+      "name": "pmRXPTPPDELAYREQ",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.835": {
+      "name": "pmRXPTPPDELAYRESP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.837": {
+      "name": "pmRXPTPPDELAYRESPFUP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.825": {
+      "name": "pmRXPTPSYNC",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.113": {
+      "name": "pmRXUNICAST",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.192": {
+      "name": "pmRxfullbgood",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.129": {
+      "name": "pmTXBBAD",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.127": {
+      "name": "pmTXBGOOD",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.680": {
+      "name": "pmTXBPS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.118": {
+      "name": "pmTXBRDCAST",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.958": {
+      "name": "pmTXBRDCASTRATIO",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.195": {
+      "name": "pmTXCTLPKTS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.693": {
+      "name": "pmTXDROPRATIO",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.196": {
+      "name": "pmTXETHDROP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.197": {
+      "name": "pmTXETHOVER",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.191": {
+      "name": "pmTXGOODFULLFRAMESPEED",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.117": {
+      "name": "pmTXMULCAST",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.199": {
+      "name": "pmTXOCTETS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.120": {
+      "name": "pmTXPAUSE",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.945": {
+      "name": "pmTXPBAD",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.947": {
+      "name": "pmTXPGOOD",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.112": {
+      "name": "pmTXPKT1024",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.109": {
+      "name": "pmTXPKT128",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.140": {
+      "name": "pmTXPKT1519",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.110": {
+      "name": "pmTXPKT256",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.111": {
+      "name": "pmTXPKT512",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.107": {
+      "name": "pmTXPKT64",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.108": {
+      "name": "pmTXPKT65",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.198": {
+      "name": "pmTXPKTS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.682": {
+      "name": "pmTXPPS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.824": {
+      "name": "pmTXPTPANNOUNCE",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.830": {
+      "name": "pmTXPTPDELAYREQ",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.832": {
+      "name": "pmTXPTPDELAYRESP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.828": {
+      "name": "pmTXPTPFOLLOWUP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.834": {
+      "name": "pmTXPTPPDELAYREQ",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.836": {
+      "name": "pmTXPTPPDELAYRESP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.838": {
+      "name": "pmTXPTPPDELAYRESPFUP",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.826": {
+      "name": "pmTXPTPSYNC",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.116": {
+      "name": "pmTXUNICAST",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.193": {
+      "name": "pmTxfullbgood",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.985": {
+      "name": "pmVCGRXBWUTILIZATION",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.987": {
+      "name": "pmVCGRXBWUTILIZATIONAVG",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.988": {
+      "name": "pmVCGRXBWUTILIZATIONMAX",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.986": {
+      "name": "pmVCGRXBWUTILIZATIONMIN",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.982": {
+      "name": "pmVCGRXDROPPKTS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.981": {
+      "name": "pmVCGRXDROPRATIO",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.354": {
+      "name": "pmVCGRXGOODPACKETS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.350": {
+      "name": "pmVCGRXOCTETS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.352": {
+      "name": "pmVCGRXPACKETS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.356": {
+      "name": "pmVCGRXSPEED",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.989": {
+      "name": "pmVCGTXBWUTILIZATION",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.991": {
+      "name": "pmVCGTXBWUTILIZATIONAVG",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.992": {
+      "name": "pmVCGTXBWUTILIZATIONMAX",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.990": {
+      "name": "pmVCGTXBWUTILIZATIONMIN",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.977": {
+      "name": "pmVCGTXDROPPKTS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.978": {
+      "name": "pmVCGTXDROPRATIO",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.355": {
+      "name": "pmVCGTXGOODPACKETS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.351": {
+      "name": "pmVCGTXOCTETS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.353": {
+      "name": "pmVCGTXPACKETS",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    },
+    "1.3.6.1.4.1.2011.2.25.3.40.40.20.357": {
+      "name": "pmVCGTXSPEED",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB",
+      "description": null
+    }
+  },
+  "name_to_oid": {
+    "optixTrapsPM": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHALI": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.131",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHDROP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.121",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHFCS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.132",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHFRG": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.124",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHJAB": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.125",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHOVER": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.123",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHRXTHROUGHPUTAVG": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.685",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHRXTHROUGHPUTMAX": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.683",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHRXTHROUGHPUTMIN": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.684",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHTXTHROUGHPUTAVG": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.688",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHTXTHROUGHPUTMAX": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.686",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHTXTHROUGHPUTMIN": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.687",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmETHUNDER": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.122",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmOCPRXPKT64": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.1",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmOCPRXPKT65": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.2",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPKT1024": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.146",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPKT128": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.143",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPKT1519": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.147",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPKT256": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.144",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPKT512": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.145",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPKT64": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.141",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPKT65": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.142",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPORTRXBWUTILIZATION": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.567",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPORTRXBWUTILIZATIONAVG": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.840",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPORTRXBWUTILIZATIONMAX": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.841",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPORTRXBWUTILIZATIONMIN": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.839",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPORTTXBWUTILIZATION": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.568",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPORTTXBWUTILIZATIONAVG": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.843",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPORTTXBWUTILIZATIONMAX": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.844",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPORTTXBWUTILIZATIONMIN": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.842",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPortrxbytesavailability868": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.868",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmPortrxbytesavailability869": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.869",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXBBAD": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.128",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXBGOOD": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.126",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXBPS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.679",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXBRDCAST": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.115",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXBRDCASTRATIO": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.957",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXCTLPKTS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.194",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXDROPRATIO": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.692",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXGOODFULLFRAMESPEED": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.190",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXMULCAST": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.114",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXOCTETS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.200",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPAUSE": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.119",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPBAD": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.944",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPGOOD": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.946",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPKT1024": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.106",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPKT128": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.103",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPKT1519": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.139",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPKT256": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.104",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPKT512": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.105",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPKT64": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.101",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPKT65": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.102",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPKTS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.201",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPPS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.681",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPTPANNOUNCE": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.823",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPTPDELAYREQ": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.829",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPTPDELAYRESP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.831",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPTPFOLLOWUP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.827",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPTPPDELAYREQ": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.833",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPTPPDELAYRESP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.835",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPTPPDELAYRESPFUP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.837",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXPTPSYNC": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.825",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRXUNICAST": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.113",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmRxfullbgood": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.192",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXBBAD": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.129",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXBGOOD": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.127",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXBPS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.680",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXBRDCAST": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.118",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXBRDCASTRATIO": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.958",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXCTLPKTS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.195",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXDROPRATIO": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.693",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXETHDROP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.196",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXETHOVER": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.197",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXGOODFULLFRAMESPEED": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.191",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXMULCAST": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.117",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXOCTETS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.199",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPAUSE": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.120",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPBAD": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.945",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPGOOD": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.947",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPKT1024": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.112",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPKT128": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.109",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPKT1519": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.140",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPKT256": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.110",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPKT512": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.111",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPKT64": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.107",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPKT65": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.108",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPKTS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.198",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPPS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.682",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPTPANNOUNCE": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.824",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPTPDELAYREQ": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.830",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPTPDELAYRESP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.832",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPTPFOLLOWUP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.828",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPTPPDELAYREQ": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.834",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPTPPDELAYRESP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.836",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPTPPDELAYRESPFUP": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.838",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXPTPSYNC": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.826",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTXUNICAST": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.116",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmTxfullbgood": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.193",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXBWUTILIZATION": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.985",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXBWUTILIZATIONAVG": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.987",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXBWUTILIZATIONMAX": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.988",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXBWUTILIZATIONMIN": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.986",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXDROPPKTS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.982",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXDROPRATIO": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.981",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXGOODPACKETS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.354",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXOCTETS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.350",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXPACKETS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.352",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGRXSPEED": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.356",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXBWUTILIZATION": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.989",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXBWUTILIZATIONAVG": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.991",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXBWUTILIZATIONMAX": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.992",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXBWUTILIZATIONMIN": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.990",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXDROPPKTS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.977",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXDROPRATIO": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.978",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXGOODPACKETS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.355",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXOCTETS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.351",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXPACKETS": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.353",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    },
+    "pmVCGTXSPEED": {
+      "oid": "1.3.6.1.4.1.2011.2.25.3.40.40.20.357",
+      "module": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"
+    }
+  }
+}

@@ -39,6 +39,7 @@ class MibParser:
         self.dependency_resolver = MibDependencyResolver() if resolve_dependencies else None
         self.compiled_mibs = {}  # Cache for compiled MIBs
         self._used_temp_dirs = set()  # Track used temp directories
+        self.debug_mode = debug_mode
         self._setup_compiler()
 
     def _get_default_mib_sources(self) -> List[str]:
@@ -123,21 +124,41 @@ class MibParser:
             # Copy the MIB file to temp directory with correct name
             shutil.copy2(file_path, temp_mib_file)
 
-            # Create a fresh compiler for this MIB to avoid state issues
+            # Create a fresh compiler for each MIB to avoid conflicts
             parser = SmiStarParser()
             json_codegen = JsonCodeGen()
-            writer = FileWriter(str(Path.cwd() / "compiled_mibs"))
+
+            # Ensure compiled_mibs directory exists and is accessible
+            compiled_dir = Path.cwd() / "compiled_mibs"
+            compiled_dir.mkdir(exist_ok=True)
+            writer = FileWriter(str(compiled_dir))
             compiler = MibCompiler(parser, json_codegen, writer)
 
             # Add temp directory as source
             temp_reader = FileReader(str(temp_dir))
             compiler.add_sources(temp_reader)
 
+            # Add compiled_mibs directory as both source and borrower
+            compiled_reader = FileReader(str(compiled_dir))
+            compiler.add_sources(compiled_reader)
+            compiled_borrower = AnyFileBorrower(compiled_reader)
+            compiler.add_borrowers(compiled_borrower)
+
             # Add MIB sources
             for source in self.mib_sources:
                 if os.path.exists(source):
                     reader = FileReader(source)
                     compiler.add_sources(reader)
+                    borrower = AnyFileBorrower(reader)
+                    compiler.add_borrowers(borrower)
+
+            # Add the shared MIBs directory
+            mibs_dir = Path.cwd() / "mibs_for_pysmi"
+            if mibs_dir.exists():
+                mibs_reader = FileReader(str(mibs_dir))
+                compiler.add_sources(mibs_reader)
+                mibs_borrower = AnyFileBorrower(mibs_reader)
+                compiler.add_borrowers(mibs_borrower)
 
             # Setup borrower for temp directory
             temp_borrower = AnyFileBorrower(temp_reader)
@@ -149,24 +170,70 @@ class MibParser:
 
                 # Check compilation result - handle different API versions
                 success = False
-                if mib_name in result:
-                    status_obj = result[mib_name]
-                    # Try different possible status methods/attributes
-                    if hasattr(status_obj, 'getStatus'):
-                        success = status_obj.getStatus() == 'success'
-                    elif hasattr(status_obj, 'status'):
-                        success = str(status_obj.status) == 'success'
+                error_messages = []
+
+                if hasattr(result, 'get_status'):
+                    # Newer pysmi API
+                    status = result.get_status()
+                    success = status == 'success'
+                elif isinstance(result, dict):
+                    # Older pysmi API
+                    if mib_name in result:
+                        status_obj = result[mib_name]
+                        # Try different possible status methods/attributes
+                        if hasattr(status_obj, 'getStatus'):
+                            success = status_obj.getStatus() == 'success'
+                        elif hasattr(status_obj, 'status'):
+                            success = str(status_obj.status) == 'success'
+                        elif hasattr(status_obj, 'error'):
+                            error_messages.append(str(status_obj.error))
+                        else:
+                            # Check the string representation for common success indicators
+                            status_str = str(status_obj).lower()
+                            success = 'success' in status_str or 'built' in status_str or 'compiled' in status_str
+                            if not success and 'error' in status_str:
+                                error_messages.append(status_str)
                     else:
-                        # Check the string representation for common success indicators
-                        status_str = str(status_obj).lower()
-                        success = 'success' in status_str or 'built' in status_str or 'compiled' in status_str
+                        # MIB name not in result - check for error messages
+                        for key, value in result.items():
+                            if 'error' in str(value).lower():
+                                error_messages.append(f"{key}: {value}")
+                elif hasattr(result, '__iter__'):
+                    # Result is iterable, check each item
+                    for item in result:
+                        if hasattr(item, 'status') and item.status != 'success':
+                            error_messages.append(str(item))
+                        elif hasattr(item, 'error'):
+                            error_messages.append(str(item.error))
+
+                # If compilation failed, provide detailed error information
+                if not success:
+                    if error_messages:
+                        raise Exception(f"Compilation failed with errors: {'; '.join(error_messages)}")
+                    else:
+                        raise Exception(f"Compilation failed for MIB '{mib_name}' (no detailed error available)")
+
+            except PySmiError as e:
+                raise Exception(f"SMI compilation error for MIB '{mib_name}': {e}")
+            except Exception as e:
+                if isinstance(e, PySmiError):
+                    raise
+                else:
+                    raise Exception(f"Compilation error for MIB '{mib_name}': {e}")
             finally:
                 # Clean up temp directory
                 shutil.rmtree(temp_dir, ignore_errors=True)
 
             if success:
+                # Copy the original MIB file to a shared directory with correct MIB name for future dependency resolution
+                mibs_dir = Path.cwd() / "mibs_for_pysmi"
+                mibs_dir.mkdir(exist_ok=True)
+                original_mib_file = mibs_dir / f"{mib_name}.mib"
+                if not original_mib_file.exists():
+                    shutil.copy2(file_path, original_mib_file)
+
                 # Read the compiled JSON output (try both with and without .json extension)
-                compiled_file = Path.cwd() / "compiled_mibs" / f"{mib_name}"
+                compiled_file = compiled_dir / f"{mib_name}"
                 if compiled_file.exists():
                     import json
                     with open(compiled_file, 'r') as f:
@@ -174,7 +241,7 @@ class MibParser:
                     return self._extract_mib_data_from_pysmi(compiled_data, mib_name, file_path)
                 else:
                     # Try with .json extension
-                    compiled_file_json = Path.cwd() / "compiled_mibs" / f"{mib_name}.json"
+                    compiled_file_json = compiled_dir / f"{mib_name}.json"
                     if compiled_file_json.exists():
                         import json
                         with open(compiled_file_json, 'r') as f:

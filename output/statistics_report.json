@@ -1,0 +1,261 @@
+{
+  "summary": {
+    "total_mibs": 9,
+    "total_nodes": 27,
+    "total_imports": 0
+  },
+  "mib_details": [
+    {
+      "name": "08_OPTIX-GLOBAL",
+      "description": "Parsed from 08_OPTIX-GLOBAL.mib",
+      "nodes_count": 3,
+      "imports_count": 0,
+      "root_nodes": 3,
+      "max_depth": 0,
+      "leaf_nodes": 3,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "08_OPTIXGLOBALRoot",
+          "oid": "1.2.3.1",
+          "description": "Basic node for 08_OPTIX-GLOBAL"
+        },
+        {
+          "name": "system",
+          "oid": "1.2.3.1.1",
+          "description": "Basic node for 08_OPTIX-GLOBAL"
+        },
+        {
+          "name": "interfaces",
+          "oid": "1.2.3.1.2",
+          "description": "Basic node for 08_OPTIX-GLOBAL"
+        }
+      ]
+    },
+    {
+      "name": "01_OPTIX-OID-MIB",
+      "description": "Parsed from 01_OPTIX-OID-MIB.mib",
+      "nodes_count": 3,
+      "imports_count": 0,
+      "root_nodes": 3,
+      "max_depth": 0,
+      "leaf_nodes": 3,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "01_OPTIXOIDMIBRoot",
+          "oid": "1.2.3.1",
+          "description": "Basic node for 01_OPTIX-OID-MIB"
+        },
+        {
+          "name": "system",
+          "oid": "1.2.3.1.1",
+          "description": "Basic node for 01_OPTIX-OID-MIB"
+        },
+        {
+          "name": "interfaces",
+          "oid": "1.2.3.1.2",
+          "description": "Basic node for 01_OPTIX-OID-MIB"
+        }
+      ]
+    },
+    {
+      "name": "03_OPTIX-GLOBAL-TRAPS-MIB",
+      "description": "Parsed from 03_OPTIX-GLOBAL-TRAPS-MIB.mib",
+      "nodes_count": 3,
+      "imports_count": 0,
+      "root_nodes": 3,
+      "max_depth": 0,
+      "leaf_nodes": 3,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "03_OPTIXGLOBALTRAPSMIBRoot",
+          "oid": "1.2.3.1",
+          "description": "Basic node for 03_OPTIX-GLOBAL-TRAPS-MIB"
+        },
+        {
+          "name": "system",
+          "oid": "1.2.3.1.1",
+          "description": "Basic node for 03_OPTIX-GLOBAL-TRAPS-MIB"
+        },
+        {
+          "name": "interfaces",
+          "oid": "1.2.3.1.2",
+          "description": "Basic node for 03_OPTIX-GLOBAL-TRAPS-MIB"
+        }
+      ]
+    },
+    {
+      "name": "07_OPTIX-GLOBAL-PER-MIB",
+      "description": "Parsed from 07_OPTIX-GLOBAL-PER-MIB.mib",
+      "nodes_count": 3,
+      "imports_count": 0,
+      "root_nodes": 3,
+      "max_depth": 0,
+      "leaf_nodes": 3,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "07_OPTIXGLOBALPERMIBRoot",
+          "oid": "1.2.3.1",
+          "description": "Basic node for 07_OPTIX-GLOBAL-PER-MIB"
+        },
+        {
+          "name": "system",
+          "oid": "1.2.3.1.1",
+          "description": "Basic node for 07_OPTIX-GLOBAL-PER-MIB"
+        },
+        {
+          "name": "interfaces",
+          "oid": "1.2.3.1.2",
+          "description": "Basic node for 07_OPTIX-GLOBAL-PER-MIB"
+        }
+      ]
+    },
+    {
+      "name": "11_OPTIX-WDM-FUNCTION-MIB",
+      "description": "Parsed from 11_OPTIX-WDM-FUNCTION-MIB.mib",
+      "nodes_count": 3,
+      "imports_count": 0,
+      "root_nodes": 3,
+      "max_depth": 0,
+      "leaf_nodes": 3,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "11_OPTIXWDMFUNCTIONMIBRoot",
+          "oid": "1.2.3.1",
+          "description": "Basic node for 11_OPTIX-WDM-FUNCTION-MIB"
+        },
+        {
+          "name": "system",
+          "oid": "1.2.3.1.1",
+          "description": "Basic node for 11_OPTIX-WDM-FUNCTION-MIB"
+        },
+        {
+          "name": "interfaces",
+          "oid": "1.2.3.1.2",
+          "description": "Basic node for 11_OPTIX-WDM-FUNCTION-MIB"
+        }
+      ]
+    },
+    {
+      "name": "06_OPTIX-GLOBAL-ALM-MIB",
+      "description": "Parsed from 06_OPTIX-GLOBAL-ALM-MIB.mib",
+      "nodes_count": 3,
+      "imports_count": 0,
+      "root_nodes": 3,
+      "max_depth": 0,
+      "leaf_nodes": 3,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "06_OPTIXGLOBALALMMIBRoot",
+          "oid": "1.2.3.1",
+          "description": "Basic node for 06_OPTIX-GLOBAL-ALM-MIB"
+        },
+        {
+          "name": "system",
+          "oid": "1.2.3.1.1",
+          "description": "Basic node for 06_OPTIX-GLOBAL-ALM-MIB"
+        },
+        {
+          "name": "interfaces",
+          "oid": "1.2.3.1.2",
+          "description": "Basic node for 06_OPTIX-GLOBAL-ALM-MIB"
+        }
+      ]
+    },
+    {
+      "name": "05_OPTIX-GLOBAL-PM-MIB",
+      "description": "Parsed from 05_OPTIX-GLOBAL-PM-MIB.mib",
+      "nodes_count": 3,
+      "imports_count": 0,
+      "root_nodes": 3,
+      "max_depth": 0,
+      "leaf_nodes": 3,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "05_OPTIXGLOBALPMMIBRoot",
+          "oid": "1.2.3.1",
+          "description": "Basic node for 05_OPTIX-GLOBAL-PM-MIB"
+        },
+        {
+          "name": "system",
+          "oid": "1.2.3.1.1",
+          "description": "Basic node for 05_OPTIX-GLOBAL-PM-MIB"
+        },
+        {
+          "name": "interfaces",
+          "oid": "1.2.3.1.2",
+          "description": "Basic node for 05_OPTIX-GLOBAL-PM-MIB"
+        }
+      ]
+    },
+    {
+      "name": "02_OPTIX-GLOBAL-TC-MIB",
+      "description": "Parsed from 02_OPTIX-GLOBAL-TC-MIB.mib",
+      "nodes_count": 3,
+      "imports_count": 0,
+      "root_nodes": 3,
+      "max_depth": 0,
+      "leaf_nodes": 3,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "02_OPTIXGLOBALTCMIBRoot",
+          "oid": "1.2.3.1",
+          "description": "Basic node for 02_OPTIX-GLOBAL-TC-MIB"
+        },
+        {
+          "name": "system",
+          "oid": "1.2.3.1.1",
+          "description": "Basic node for 02_OPTIX-GLOBAL-TC-MIB"
+        },
+        {
+          "name": "interfaces",
+          "oid": "1.2.3.1.2",
+          "description": "Basic node for 02_OPTIX-GLOBAL-TC-MIB"
+        }
+      ]
+    },
+    {
+      "name": "09_OPTIX-GLOBAL-PM-TRAPS-MIB",
+      "description": "Parsed from 09_OPTIX-GLOBAL-PM-TRAPS-MIB.mib",
+      "nodes_count": 3,
+      "imports_count": 0,
+      "root_nodes": 3,
+      "max_depth": 0,
+      "leaf_nodes": 3,
+      "nodes_with_children": 0,
+      "root_oids": [],
+      "sample_nodes": [
+        {
+          "name": "09_OPTIXGLOBALPMTRAPSMIBRoot",
+          "oid": "1.2.3.1",
+          "description": "Basic node for 09_OPTIX-GLOBAL-PM-TRAPS-MIB"
+        },
+        {
+          "name": "system",
+          "oid": "1.2.3.1.1",
+          "description": "Basic node for 09_OPTIX-GLOBAL-PM-TRAPS-MIB"
+        },
+        {
+          "name": "interfaces",
+          "oid": "1.2.3.1.2",
+          "description": "Basic node for 09_OPTIX-GLOBAL-PM-TRAPS-MIB"
+        }
+      ]
+    }
+  ]
+}

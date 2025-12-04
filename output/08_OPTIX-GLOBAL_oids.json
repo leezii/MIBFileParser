@@ -1,0 +1,39 @@
+{
+  "_metadata": {
+    "exported_at": "2025-12-04T23:16:42.005000",
+    "version": "1.0",
+    "type": "oid_mapping",
+    "mib_count": 1
+  },
+  "oid_to_name": {
+    "1.2.3.1": {
+      "name": "08_OPTIXGLOBALRoot",
+      "module": "08_OPTIX-GLOBAL",
+      "description": "Basic node for 08_OPTIX-GLOBAL"
+    },
+    "1.2.3.1.1": {
+      "name": "system",
+      "module": "08_OPTIX-GLOBAL",
+      "description": "Basic node for 08_OPTIX-GLOBAL"
+    },
+    "1.2.3.1.2": {
+      "name": "interfaces",
+      "module": "08_OPTIX-GLOBAL",
+      "description": "Basic node for 08_OPTIX-GLOBAL"
+    }
+  },
+  "name_to_oid": {
+    "08_OPTIXGLOBALRoot": {
+      "oid": "1.2.3.1",
+      "module": "08_OPTIX-GLOBAL"
+    },
+    "system": {
+      "oid": "1.2.3.1.1",
+      "module": "08_OPTIX-GLOBAL"
+    },
+    "interfaces": {
+      "oid": "1.2.3.1.2",
+      "module": "08_OPTIX-GLOBAL"
+    }
+  }
+}

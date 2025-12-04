@@ -1,0 +1,66 @@
+{
+  "name": "05_OPTIX-GLOBAL-PM-MIB",
+  "description": "Parsed from 05_OPTIX-GLOBAL-PM-MIB.mib",
+  "imports": [],
+  "module_dependencies": [],
+  "last_updated": "2025-12-04T23:16:42.182473",
+  "root_oids": [],
+  "nodes": {
+    "05_OPTIXGLOBALPMMIBRoot": {
+      "name": "05_OPTIXGLOBALPMMIBRoot",
+      "oid": "1.2.3.1",
+      "description": "Basic node for 05_OPTIX-GLOBAL-PM-MIB",
+      "syntax": "OBJECT IDENTIFIER",
+      "access": "read-only",
+      "status": "current",
+      "parent_name": null,
+      "children": [],
+      "module": "05_OPTIX-GLOBAL-PM-MIB",
+      "text_convention": null,
+      "units": null,
+      "max_access": null,
+      "reference": null,
+      "defval": null,
+      "hint": null
+    },
+    "system": {
+      "name": "system",
+      "oid": "1.2.3.1.1",
+      "description": "Basic node for 05_OPTIX-GLOBAL-PM-MIB",
+      "syntax": "OBJECT IDENTIFIER",
+      "access": "read-only",
+      "status": "current",
+      "parent_name": null,
+      "children": [],
+      "module": "05_OPTIX-GLOBAL-PM-MIB",
+      "text_convention": null,
+      "units": null,
+      "max_access": null,
+      "reference": null,
+      "defval": null,
+      "hint": null
+    },
+    "interfaces": {
+      "name": "interfaces",
+      "oid": "1.2.3.1.2",
+      "description": "Basic node for 05_OPTIX-GLOBAL-PM-MIB",
+      "syntax": "OBJECT IDENTIFIER",
+      "access": "read-only",
+      "status": "current",
+      "parent_name": null,
+      "children": [],
+      "module": "05_OPTIX-GLOBAL-PM-MIB",
+      "text_convention": null,
+      "units": null,
+      "max_access": null,
+      "reference": null,
+      "defval": null,
+      "hint": null
+    }
+  },
+  "_metadata": {
+    "exported_at": "2025-12-04T23:16:42.182502",
+    "version": "1.0",
+    "type": "single_mib"
+  }
+}

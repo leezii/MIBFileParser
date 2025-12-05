@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-chart-bar"></i> MIB Statistics</h1>
+            <button class="btn btn-outline-primary" onclick="refreshStats()">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            <i class="fas fa-exclamation-triangle"></i>
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <!-- Overview Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 class="card-title">{{ stats.total_mibs or 0 }}</h4>
+                                <p class="card-text">Total MIBs</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-file-alt fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 class="card-title">{{ stats.total_nodes or 0 }}</h4>
+                                <p class="card-text">Total Nodes</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-sitemap fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 class="card-title">{{ stats.total_oids or 0 }}</h4>
+                                <p class="card-text">Total OIDs</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-fingerprint fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h4 class="card-title">{{ stats.max_depth or 0 }}</h4>
+                                <p class="card-text">Max Tree Depth</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-layer-group fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Top 10 Largest MIBs -->
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-trophy"></i> Top 10 Largest MIBs (by Node Count)
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if top_mibs %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>MIB Name</th>
+                                        <th class="text-end">Nodes</th>
+                                        <th class="text-end">Size</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for mib in top_mibs %}
+                                    <tr>
+                                        <td><span class="badge bg-primary">{{ loop.index }}</span></td>
+                                        <td>
+                                            <a href="{{ url_for('main.view_mib', mib_name=mib[0]) }}" class="text-decoration-none">
+                                                {{ mib[0] }}
+                                            </a>
+                                        </td>
+                                        <td class="text-end">
+                                            <span class="badge bg-info">{{ "{:,}".format(mib[1]) }}</span>
+                                        </td>
+                                        <td class="text-end">
+                                            <small class="text-muted">{{ "{:,}".format(mib[2] or 0) }} bytes</small>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% else %}
+                        <p class="text-muted text-center">No MIB data available</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIB List -->
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-list"></i> All MIB Files
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if mibs %}
+                        <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                            <table class="table table-sm table-hover">
+                                <thead class="sticky-top">
+                                    <tr>
+                                        <th>MIB Name</th>
+                                        <th class="text-end">Nodes</th>
+                                        <th class="text-end">Size</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for mib in mibs %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ url_for('main.view_mib', mib_name=mib.name) }}" class="text-decoration-none">
+                                                {{ mib.name }}
+                                            </a>
+                                        </td>
+                                        <td class="text-end">
+                                            <span class="badge bg-secondary">{{ "{:,}".format(mib.get('nodes_count', 0)) }}</span>
+                                        </td>
+                                        <td class="text-end">
+                                            <small class="text-muted">{{ "{:,}".format(mib.get('size', 0)) }} bytes</small>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% else %}
+                        <p class="text-muted text-center">No MIB files found</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Statistics -->
+        {% if stats %}
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-info-circle"></i> Additional Statistics
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6>Node Types</h6>
+                                {% if stats.node_types %}
+                                {% for node_type, count in stats.node_types.items() %}
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>{{ node_type }}</span>
+                                    <span class="badge bg-secondary">{{ count }}</span>
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                <p class="text-muted small">No node type data available</p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-4">
+                                <h6>MIB Dependencies</h6>
+                                {% if stats.dependencies %}
+                                <p class="small"><strong>Total Imports:</strong> {{ stats.dependencies.total_imports or 0 }}</p>
+                                <p class="small"><strong>Circular Dependencies:</strong> {{ stats.dependencies.circular or 0 }}</p>
+                                {% else %}
+                                <p class="text-muted small">No dependency data available</p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-4">
+                                <h6>Processing Info</h6>
+                                {% if stats.processing_time %}
+                                <p class="small"><strong>Parse Time:</strong> {{ "%.2f"|format(stats.processing_time) }}s</p>
+                                {% endif %}
+                                {% if stats.last_updated %}
+                                <p class="small"><strong>Last Updated:</strong> {{ stats.last_updated }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+function refreshStats() {
+    location.reload();
+}
+
+// Auto-refresh every 5 minutes
+setTimeout(refreshStats, 300000);
+</script>
+{% endblock %}

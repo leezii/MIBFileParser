@@ -14,7 +14,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "moduleidentity"
   },
   "optixIp": {
     "name": "optixIp",
@@ -34,7 +35,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objecttype"
   },
   "optixSnmpTrapCtrl": {
     "name": "optixSnmpTrapCtrl",
@@ -51,7 +53,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objectidentity"
   },
   "optixSnmpTrapCtrlEntry": {
     "name": "optixSnmpTrapCtrlEntry",
@@ -68,7 +71,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objecttype"
   },
   "optixSnmpTrapCtrlTable": {
     "name": "optixSnmpTrapCtrlTable",
@@ -85,7 +89,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objecttype"
   },
   "optixState": {
     "name": "optixState",
@@ -111,7 +116,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objecttype"
   },
   "optixTrapOid": {
     "name": "optixTrapOid",
@@ -131,10 +137,11 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objecttype"
   },
   "_metadata": {
-    "exported_at": "2025-12-05T00:13:55.087045",
+    "exported_at": "2025-12-05T21:35:28.666725",
     "version": "1.0",
     "type": "tree_structure",
     "mib_name": "OPTIX-GLOBAL-SNMP-MIB"

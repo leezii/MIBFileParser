@@ -10,7 +10,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-05T00:13:55.330016",
+  "last_updated": "2025-12-05T21:35:29.474842",
   "root_oids": [],
   "nodes": {
     "optixGlobalPER": {
@@ -28,7 +28,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "moduleidentity"
     },
     "optixGlobalPM": {
       "name": "optixGlobalPM",
@@ -45,7 +46,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "moduleidentity"
     },
     "pmHistCtr": {
       "name": "pmHistCtr",
@@ -62,7 +64,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "pmHistCtrEnableFlag": {
       "name": "pmHistCtrEnableFlag",
@@ -88,7 +91,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "pmHistCtrEntry": {
       "name": "pmHistCtrEntry",
@@ -105,7 +109,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "pmHistCtrInterval": {
       "name": "pmHistCtrInterval",
@@ -125,7 +130,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "pmHistCtrPeriod": {
       "name": "pmHistCtrPeriod",
@@ -153,7 +159,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "pmHistCtrRecNum": {
       "name": "pmHistCtrRecNum",
@@ -173,7 +180,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "pmHistCtrTable": {
       "name": "pmHistCtrTable",
@@ -190,11 +198,12 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-05T00:13:55.330062",
+    "exported_at": "2025-12-05T21:35:29.474881",
     "version": "1.0",
     "type": "single_mib"
   }

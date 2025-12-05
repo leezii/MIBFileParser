@@ -9,7 +9,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-05T00:13:55.024861",
+  "last_updated": "2025-12-05T21:35:28.831019",
   "root_oids": [],
   "nodes": {
     "AlarmEventType": {
@@ -27,7 +27,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "AlmDataNtfcnCdeType": {
       "name": "AlmDataNtfcnCdeType",
@@ -44,7 +45,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "AlmDataSrvEffType": {
       "name": "AlmDataSrvEffType",
@@ -61,7 +63,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "DataPmEventType": {
       "name": "DataPmEventType",
@@ -78,7 +81,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "DirectionType": {
       "name": "DirectionType",
@@ -95,7 +99,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "HKContAIDType": {
       "name": "HKContAIDType",
@@ -112,7 +117,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "HKDefStateType": {
       "name": "HKDefStateType",
@@ -129,7 +135,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "HKEnvAIDType": {
       "name": "HKEnvAIDType",
@@ -146,7 +153,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "HKOprDueType": {
       "name": "HKOprDueType",
@@ -163,7 +171,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "HKOprStateType": {
       "name": "HKOprStateType",
@@ -180,7 +189,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "LocationType": {
       "name": "LocationType",
@@ -197,7 +207,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "MOD2Type": {
       "name": "MOD2Type",
@@ -214,7 +225,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "ObjType": {
       "name": "ObjType",
@@ -231,7 +243,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "PerformanceEventType": {
       "name": "PerformanceEventType",
@@ -248,7 +261,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     },
     "ValidflagType": {
       "name": "ValidflagType",
@@ -265,11 +279,12 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "textualconvention"
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-05T00:13:55.024909",
+    "exported_at": "2025-12-05T21:35:28.831065",
     "version": "1.0",
     "type": "single_mib"
   }

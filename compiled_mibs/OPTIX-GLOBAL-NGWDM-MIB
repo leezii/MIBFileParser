@@ -6464,8 +6464,8 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///var/folders/3d/b49qmsm54n3gm9wc66cnt3n40000gn/T/tmp8mh0ouf4/OPTIX-GLOBAL-NGWDM-MIB.mib",
-      "Produced by pysmi-1.6.2 at Fri Dec  5 00:13:55 2025",
+      "ASN.1 source file:///var/folders/3d/b49qmsm54n3gm9wc66cnt3n40000gn/T/tmprknojvw0/OPTIX-GLOBAL-NGWDM-MIB.mib",
+      "Produced by pysmi-1.6.2 at Fri Dec  5 21:35:29 2025",
       "On host zhideMac-mini.local platform Darwin version 25.1.0 by user zhili",
       "Using Python version 3.12.11 (main, Aug 18 2025, 19:02:39) [Clang 20.1.4 ]"
     ],

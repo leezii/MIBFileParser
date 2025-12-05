@@ -9,7 +9,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-05T00:13:55.086828",
+  "last_updated": "2025-12-05T21:35:28.666495",
   "root_oids": [],
   "nodes": {
     "optixGlobalSnmp": {
@@ -27,7 +27,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "moduleidentity"
     },
     "optixIp": {
       "name": "optixIp",
@@ -47,7 +48,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixSnmpTrapCtrl": {
       "name": "optixSnmpTrapCtrl",
@@ -64,7 +66,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixSnmpTrapCtrlEntry": {
       "name": "optixSnmpTrapCtrlEntry",
@@ -81,7 +84,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixSnmpTrapCtrlTable": {
       "name": "optixSnmpTrapCtrlTable",
@@ -98,7 +102,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixState": {
       "name": "optixState",
@@ -124,7 +129,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixTrapOid": {
       "name": "optixTrapOid",
@@ -144,11 +150,12 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-05T00:13:55.086864",
+    "exported_at": "2025-12-05T21:35:28.666535",
     "version": "1.0",
     "type": "single_mib"
   }

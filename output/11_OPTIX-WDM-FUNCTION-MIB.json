@@ -9,7 +9,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-05T00:13:55.216361",
+  "last_updated": "2025-12-05T21:35:28.733576",
   "root_oids": [],
   "nodes": {
     "optixGetBid": {
@@ -38,7 +38,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetBidAndBdtype": {
       "name": "optixGetBidAndBdtype",
@@ -66,7 +67,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortInfoEntry": {
       "name": "optixGetPortInfoEntry",
@@ -83,7 +85,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortInfoName": {
       "name": "optixGetPortInfoName",
@@ -111,7 +114,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortInfoPaylodType": {
       "name": "optixGetPortInfoPaylodType",
@@ -231,7 +235,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortInfoPort": {
       "name": "optixGetPortInfoPort",
@@ -259,7 +264,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortInfoTable": {
       "name": "optixGetPortInfoTable",
@@ -276,7 +282,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortInfoType": {
       "name": "optixGetPortInfoType",
@@ -334,7 +341,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortInfoWorkMode": {
       "name": "optixGetPortInfoWorkMode",
@@ -402,7 +410,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortState": {
       "name": "optixGetPortState",
@@ -430,7 +439,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortStateEntry": {
       "name": "optixGetPortStateEntry",
@@ -447,7 +457,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortStatePort": {
       "name": "optixGetPortStatePort",
@@ -475,7 +486,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixGetPortStateTable": {
       "name": "optixGetPortStateTable",
@@ -492,7 +504,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMBdFunction": {
       "name": "optixWDMBdFunction",
@@ -509,7 +522,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixWDMDeviceMgr": {
       "name": "optixWDMDeviceMgr",
@@ -526,7 +540,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixWDMFanEntry": {
       "name": "optixWDMFanEntry",
@@ -543,7 +558,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMFanMgr": {
       "name": "optixWDMFanMgr",
@@ -560,7 +576,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixWDMFanTable": {
       "name": "optixWDMFanTable",
@@ -577,7 +594,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMFunction": {
       "name": "optixWDMFunction",
@@ -594,7 +612,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixWDMGetBdInfoBID": {
       "name": "optixWDMGetBdInfoBID",
@@ -622,7 +641,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMGetBdInfoData": {
       "name": "optixWDMGetBdInfoData",
@@ -650,7 +670,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMGetBdInfoEntry": {
       "name": "optixWDMGetBdInfoEntry",
@@ -667,7 +688,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMGetBdInfoTable": {
       "name": "optixWDMGetBdInfoTable",
@@ -684,7 +706,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMGetFanBID": {
       "name": "optixWDMGetFanBID",
@@ -712,7 +735,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMGetFanSpeed": {
       "name": "optixWDMGetFanSpeed",
@@ -746,7 +770,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMGetPsuBID": {
       "name": "optixWDMGetPsuBID",
@@ -774,7 +799,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMGetPsuPowerConsumption": {
       "name": "optixWDMGetPsuPowerConsumption",
@@ -802,7 +828,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMPsuEntry": {
       "name": "optixWDMPsuEntry",
@@ -819,7 +846,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     },
     "optixWDMPsuMgr": {
       "name": "optixWDMPsuMgr",
@@ -836,7 +864,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixWDMPsuTable": {
       "name": "optixWDMPsuTable",
@@ -853,11 +882,12 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objecttype"
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-05T00:13:55.216430",
+    "exported_at": "2025-12-05T21:35:28.733649",
     "version": "1.0",
     "type": "single_mib"
   }

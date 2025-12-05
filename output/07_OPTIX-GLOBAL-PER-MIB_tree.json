@@ -14,7 +14,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "moduleidentity"
   },
   "per15mMonitorEndTime": {
     "name": "per15mMonitorEndTime",
@@ -34,7 +35,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objecttype"
   },
   "per15mMonitorStartTime": {
     "name": "per15mMonitorStartTime",
@@ -54,7 +56,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objecttype"
   },
   "per15mMonitorTime": {
     "name": "per15mMonitorTime",
@@ -71,7 +74,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objectidentity"
   },
   "per24hMonitorEndTime": {
     "name": "per24hMonitorEndTime",
@@ -91,7 +95,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objecttype"
   },
   "per24hMonitorStartTime": {
     "name": "per24hMonitorStartTime",
@@ -111,7 +116,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objecttype"
   },
   "per24hMonitorTime": {
     "name": "per24hMonitorTime",
@@ -128,7 +134,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objectidentity"
   },
   "perMonitorTime": {
     "name": "perMonitorTime",
@@ -145,10 +152,11 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objectidentity"
   },
   "_metadata": {
-    "exported_at": "2025-12-05T00:13:56.029875",
+    "exported_at": "2025-12-05T21:35:29.682467",
     "version": "1.0",
     "type": "tree_structure",
     "mib_name": "OPTIX-GLOBAL-PER-MIB"

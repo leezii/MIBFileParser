@@ -8,7 +8,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-05T00:13:54.930039",
+  "last_updated": "2025-12-05T21:35:28.595667",
   "root_oids": [],
   "nodes": {
     "huawei": {
@@ -26,7 +26,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixCommon": {
       "name": "optixCommon",
@@ -43,7 +44,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixCommonGlobal": {
       "name": "optixCommonGlobal",
@@ -60,7 +62,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixCommonSnmp": {
       "name": "optixCommonSnmp",
@@ -77,7 +80,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixProvision": {
       "name": "optixProvision",
@@ -94,7 +98,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "optixProvisionWDM": {
       "name": "optixProvisionWDM",
@@ -111,7 +116,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "products": {
       "name": "products",
@@ -128,7 +134,8 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     },
     "transmission": {
       "name": "transmission",
@@ -145,11 +152,12 @@
       "max_access": null,
       "reference": null,
       "defval": null,
-      "hint": null
+      "hint": null,
+      "class": "objectidentity"
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-05T00:13:54.930079",
+    "exported_at": "2025-12-05T21:35:28.595709",
     "version": "1.0",
     "type": "single_mib"
   }

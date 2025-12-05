@@ -14,7 +14,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "objectidentity"
   },
   "pmETHALI": {
     "name": "pmETHALI",
@@ -31,7 +32,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHDROP": {
     "name": "pmETHDROP",
@@ -48,7 +50,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHFCS": {
     "name": "pmETHFCS",
@@ -65,7 +68,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHFRG": {
     "name": "pmETHFRG",
@@ -82,7 +86,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHJAB": {
     "name": "pmETHJAB",
@@ -99,7 +104,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHOVER": {
     "name": "pmETHOVER",
@@ -116,7 +122,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHRXTHROUGHPUTAVG": {
     "name": "pmETHRXTHROUGHPUTAVG",
@@ -133,7 +140,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHRXTHROUGHPUTMAX": {
     "name": "pmETHRXTHROUGHPUTMAX",
@@ -150,7 +158,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHRXTHROUGHPUTMIN": {
     "name": "pmETHRXTHROUGHPUTMIN",
@@ -167,7 +176,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHTXTHROUGHPUTAVG": {
     "name": "pmETHTXTHROUGHPUTAVG",
@@ -184,7 +194,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHTXTHROUGHPUTMAX": {
     "name": "pmETHTXTHROUGHPUTMAX",
@@ -201,7 +212,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHTXTHROUGHPUTMIN": {
     "name": "pmETHTXTHROUGHPUTMIN",
@@ -218,7 +230,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmETHUNDER": {
     "name": "pmETHUNDER",
@@ -235,7 +248,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmOCPRXPKT64": {
     "name": "pmOCPRXPKT64",
@@ -252,7 +266,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmOCPRXPKT65": {
     "name": "pmOCPRXPKT65",
@@ -269,7 +284,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPKT1024": {
     "name": "pmPKT1024",
@@ -286,7 +302,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPKT128": {
     "name": "pmPKT128",
@@ -303,7 +320,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPKT1519": {
     "name": "pmPKT1519",
@@ -320,7 +338,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPKT256": {
     "name": "pmPKT256",
@@ -337,7 +356,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPKT512": {
     "name": "pmPKT512",
@@ -354,7 +374,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPKT64": {
     "name": "pmPKT64",
@@ -371,7 +392,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPKT65": {
     "name": "pmPKT65",
@@ -388,7 +410,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPORTRXBWUTILIZATION": {
     "name": "pmPORTRXBWUTILIZATION",
@@ -405,7 +428,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPORTRXBWUTILIZATIONAVG": {
     "name": "pmPORTRXBWUTILIZATIONAVG",
@@ -422,7 +446,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPORTRXBWUTILIZATIONMAX": {
     "name": "pmPORTRXBWUTILIZATIONMAX",
@@ -439,7 +464,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPORTRXBWUTILIZATIONMIN": {
     "name": "pmPORTRXBWUTILIZATIONMIN",
@@ -456,7 +482,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPORTTXBWUTILIZATION": {
     "name": "pmPORTTXBWUTILIZATION",
@@ -473,7 +500,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPORTTXBWUTILIZATIONAVG": {
     "name": "pmPORTTXBWUTILIZATIONAVG",
@@ -490,7 +518,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPORTTXBWUTILIZATIONMAX": {
     "name": "pmPORTTXBWUTILIZATIONMAX",
@@ -507,7 +536,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPORTTXBWUTILIZATIONMIN": {
     "name": "pmPORTTXBWUTILIZATIONMIN",
@@ -524,7 +554,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPortrxbytesavailability868": {
     "name": "pmPortrxbytesavailability868",
@@ -541,7 +572,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmPortrxbytesavailability869": {
     "name": "pmPortrxbytesavailability869",
@@ -558,7 +590,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXBBAD": {
     "name": "pmRXBBAD",
@@ -575,7 +608,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXBGOOD": {
     "name": "pmRXBGOOD",
@@ -592,7 +626,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXBPS": {
     "name": "pmRXBPS",
@@ -609,7 +644,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXBRDCAST": {
     "name": "pmRXBRDCAST",
@@ -626,7 +662,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXBRDCASTRATIO": {
     "name": "pmRXBRDCASTRATIO",
@@ -643,7 +680,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXCTLPKTS": {
     "name": "pmRXCTLPKTS",
@@ -660,7 +698,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXDROPRATIO": {
     "name": "pmRXDROPRATIO",
@@ -677,7 +716,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXGOODFULLFRAMESPEED": {
     "name": "pmRXGOODFULLFRAMESPEED",
@@ -694,7 +734,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXMULCAST": {
     "name": "pmRXMULCAST",
@@ -711,7 +752,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXOCTETS": {
     "name": "pmRXOCTETS",
@@ -728,7 +770,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPAUSE": {
     "name": "pmRXPAUSE",
@@ -745,7 +788,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPBAD": {
     "name": "pmRXPBAD",
@@ -762,7 +806,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPGOOD": {
     "name": "pmRXPGOOD",
@@ -779,7 +824,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPKT1024": {
     "name": "pmRXPKT1024",
@@ -796,7 +842,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPKT128": {
     "name": "pmRXPKT128",
@@ -813,7 +860,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPKT1519": {
     "name": "pmRXPKT1519",
@@ -830,7 +878,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPKT256": {
     "name": "pmRXPKT256",
@@ -847,7 +896,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPKT512": {
     "name": "pmRXPKT512",
@@ -864,7 +914,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPKT64": {
     "name": "pmRXPKT64",
@@ -881,7 +932,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPKT65": {
     "name": "pmRXPKT65",
@@ -898,7 +950,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPKTS": {
     "name": "pmRXPKTS",
@@ -915,7 +968,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPPS": {
     "name": "pmRXPPS",
@@ -932,7 +986,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPTPANNOUNCE": {
     "name": "pmRXPTPANNOUNCE",
@@ -949,7 +1004,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPTPDELAYREQ": {
     "name": "pmRXPTPDELAYREQ",
@@ -966,7 +1022,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPTPDELAYRESP": {
     "name": "pmRXPTPDELAYRESP",
@@ -983,7 +1040,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPTPFOLLOWUP": {
     "name": "pmRXPTPFOLLOWUP",
@@ -1000,7 +1058,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPTPPDELAYREQ": {
     "name": "pmRXPTPPDELAYREQ",
@@ -1017,7 +1076,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPTPPDELAYRESP": {
     "name": "pmRXPTPPDELAYRESP",
@@ -1034,7 +1094,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPTPPDELAYRESPFUP": {
     "name": "pmRXPTPPDELAYRESPFUP",
@@ -1051,7 +1112,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXPTPSYNC": {
     "name": "pmRXPTPSYNC",
@@ -1068,7 +1130,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRXUNICAST": {
     "name": "pmRXUNICAST",
@@ -1085,7 +1148,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmRxfullbgood": {
     "name": "pmRxfullbgood",
@@ -1102,7 +1166,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXBBAD": {
     "name": "pmTXBBAD",
@@ -1119,7 +1184,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXBGOOD": {
     "name": "pmTXBGOOD",
@@ -1136,7 +1202,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXBPS": {
     "name": "pmTXBPS",
@@ -1153,7 +1220,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXBRDCAST": {
     "name": "pmTXBRDCAST",
@@ -1170,7 +1238,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXBRDCASTRATIO": {
     "name": "pmTXBRDCASTRATIO",
@@ -1187,7 +1256,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXCTLPKTS": {
     "name": "pmTXCTLPKTS",
@@ -1204,7 +1274,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXDROPRATIO": {
     "name": "pmTXDROPRATIO",
@@ -1221,7 +1292,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXETHDROP": {
     "name": "pmTXETHDROP",
@@ -1238,7 +1310,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXETHOVER": {
     "name": "pmTXETHOVER",
@@ -1255,7 +1328,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXGOODFULLFRAMESPEED": {
     "name": "pmTXGOODFULLFRAMESPEED",
@@ -1272,7 +1346,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXMULCAST": {
     "name": "pmTXMULCAST",
@@ -1289,7 +1364,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXOCTETS": {
     "name": "pmTXOCTETS",
@@ -1306,7 +1382,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPAUSE": {
     "name": "pmTXPAUSE",
@@ -1323,7 +1400,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPBAD": {
     "name": "pmTXPBAD",
@@ -1340,7 +1418,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPGOOD": {
     "name": "pmTXPGOOD",
@@ -1357,7 +1436,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPKT1024": {
     "name": "pmTXPKT1024",
@@ -1374,7 +1454,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPKT128": {
     "name": "pmTXPKT128",
@@ -1391,7 +1472,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPKT1519": {
     "name": "pmTXPKT1519",
@@ -1408,7 +1490,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPKT256": {
     "name": "pmTXPKT256",
@@ -1425,7 +1508,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPKT512": {
     "name": "pmTXPKT512",
@@ -1442,7 +1526,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPKT64": {
     "name": "pmTXPKT64",
@@ -1459,7 +1544,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPKT65": {
     "name": "pmTXPKT65",
@@ -1476,7 +1562,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPKTS": {
     "name": "pmTXPKTS",
@@ -1493,7 +1580,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPPS": {
     "name": "pmTXPPS",
@@ -1510,7 +1598,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPTPANNOUNCE": {
     "name": "pmTXPTPANNOUNCE",
@@ -1527,7 +1616,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPTPDELAYREQ": {
     "name": "pmTXPTPDELAYREQ",
@@ -1544,7 +1634,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPTPDELAYRESP": {
     "name": "pmTXPTPDELAYRESP",
@@ -1561,7 +1652,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPTPFOLLOWUP": {
     "name": "pmTXPTPFOLLOWUP",
@@ -1578,7 +1670,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPTPPDELAYREQ": {
     "name": "pmTXPTPPDELAYREQ",
@@ -1595,7 +1688,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPTPPDELAYRESP": {
     "name": "pmTXPTPPDELAYRESP",
@@ -1612,7 +1706,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPTPPDELAYRESPFUP": {
     "name": "pmTXPTPPDELAYRESPFUP",
@@ -1629,7 +1724,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXPTPSYNC": {
     "name": "pmTXPTPSYNC",
@@ -1646,7 +1742,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTXUNICAST": {
     "name": "pmTXUNICAST",
@@ -1663,7 +1760,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmTxfullbgood": {
     "name": "pmTxfullbgood",
@@ -1680,7 +1778,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXBWUTILIZATION": {
     "name": "pmVCGRXBWUTILIZATION",
@@ -1697,7 +1796,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXBWUTILIZATIONAVG": {
     "name": "pmVCGRXBWUTILIZATIONAVG",
@@ -1714,7 +1814,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXBWUTILIZATIONMAX": {
     "name": "pmVCGRXBWUTILIZATIONMAX",
@@ -1731,7 +1832,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXBWUTILIZATIONMIN": {
     "name": "pmVCGRXBWUTILIZATIONMIN",
@@ -1748,7 +1850,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXDROPPKTS": {
     "name": "pmVCGRXDROPPKTS",
@@ -1765,7 +1868,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXDROPRATIO": {
     "name": "pmVCGRXDROPRATIO",
@@ -1782,7 +1886,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXGOODPACKETS": {
     "name": "pmVCGRXGOODPACKETS",
@@ -1799,7 +1904,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXOCTETS": {
     "name": "pmVCGRXOCTETS",
@@ -1816,7 +1922,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXPACKETS": {
     "name": "pmVCGRXPACKETS",
@@ -1833,7 +1940,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGRXSPEED": {
     "name": "pmVCGRXSPEED",
@@ -1850,7 +1958,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXBWUTILIZATION": {
     "name": "pmVCGTXBWUTILIZATION",
@@ -1867,7 +1976,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXBWUTILIZATIONAVG": {
     "name": "pmVCGTXBWUTILIZATIONAVG",
@@ -1884,7 +1994,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXBWUTILIZATIONMAX": {
     "name": "pmVCGTXBWUTILIZATIONMAX",
@@ -1901,7 +2012,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXBWUTILIZATIONMIN": {
     "name": "pmVCGTXBWUTILIZATIONMIN",
@@ -1918,7 +2030,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXDROPPKTS": {
     "name": "pmVCGTXDROPPKTS",
@@ -1935,7 +2048,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXDROPRATIO": {
     "name": "pmVCGTXDROPRATIO",
@@ -1952,7 +2066,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXGOODPACKETS": {
     "name": "pmVCGTXGOODPACKETS",
@@ -1969,7 +2084,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXOCTETS": {
     "name": "pmVCGTXOCTETS",
@@ -1986,7 +2102,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXPACKETS": {
     "name": "pmVCGTXPACKETS",
@@ -2003,7 +2120,8 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "pmVCGTXSPEED": {
     "name": "pmVCGTXSPEED",
@@ -2020,10 +2138,11 @@
     "max_access": null,
     "reference": null,
     "defval": null,
-    "hint": null
+    "hint": null,
+    "class": "notificationtype"
   },
   "_metadata": {
-    "exported_at": "2025-12-05T00:13:56.682020",
+    "exported_at": "2025-12-05T21:35:30.101583",
     "version": "1.0",
     "type": "tree_structure",
     "mib_name": "OPTIX-GLOBAL-PM-TRAPS-MSTP-MIB"

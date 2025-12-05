@@ -26,6 +26,7 @@ class MibNode:
     reference: Optional[str] = None
     defval: Optional[Any] = None
     hint: Optional[str] = None
+    node_class: Optional[str] = None  # To store node class (e.g., 'textualconvention')
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert node to dictionary representation."""
@@ -45,6 +46,7 @@ class MibNode:
             "reference": self.reference,
             "defval": self.defval,
             "hint": self.hint,
+            "class": self.node_class,
         }
 
     @classmethod

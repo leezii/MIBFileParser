@@ -25,10 +25,14 @@ class TreeService:
         if not nodes:
             return {'name': mib_data.get('name', 'Unknown'), 'children': []}
 
-        # Create a mapping from node name to node data
+        # Create a mapping from node name to node data, filtering out TC nodes
         node_map = {}
         original_nodes = {}  # Store reference to original data
         for name, data in nodes.items():
+            # Skip Textual Convention (TC) nodes - they shouldn't appear in the tree
+            if data.get('class') == 'textualconvention':
+                continue
+
             # Use display name for combined MIBs, otherwise use original name
             display_name = data.get('original_name', name)
             mib_origin = data.get('mib_origin', '')
@@ -58,8 +62,12 @@ class TreeService:
         processed_nodes = set()
 
         # First, sort nodes by OID length to process parents before children
+        # Note: We need to filter out TC nodes here as well
+        filtered_nodes = {name: data for name, data in nodes.items()
+                         if data.get('class') != 'textualconvention'}
+
         sorted_nodes = sorted(
-            nodes.items(),
+            filtered_nodes.items(),
             key=lambda x: len(x[1].get('oid', '').split('.')) if x[1].get('oid') else 0
         )
 
@@ -152,9 +160,13 @@ class TreeService:
         if not nodes:
             return []
 
+        # Filter out TC nodes first
+        filtered_nodes = {name: data for name, data in nodes.items()
+                         if data.get('class') != 'textualconvention'}
+
         # Sort nodes by OID length (shorter OIDs are likely closer to root)
         sorted_nodes = sorted(
-            nodes.items(),
+            filtered_nodes.items(),
             key=lambda x: len(x[1].get('oid', '').split('.')) if x[1].get('oid') else 0
         )
 

@@ -391,6 +391,9 @@ class MibParser:
             # Extract hint
             hint = node_data.get('hint')
 
+            # Extract node class
+            node_class = node_data.get('class')
+
         else:
             # Extract OID
             oid = getattr(node_data, 'oid', f"1.2.3.1")
@@ -430,6 +433,9 @@ class MibParser:
             # Extract hint
             hint = getattr(node_data, 'hint', None)
 
+            # Extract node class
+            node_class = getattr(node_data, 'class', None)
+
         return MibNode(
             name=node_name,
             oid=oid,
@@ -445,6 +451,7 @@ class MibParser:
             reference=reference,
             defval=defval,
             hint=hint,
+            node_class=node_class,
         )
 
     def _extract_mib_name_from_ast(self, ast):
@@ -676,6 +683,9 @@ class MibParser:
             # Extract hint
             hint = node_data.get('hint')
 
+            # Extract node class
+            node_class = node_data.get('class')
+
         else:
             # Extract OID
             oid = getattr(node_data, 'oid', '')
@@ -715,6 +725,9 @@ class MibParser:
             # Extract hint
             hint = getattr(node_data, 'hint', None)
 
+            # Extract node class
+            node_class = getattr(node_data, 'class', None)
+
         return MibNode(
             name=node_name,
             oid=oid,
@@ -730,4 +743,5 @@ class MibParser:
             reference=reference,
             defval=defval,
             hint=hint,
+            node_class=node_class,
         )

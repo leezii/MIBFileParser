@@ -1,0 +1,63 @@
+-- OPTIX-GLOBAL-TC-MIB.mib
+-- Huawei OptiX Global Textual Conventions
+
+OPTIX-GLOBAL-TC-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY, TEXTUAL-CONVENTION
+        FROM SNMPv2-SMI
+    optixCommonGlobal
+        FROM OPTIX-OID-MIB;
+
+-- Module identity
+optixGlobalTc MODULE-IDENTITY
+    LAST-UPDATED "200607270000Z"
+    ORGANIZATION "HUAWEI TECHNOLOGIES"
+    CONTACT-INFO "HUAWEI TECHNOLOGIES"
+    DESCRIPTION
+        "This MIB module defines textual conventions for Huawei OptiX products."
+    ::= { optixCommonGlobal 2 }
+
+-- Textual Conventions
+
+-- Alarm Event Type
+AlarmEventType ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "d"
+    STATUS current
+    DESCRIPTION
+        "Alarm ID."
+    SYNTAX INTEGER (0..999999)
+
+-- Performance Value Type
+PerfValueType ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "d"
+    STATUS current
+    DESCRIPTION
+        "Performance measurement value."
+    SYNTAX INTEGER32
+
+-- Wavelength Type
+WavelengthType ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "d"
+    STATUS current
+    DESCRIPTION
+        "Wavelength in nanometers."
+    SYNTAX INTEGER32
+
+-- Power Type (in 0.1 dBm)
+PowerType ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "d-1"
+    STATUS current
+    DESCRIPTION
+        "Power value in 0.1 dBm."
+    SYNTAX INTEGER32 (-999..999)
+
+-- Temperature Type (in 0.1 degrees)
+TemperatureType ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "d-1"
+    STATUS current
+    DESCRIPTION
+        "Temperature value in 0.1 degrees."
+    SYNTAX INTEGER32 (-999..999)
+
+END

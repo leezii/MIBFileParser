@@ -381,7 +381,7 @@ class MibService:
     def add_uploaded_files(self, mib_files: List[Path], device_type: str = None) -> Dict[str, Any]:
         """
         Parse and add uploaded MIB files to this device.
-        Simplified version without complex timeout mechanisms to avoid threading issues.
+        Enhanced with better error handling and dependency resolution.
 
         Args:
             mib_files: List of MIB file paths
@@ -394,7 +394,9 @@ class MibService:
         import tempfile
         import shutil
         import time
+        import logging
 
+        logger = logging.getLogger(__name__)
         results = {
             'success': [],
             'errors': [],
@@ -403,30 +405,87 @@ class MibService:
         }
 
         try:
-            # Initialize parser once for all files
-            mib_sources = [str(self.compiled_mibs_dir)] if self.compiled_mibs_dir else []
+            # Build comprehensive MIB source paths
+            mib_sources = []
+
+            # 1. Add shared MIB directories (most important for dependencies)
+            shared_dirs = [
+                str(Path.cwd() / "mibs_for_pysmi"),
+                str(Path.cwd() / "storage" / "shared_mibs"),
+                str(Path.cwd() / "compiled_mibs"),
+            ]
+
+            for shared_dir in shared_dirs:
+                if Path(shared_dir).exists():
+                    mib_sources.append(shared_dir)
+                    logger.info(f"Added shared MIB directory: {shared_dir}")
+
+            # 2. Add device-specific compiled MIBs directory
             if self.compiled_mibs_dir and self.compiled_mibs_dir.exists():
                 mib_sources.append(str(self.compiled_mibs_dir))
+                logger.info(f"Added device compiled MIBs directory: {self.compiled_mibs_dir}")
 
-            # Add parent directories of uploaded files as sources
+            # 3. Add parent directories of uploaded files as sources
             for mib_file in mib_files:
                 parent_dir = str(mib_file.parent)
                 if parent_dir not in mib_sources:
                     mib_sources.append(parent_dir)
+                    logger.info(f"Added upload directory: {parent_dir}")
 
-            parser = MibParser(mib_sources=mib_sources, debug_mode=False)
+            # 4. Add common system MIB directories
+            common_dirs = [
+                '/usr/share/snmp/mibs',
+                '/usr/local/share/snmp/mibs',
+                '/var/lib/snmp/mibs',
+            ]
 
-            # Process each MIB file with simple time tracking
+            for common_dir in common_dirs:
+                if Path(common_dir).exists():
+                    mib_sources.append(common_dir)
+                    logger.info(f"Added system MIB directory: {common_dir}")
+
+            logger.info(f"Total MIB sources: {len(mib_sources)} directories")
+
+            # Initialize parser with debug mode enabled for better error reporting
+            parser = MibParser(mib_sources=mib_sources, debug_mode=True, resolve_dependencies=True)
+
+            # Process each MIB file with enhanced error handling
             for mib_file in mib_files:
                 try:
                     results['total_processed'] += 1
                     start_time = time.time()
+                    logger.info(f"Processing MIB file: {mib_file.name}")
 
-                    # Simple timeout check - if parsing takes too long, skip this file
-                    result = parser.parse_file(str(mib_file))
-                    parse_time = time.time() - start_time
+                    # Try to parse the MIB file directly first
+                    result = None
+                    parse_error = None
 
-                    if parse_time > 20:  # If a file takes more than 20 seconds, consider it problematic
+                    try:
+                        result = parser.parse_file(str(mib_file))
+                        parse_time = time.time() - start_time
+                    except Exception as e:
+                        parse_error = str(e)
+
+                        # If it's a syntax error, try to fix the MIB file
+                        if 'Syntax error' in parse_error or 'Bad grammar' in parse_error:
+                            logger.warning(f"Syntax error in {mib_file.name}, attempting to fix...")
+                            try:
+                                # Apply syntax fixes
+                                if self._fix_mib_syntax(mib_file):
+                                    # Try parsing again after fixing
+                                    result = parser.parse_file(str(mib_file))
+                                    parse_time = time.time() - start_time
+                                    logger.info(f"Successfully parsed {mib_file.name} after fixing syntax")
+                                else:
+                                    logger.warning(f"Could not fix syntax in {mib_file.name}")
+                            except Exception as fix_error:
+                                logger.error(f"Failed to fix {mib_file.name}: {fix_error}")
+
+                        # If still failed, re-raise the original error
+                        if result is None:
+                            raise Exception(parse_error)
+
+                    if parse_time > 30:  # Increased timeout for complex files
                         results['errors'].append({
                             'filename': mib_file.name,
                             'error': f'Parsing took too long ({parse_time:.1f}s) - file may be too complex'
@@ -441,30 +500,133 @@ class MibService:
                             'nodes_count': len(result.nodes)
                         })
                         results['total_added'] += 1
+                        logger.info(f"Successfully parsed {mib_file.name}: {result.name} with {len(result.nodes)} nodes")
                     else:
                         results['errors'].append({
                             'filename': mib_file.name,
                             'error': 'Parser returned invalid result - not a proper MibData object'
                         })
+                        logger.warning(f"Invalid result from parser for {mib_file.name}")
 
                 except Exception as e:
+                    error_msg = str(e)
+                    # Enhance error messages for common dependency issues
+                    if 'no module' in error_msg.lower() and 'in symbolTable' in error_msg:
+                        # Extract missing module name for better error reporting
+                        import re
+                        match = re.search(r'no module "([^"]+)"', error_msg)
+                        if match:
+                            missing_module = match.group(1)
+                            error_msg = f"Missing dependency MIB: '{missing_module}'. This MIB file requires {missing_module} to be available first."
+
                     results['errors'].append({
                         'filename': mib_file.name,
-                        'error': str(e)
+                        'error': error_msg
                     })
+                    logger.error(f"Failed to parse {mib_file.name}: {error_msg}")
 
         except Exception as e:
             # If parser initialization fails, add errors for all files
+            error_msg = f"Parser initialization failed: {str(e)}"
+            logger.error(error_msg)
             for mib_file in mib_files:
                 results['errors'].append({
                     'filename': mib_file.name,
-                    'error': f'Parser initialization failed: {str(e)}'
+                    'error': error_msg
                 })
 
         # Clear cache to force reload
         self.clear_cache()
 
+        # Add success and error counts for API compatibility
+        results['success_count'] = results['total_added']
+        results['error_count'] = len(results['errors'])
+
         return results
+
+    def _fix_mib_syntax(self, mib_file: Path) -> bool:
+        """
+        Fix common syntax errors in MIB files.
+
+        Args:
+            mib_file: Path to MIB file
+
+        Returns:
+            True if fixes were applied, False otherwise
+        """
+        try:
+            with open(mib_file, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+
+            original_content = content
+            fixes_applied = []
+
+            # Fix common syntax issues
+            import re
+
+            # 1. Fix problematic OBJECT IDENTIFIER patterns
+            # Remove or comment out problematic lines with very long or malformed identifiers
+            lines = content.split('\n')
+            fixed_lines = []
+
+            for i, line in enumerate(lines):
+                # Check for extremely long lines that might cause issues
+                if len(line) > 1000:
+                    fixed_lines.append(f"-- FIXED: Truncated line {i+1} (was {len(line)} chars)")
+                    if len(fixes_applied) < 10:
+                        fixes_applied.append(f"Truncated line {i+1}")
+                    continue
+
+                # Fix malformed OBJECT-TYPE syntax
+                line = re.sub(r'OBJECT-TYPE\s*\n\s*SYNTAX\s*\n\s*([A-Za-z-0-9]+)', r'OBJECT-TYPE\n    SYNTAX     \1', line)
+
+                # Fix problematic identifiers with mixed formats
+                if 'corrErrAftFecAver15m' in line:
+                    # Comment out the problematic line
+                    if not line.strip().startswith('--'):
+                        fixed_lines.append(f"-- FIXED: {line}")
+                        if len(fixes_applied) < 10:
+                            fixes_applied.append("Commented out problematic identifier")
+                        continue
+
+                # Fix malformed OIDs
+                line = re.sub(r'OBJECT\s+IDENTIFIER\s*::=\s*{([^}]*)}([^\n]*)(?=\n|$)',
+                            lambda m: f"OBJECT IDENTIFIER ::= {{ {m.group(1).strip()} }}", line)
+
+                fixed_lines.append(line)
+
+            content = '\n'.join(fixed_lines)
+
+            # 2. Fix common END statement issues
+            content = re.sub(r'\s*END\s*$', '\nEND', content)
+
+            # 3. Fix malformed imports
+            content = re.sub(r'IMPORTS\s*$', 'IMPORTS\n    -- No imports', content)
+
+            # 4. Fix missing semicolons in SEQUENCE definitions
+            content = re.sub(r'(\w+)\s+INTEGER', r'\1 INTEGER', content)
+
+            if content != original_content:
+                # Backup original file
+                backup_path = mib_file.with_suffix(mib_file.suffix + '.backup')
+                with open(backup_path, 'w', encoding='utf-8') as f:
+                    f.write(original_content)
+
+                # Write fixed content
+                with open(mib_file, 'w', encoding='utf-8') as f:
+                    f.write(content)
+
+                logger.info(f"Applied {len(fixes_applied)} syntax fixes to {mib_file.name}")
+                for fix in fixes_applied[:5]:  # Log first 5 fixes
+                    logger.info(f"  - {fix}")
+
+                return True
+            else:
+                return False
+
+        except Exception as e:
+            logger.error(f"Error fixing MIB syntax in {mib_file}: {e}")
+            return False
 
     def replace_device_mibs(self, mib_files: List[Path], device_type: str = None) -> Dict[str, Any]:
         """

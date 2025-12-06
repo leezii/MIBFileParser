@@ -1,0 +1,32 @@
+-- SNMPv2-SMI.mib
+-- Standard SNMPv2 Structure of Management Information
+
+SNMPv2-SMI DEFINITIONS ::= BEGIN
+
+IMPORTS;
+
+-- Internet OID tree
+internet OBJECT IDENTIFIER ::= { 1 3 6 1 }
+
+-- Directory OID tree
+directory OBJECT IDENTIFIER ::= { 1 3 6 1 1 }
+
+-- Management OID tree
+mgmt OBJECT IDENTIFIER ::= { 1 3 6 1 2 }
+
+-- Experimental OID tree
+experimental OBJECT IDENTIFIER ::= { 1 3 6 1 3 }
+
+-- Private OID tree
+private OBJECT IDENTIFIER ::= { 1 3 6 1 4 }
+
+-- Enterprises OID tree
+enterprises OBJECT IDENTIFIER ::= { private 1 }
+
+-- Security OID tree
+security OBJECT IDENTIFIER ::= { 1 3 6 1 5 }
+
+-- SNMPv2 OID tree
+snmpV2 OBJECT IDENTIFIER ::= { 1 3 6 1 6 }
+
+END

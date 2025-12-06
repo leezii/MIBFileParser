@@ -1,0 +1,121 @@
+-- SNMPv2-TC.mib
+-- Standard SNMPv2 Textual Conventions
+
+SNMPv2-TC DEFINITIONS ::= BEGIN
+
+IMPORTS
+    Integer32
+        FROM SNMPv2-SMI;
+
+-- Textual Conventions
+
+DisplayString ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "255a"
+    STATUS current
+    DESCRIPTION
+        "Displayable textual data."
+    SYNTAX OCTET STRING (SIZE (0..255))
+
+PhysAddress ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "1x:"
+    STATUS current
+    DESCRIPTION
+        "Represents media- or physical-level addresses."
+    SYNTAX OCTET STRING (SIZE (0..255))
+
+MacAddress ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "1x:"
+    STATUS current
+    DESCRIPTION
+        "Represents an IEEE 802 MAC address."
+    SYNTAX OCTET STRING (SIZE (6))
+
+TruthValue ::= TEXTUAL-CONVENTION
+    STATUS current
+    DESCRIPTION
+        "Represents a boolean value."
+    SYNTAX INTEGER { true(1), false(2) }
+
+TestAndIncr ::= TEXTUAL-CONVENTION
+    STATUS current
+    DESCRIPTION
+        "Represents a test-and-increment counter."
+    SYNTAX Integer32 (0..2147483647)
+
+AutonomousType ::= TEXTUAL-CONVENTION
+    STATUS current
+    DESCRIPTION
+        "Represents an autonomously generated object identifier."
+    SYNTAX OBJECT IDENTIFIER
+
+InstancePointer ::= TEXTUAL-CONVENTION
+    STATUS current
+    DESCRIPTION
+        "Represents a pointer to an object instance."
+    SYNTAX OBJECT IDENTIFIER
+
+VariablePointer ::= TEXTUAL-CONVENTION
+    STATUS current
+    DESCRIPTION
+        "Represents a pointer to an object instance."
+    SYNTAX OBJECT IDENTIFIER
+
+RowPointer ::= TEXTUAL-CONVENTION
+    STATUS current
+    DESCRIPTION
+        "Represents a pointer to a row in a table."
+    SYNTAX OBJECT IDENTIFIER
+
+RowStatus ::= TEXTUAL-CONVENTION
+    STATUS current
+    DESCRIPTION
+        "The RowStatus textual convention is used to manage the
+        creation and deletion of conceptual rows, and is used
+        as the value of the SYNTAX clause for the status
+        object of a conceptual row."
+    SYNTAX INTEGER {
+        active(1),
+        notInService(2),
+        notReady(3),
+        createAndGo(4),
+        createAndWait(5),
+        destroy(6)
+    }
+
+TimeStamp ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "2d-1d-1d,1d:1d:1d.1d,1d:1d"
+    STATUS current
+    DESCRIPTION
+        "The value of TimeStamp is a TimeTicks value.
+        It represents the time elapsed since the last
+        reinitialization of the network management subsystem."
+    SYNTAX TimeTicks
+
+TimeInterval ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "2d-1d-1d,1d:1d:1d.1d,1d:1d"
+    STATUS current
+    DESCRIPTION
+        "The value of TimeInterval is a TimeTicks value
+        representing a period of time."
+    SYNTAX TimeTicks
+
+DateAndTime ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT "2d-1d-1d,1d:1d:1d.1d,1d:1d"
+    STATUS current
+    DESCRIPTION
+        "A date-time specification."
+    SYNTAX OCTET STRING (SIZE (8 | 11))
+
+StorageType ::= TEXTUAL-CONVENTION
+    STATUS current
+    DESCRIPTION
+        "Describes the memory realization of a conceptual row."
+    SYNTAX INTEGER {
+        other(1),
+        volatile(2),
+        nonVolatile(3),
+        permanent(4),
+        readOnly(5)
+    }
+
+END

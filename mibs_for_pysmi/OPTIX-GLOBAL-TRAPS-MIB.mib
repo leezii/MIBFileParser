@@ -1,0 +1,26 @@
+-- OPTIX-GLOBAL-TRAPS-MIB.mib
+-- Huawei OptiX Global Traps definitions
+
+OPTIX-GLOBAL-TRAPS-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE
+        FROM SNMPv2-SMI
+    optixCommonGlobal
+        FROM OPTIX-OID-MIB;
+
+-- Module identity
+optixGlobalTraps MODULE-IDENTITY
+    LAST-UPDATED "200603220000Z"
+    ORGANIZATION "HUAWEI TECHNOLOGIES"
+    CONTACT-INFO "HUAWEI TECHNOLOGIES"
+    DESCRIPTION
+        "This MIB module defines traps for Huawei OptiX products."
+    ::= { optixCommonGlobal 1 }
+
+-- Basic trap definitions (simplified)
+optixGlobalTrapsPrefix OBJECT IDENTIFIER ::= { optixGlobalTraps 1 }
+hwEntityTrap OBJECT IDENTIFIER ::= { optixGlobalTrapsPrefix 1 }
+hwOpticalTrap OBJECT IDENTIFIER ::= { optixGlobalTrapsPrefix 2 }
+
+END

@@ -50,6 +50,16 @@ class MibParser:
         if os.path.exists('.'):
             sources.append(os.getcwd())
 
+        # Add project-specific MIB directories (critical for dependency resolution)
+        project_dirs = [
+            str(Path.cwd() / "mibs_for_pysmi"),
+            str(Path.cwd() / "storage" / "shared_mibs"),
+        ]
+
+        for dir_path in project_dirs:
+            if os.path.exists(dir_path):
+                sources.append(dir_path)
+
         # Add common MIB directories
         common_dirs = [
             '/usr/share/snmp/mibs',
@@ -209,7 +219,18 @@ class MibParser:
                 # If compilation failed, provide detailed error information
                 if not success:
                     if error_messages:
-                        raise Exception(f"Compilation failed with errors: {'; '.join(error_messages)}")
+                        error_msg = '; '.join(error_messages)
+                        # Enhance common error messages
+                        if 'Bad grammar near token' in error_msg:
+                            raise Exception(f"Syntax error in MIB '{mib_name}': {error_msg}. This MIB file may contain syntax errors or unsupported constructs.")
+                        elif 'no module' in error_msg.lower() and 'in symbolTable' in error_msg.lower():
+                            import re
+                            match = re.search(r'no module "([^"]+)"', error_msg)
+                            if match:
+                                missing_module = match.group(1)
+                                raise Exception(f"Missing dependency: '{missing_module}'. This MIB requires {missing_module} to be available first.")
+                        else:
+                            raise Exception(f"Compilation failed for MIB '{mib_name}': {error_msg}")
                     else:
                         raise Exception(f"Compilation failed for MIB '{mib_name}' (no detailed error available)")
 

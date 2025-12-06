@@ -2,7 +2,7 @@
 Main web page routes for MIB visualization.
 """
 
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, session, g
 import logging
 
 logger = logging.getLogger(__name__)
@@ -10,41 +10,62 @@ logger = logging.getLogger(__name__)
 # Create Blueprint
 main_bp = Blueprint('main', __name__)
 
-# Initialize service (will be configured with app context later)
-mib_service = None
 
+@main_bp.before_request
+def setup_device_context():
+    """Setup device context for the request."""
+    from ..services.device_service import DeviceService
 
-@main_bp.before_app_request
-def initialize_service():
-    """Initialize MIB service on first request."""
-    global mib_service
-    if mib_service is None:
-        from flask import current_app
-        output_dir = current_app.config.get('OUTPUT_DIR')
-        from ..services.mib_service import MibService
-        mib_service = MibService(output_dir)
+    device_service = DeviceService()
+
+    # Get device from session or use default
+    device_name = session.get('current_device') or device_service.get_current_device()
+
+    # Override with URL parameter if provided
+    url_device = request.args.get('device')
+    if url_device and device_service.device_exists(url_device):
+        device_name = url_device
+        session['current_device'] = device_name
+        device_service.set_current_device(device_name)
+
+    # Store device context in Flask's g object
+    g.device_name = device_name
+    g.device_service = device_service
+    g.mib_service = device_service.get_device_mib_service(device_name)
 
 
 @main_bp.route('/')
 def index():
     """
-    Home page - list all available MIB files.
+    Home page - list all available MIB files for current device.
 
     Returns:
         Rendered HTML template with MIB list
     """
     try:
+        # Get device context
+        device_name = g.device_name
+        mib_service = g.mib_service
+        device_service = g.device_service
+
         # Get MIB list with basic info
         mibs = mib_service.list_mibs()
 
         # Get statistics for overview
         stats = mib_service.get_statistics()
 
+        # Get device info
+        device_info = device_service.get_device_info(device_name)
+        all_devices = device_service.list_devices()
+
         return render_template(
             'index.html',
             mibs=mibs,
             stats=stats,
-            title='MIB Viewer - Home'
+            title='MIB Viewer - Home',
+            current_device=device_name,
+            device_info=device_info,
+            all_devices=all_devices
         )
 
     except Exception as e:
@@ -70,13 +91,17 @@ def view_mib(mib_name):
         Rendered HTML template with tree visualization
     """
     try:
+        # Get device context
+        device_name = g.device_name
+        mib_service = g.mib_service
+
         # Get MIB data
         mib_data = mib_service.get_mib_data(mib_name)
 
         if mib_data is None:
             return render_template(
                 'error.html',
-                error_message=f'MIB "{mib_name}" not found',
+                error_message=f'MIB "{mib_name}" not found in device "{device_name}"',
                 title='MIB Not Found'
             ), 404
 
@@ -88,7 +113,8 @@ def view_mib(mib_name):
             mib_name=mib_name,
             mib_data=mib_data,
             tree_data=tree_data,
-            title=f'MIB Viewer - {mib_name}'
+            title=f'MIB Viewer - {mib_name}',
+            current_device=device_name
         )
 
     except Exception as e:
@@ -103,7 +129,7 @@ def view_mib(mib_name):
 @main_bp.route('/search')
 def search_page():
     """
-    Search page for searching across all MIBs.
+    Search page for searching across all MIBs in current device.
 
     Query Parameters:
         - q: Search query
@@ -113,6 +139,10 @@ def search_page():
         Rendered HTML template with search results
     """
     try:
+        # Get device context
+        device_name = g.device_name
+        mib_service = g.mib_service
+
         query = request.args.get('q', '').strip()
         mib_filter = request.args.get('mib', '')
         results = []
@@ -129,7 +159,8 @@ def search_page():
             mib_filter=mib_filter,
             results=results,
             mibs=mibs,
-            title=f'MIB Viewer - Search{" Results" if query else ""}'
+            title=f'MIB Viewer - Search{" Results" if query else ""}',
+            current_device=device_name
         )
 
     except Exception as e:
@@ -185,12 +216,16 @@ def view_node(oid):
 @main_bp.route('/statistics')
 def statistics_page():
     """
-    Statistics page showing overall MIB statistics.
+    Statistics page showing overall MIB statistics for current device.
 
     Returns:
         Rendered HTML template with statistics
     """
     try:
+        # Get device context
+        device_name = g.device_name
+        mib_service = g.mib_service
+
         stats = mib_service.get_statistics()
         mibs = mib_service.list_mibs()
 
@@ -206,6 +241,7 @@ def statistics_page():
             stats=stats,
             top_mibs=top_mibs,
             mibs=mibs,
+            current_device=device_name,
             title='MIB Viewer - Statistics'
         )
 

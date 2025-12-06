@@ -1,0 +1,24 @@
+{
+  "devices": [
+    {
+      "name": "default",
+      "display_name": "Default MIBs",
+      "description": "Original MIB files from the system",
+      "created_at": "2025-12-05T00:00:00Z",
+      "updated_at": "2025-12-06T16:28:19.334085Z",
+      "mib_count": 0,
+      "is_active": true
+    },
+    {
+      "name": "huaweioptixtransdc908",
+      "display_name": "Huawei OptiXtrans DC908",
+      "description": "MIB files for Huawei OptiXtrans DC908",
+      "created_at": "2025-12-06T16:11:56.075317Z",
+      "updated_at": "2025-12-06T16:29:01.842674Z",
+      "mib_count": 0,
+      "is_active": true
+    }
+  ],
+  "current_device": "default",
+  "version": "1.0"
+}

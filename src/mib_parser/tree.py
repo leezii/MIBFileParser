@@ -5,7 +5,7 @@ MIB tree traversal and manipulation utilities.
 from typing import List, Optional, Dict, Generator, Tuple, Set
 from collections import deque
 
-from .models import MibData, MibNode
+from src.mib_parser.models import MibData, MibNode
 
 
 class MibTree:

@@ -15,8 +15,8 @@ from pysmi.borrower import AnyFileBorrower
 from pysmi import debug
 from pysmi.error import PySmiError
 
-from .models import MibData, MibNode
-from .dependency_resolver import MibDependencyResolver
+from src.mib_parser.models import MibData, MibNode
+from src.mib_parser.dependency_resolver import MibDependencyResolver
 
 
 class MibParser:
@@ -592,6 +592,18 @@ class MibParser:
                     mib_files.append(file_path)
 
         return mib_files
+
+    def parse_file(self, file_path: str) -> MibData:
+        """
+        Alias for parse_mib_file to maintain consistency.
+
+        Args:
+            file_path: Path to the MIB file
+
+        Returns:
+            MibData object containing parsed information
+        """
+        return self.parse_mib_file(file_path)
 
     def _extract_mib_data(self, compiled_data: Any, mib_name: str) -> MibData:
         """Extract MIB data from compiled pysmi JSON output."""

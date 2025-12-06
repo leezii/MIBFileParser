@@ -15,14 +15,18 @@ logger = logging.getLogger(__name__)
 class MibService:
     """Service for reading and managing MIB data from JSON files."""
 
-    def __init__(self, output_dir: Path):
+    def __init__(self, output_dir: Path, compiled_mibs_dir: Path = None, device_type: str = None):
         """
         Initialize MIB service.
 
         Args:
             output_dir: Path to the directory containing JSON output files
+            compiled_mibs_dir: Path to compiled MIBs directory (for device context)
+            device_type: Device type name for context
         """
         self.output_dir = Path(output_dir)
+        self.compiled_mibs_dir = Path(compiled_mibs_dir) if compiled_mibs_dir else None
+        self.device_type = device_type
         self._mib_cache = {}  # Simple in-memory cache
         self._last_cache_update = {}
 
@@ -360,3 +364,157 @@ class MibService:
             return 'description'
         else:
             return 'other'
+
+    def get_device_context(self) -> Dict[str, Any]:
+        """
+        Get device context information.
+
+        Returns:
+            Device context dictionary
+        """
+        return {
+            'device_type': self.device_type,
+            'output_dir': str(self.output_dir),
+            'compiled_mibs_dir': str(self.compiled_mibs_dir) if self.compiled_mibs_dir else None
+        }
+
+    def add_uploaded_files(self, mib_files: List[Path], device_type: str = None) -> Dict[str, Any]:
+        """
+        Parse and add uploaded MIB files to this device.
+        Simplified version without complex timeout mechanisms to avoid threading issues.
+
+        Args:
+            mib_files: List of MIB file paths
+            device_type: Device type for context
+
+        Returns:
+            Dictionary with parsing results
+        """
+        from src.mib_parser.parser import MibParser
+        import tempfile
+        import shutil
+        import time
+
+        results = {
+            'success': [],
+            'errors': [],
+            'total_processed': 0,
+            'total_added': 0
+        }
+
+        try:
+            # Initialize parser once for all files
+            mib_sources = [str(self.compiled_mibs_dir)] if self.compiled_mibs_dir else []
+            if self.compiled_mibs_dir and self.compiled_mibs_dir.exists():
+                mib_sources.append(str(self.compiled_mibs_dir))
+
+            # Add parent directories of uploaded files as sources
+            for mib_file in mib_files:
+                parent_dir = str(mib_file.parent)
+                if parent_dir not in mib_sources:
+                    mib_sources.append(parent_dir)
+
+            parser = MibParser(mib_sources=mib_sources, debug_mode=False)
+
+            # Process each MIB file with simple time tracking
+            for mib_file in mib_files:
+                try:
+                    results['total_processed'] += 1
+                    start_time = time.time()
+
+                    # Simple timeout check - if parsing takes too long, skip this file
+                    result = parser.parse_file(str(mib_file))
+                    parse_time = time.time() - start_time
+
+                    if parse_time > 20:  # If a file takes more than 20 seconds, consider it problematic
+                        results['errors'].append({
+                            'filename': mib_file.name,
+                            'error': f'Parsing took too long ({parse_time:.1f}s) - file may be too complex'
+                        })
+                        continue
+
+                    # Check if result is a valid MibData object
+                    if result and hasattr(result, 'name') and hasattr(result, 'nodes'):
+                        results['success'].append({
+                            'filename': mib_file.name,
+                            'mib_name': result.name,
+                            'nodes_count': len(result.nodes)
+                        })
+                        results['total_added'] += 1
+                    else:
+                        results['errors'].append({
+                            'filename': mib_file.name,
+                            'error': 'Parser returned invalid result - not a proper MibData object'
+                        })
+
+                except Exception as e:
+                    results['errors'].append({
+                        'filename': mib_file.name,
+                        'error': str(e)
+                    })
+
+        except Exception as e:
+            # If parser initialization fails, add errors for all files
+            for mib_file in mib_files:
+                results['errors'].append({
+                    'filename': mib_file.name,
+                    'error': f'Parser initialization failed: {str(e)}'
+                })
+
+        # Clear cache to force reload
+        self.clear_cache()
+
+        return results
+
+    def replace_device_mibs(self, mib_files: List[Path], device_type: str = None) -> Dict[str, Any]:
+        """
+        Replace all MIB files for this device with new ones.
+
+        Args:
+            mib_files: List of MIB file paths
+            device_type: Device type for context
+
+        Returns:
+            Dictionary with replacement results
+        """
+        try:
+            # Clear existing files (no timeout needed for file operations)
+            try:
+                # Clear JSON output files
+                for json_file in self.output_dir.glob("*.json"):
+                    json_file.unlink()
+
+                # Clear compiled MIB files
+                if self.compiled_mibs_dir and self.compiled_mibs_dir.exists():
+                    for compiled_file in self.compiled_mibs_dir.glob("*"):
+                        if compiled_file.is_file():
+                            compiled_file.unlink()
+
+            except Exception as e:
+                return {
+                    'success': False,
+                    'error': f'Failed to clear existing files: {str(e)}',
+                    'success_count': 0,
+                    'error_count': len(mib_files),
+                    'errors': [{'filename': f.name, 'error': 'Clear operation failed'} for f in mib_files]
+                }
+
+            # Add new files (this already has timeout handling)
+            add_result = self.add_uploaded_files(mib_files, device_type)
+
+            return {
+                'success': True,
+                'success_count': add_result['total_added'],
+                'error_count': len(add_result['errors']),
+                'errors': add_result['errors'],
+                'success_files': add_result['success']
+            }
+
+        except Exception as e:
+            return {
+                'success': False,
+                'error': f'Replacement failed: {str(e)}',
+                'success_count': 0,
+                'error_count': len(mib_files),
+                'errors': [{'filename': f.name, 'error': str(e)} for f in mib_files]
+            }

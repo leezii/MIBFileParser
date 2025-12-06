@@ -17,6 +17,7 @@ def create_app(config_name='development'):
     app.config['OUTPUT_DIR'] = Path(__file__).parent.parent.parent / 'output'
     app.config['MIB_DIR'] = Path(__file__).parent.parent.parent / 'MIB'
     app.config['JSON_SORT_KEYS'] = False
+    app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max upload size
 
     # Enable CORS for all routes
     CORS(app, resources={
@@ -27,9 +28,11 @@ def create_app(config_name='development'):
     # Register blueprints
     from .routes.main import main_bp
     from .routes.api import api_bp
+    from .routes.upload import upload_bp
 
     app.register_blueprint(main_bp)
     app.register_blueprint(api_bp, url_prefix='/api')
+    app.register_blueprint(upload_bp)
 
     # Error handlers
     @app.errorhandler(404)

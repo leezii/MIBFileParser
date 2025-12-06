@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import List, Dict, Any, Union
 from datetime import datetime
 
-from .models import MibData, MibNode
+from src.mib_parser.models import MibData, MibNode
 
 
 class JsonSerializer:

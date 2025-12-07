@@ -647,7 +647,7 @@ class MibTableService:
             if structure['entry_oid']:
                 # Check if node OID starts with entry OID and has more components
                 node_oid = node_data.get('oid', '')
-                if node_oid.startswith(structure['entry_oid'] + '.') or node_oid == structure['entry_oid']:
+                if node_oid and (node_oid.startswith(structure['entry_oid'] + '.') or node_oid == structure['entry_oid']):
                     # Exclude the entry itself and other entries/tables
                     if not node_data.get('is_entry', False) and not node_data.get('is_table', False):
                         is_column = True
@@ -792,7 +792,9 @@ class MibTableService:
     def _extract_display_hint(self, field_node: Dict) -> Optional[str]:
         """Extract display hint from field node."""
         # Look for common display hint patterns
-        description = field_node.get('description', '').lower()
+        description = field_node.get('description', '') or ''
+        if description:
+            description = description.lower()
         if 'port' in description:
             return "Enter port number (1-65535)"
         elif 'ip' in description or 'address' in description:

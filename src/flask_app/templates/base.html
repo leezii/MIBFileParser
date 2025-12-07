@@ -19,6 +19,57 @@
 
     {% block extra_css %}
 <style>
+    /* Navigation styling to match Home page layout */
+    .navbar.navbar-expand-lg .navbar-nav .nav-link {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 8px 12px !important;
+        min-width: 70px;
+        justify-content: center;
+    }
+
+    .navbar.navbar-expand-lg .navbar-nav .nav-link i {
+        margin-bottom: 4px !important;
+        font-size: 1.1em;
+        display: block;
+        line-height: 1;
+    }
+
+    .navbar.navbar-expand-lg .navbar-nav .nav-link span {
+        font-size: 0.8em !important;
+        line-height: 1;
+        display: block;
+    }
+
+    /* Override for all screen sizes */
+    @media (min-width: 1px) {
+        .navbar.navbar-expand-lg .navbar-nav .nav-link {
+            flex-direction: column !important;
+        }
+    }
+
+    /* Override Bootstrap's responsive navbar styles */
+    @media (max-width: 991.98px) {
+        .navbar.navbar-expand-lg .navbar-nav .nav-link {
+            flex-direction: column !important;
+        }
+    }
+
+    /* Active state styling */
+    .navbar-nav .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+
+    /* Adjust spacing for vertical layout */
+    @media (min-width: 992px) {
+        .navbar-expand-lg .navbar-nav {
+            align-items: center;
+        }
+    }
+
     /* Device dropdown styling for proper alignment */
     .dropdown-item.device-switch {
         display: flex;
@@ -51,37 +102,44 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('main.index') }}">
-                            <i class="fas fa-home"></i> Home
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('upload.upload_page') }}">
-                            <i class="fas fa-upload"></i> Upload
+                            <i class="fas fa-upload"></i>
+                            <span>Upload</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('upload.device_management') }}">
-                            <i class="fas fa-server"></i> Devices
+                            <i class="fas fa-server"></i>
+                            <span>Devices</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('main.search_page') }}">
-                            <i class="fas fa-search"></i> Search
+                            <i class="fas fa-search"></i>
+                            <span>Search</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('oid_lookup.oid_lookup_page') }}">
-                            <i class="fas fa-fingerprint"></i> OID Lookup
+                            <i class="fas fa-fingerprint"></i>
+                            <span>OID Lookup</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('main.statistics_page') }}">
-                            <i class="fas fa-chart-bar"></i> Statistics
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Statistics</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('main.about_page') }}">
-                            <i class="fas fa-info-circle"></i> About
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
                         </a>
                     </li>
                 </ul>

@@ -1093,7 +1093,7 @@ $(document).ready(function() {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Complete OID for ${columnName}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" onclick="closeOidModal()" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
@@ -1112,6 +1112,9 @@ $(document).ready(function() {
                                 </div>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" onclick="closeOidModal()">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1122,7 +1125,21 @@ $(document).ready(function() {
 
         // Add modal to body and show
         $('body').append(modal);
-        $('#oidModal').modal('show');
+
+        // Use Bootstrap 5 modal API
+        const modalElement = document.getElementById('oidModal');
+        const modalInstance = new bootstrap.Modal(modalElement);
+        modalInstance.show();
+    }
+
+    function closeOidModal() {
+        const modalElement = document.getElementById('oidModal');
+        const modalInstance = bootstrap.Modal.getInstance(modalElement);
+        if (modalInstance) {
+            modalInstance.hide();
+        } else {
+            $('#oidModal').remove();
+        }
     }
 
     function copyToClipboard(text) {

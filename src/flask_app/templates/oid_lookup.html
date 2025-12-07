@@ -777,12 +777,21 @@ $(document).ready(function() {
                         ${index.required ? '<span class="badge bg-danger ms-2">Required</span>' : '<span class="badge bg-secondary ms-2">Optional</span>'}
                     </div>
                     ${index.description ? `<div class="index-field-description">${index.description}</div>` : ''}
-                    <input type="${index.display_type}"
-                           class="form-control"
-                           id="index_${indexNum}"
-                           name="${index.name}"
-                           placeholder="${index.placeholder}"
-                           ${index.required ? 'required' : ''}>
+                    <div class="index-input-container">
+                        <input type="${index.display_type}"
+                               class="form-control"
+                               id="index_${indexNum}"
+                               name="${index.name}"
+                               placeholder="${index.placeholder}"
+                               data-index-name="${index.name}"
+                               ${index.required ? 'required' : ''}>
+                        <div class="annotation-display" id="annotation_${indexNum}" style="display: none;">
+                            <small class="text-info">
+                                <i class="fas fa-tag"></i>
+                                <span class="annotation-text"></span>
+                            </small>
+                        </div>
+                    </div>
                     ${index.syntax ? `<small class="text-muted">Syntax: ${index.syntax}</small>` : ''}
                     <div class="validation-error" id="error_${indexNum}" style="display: none;"></div>
                 </div>
@@ -790,7 +799,55 @@ $(document).ready(function() {
             container.append(fieldHtml);
         });
 
+        // Load annotations for index fields
+        loadIndexFieldAnnotations(indexes);
+
         $('#indexSection').slideDown();
+    }
+
+    // Load annotations for index fields
+    function loadIndexFieldAnnotations(indexes) {
+        indexes.forEach(function(index, indexNum) {
+            // Try to find the OID for this index field
+            // We need to find nodes that match this index name and have OCTET STRING type with 'para' in name
+            $.ajax({
+                url: '/annotation/api/index-field-oid',
+                method: 'GET',
+                data: {
+                    index_name: index.name,
+                    table_name: currentTable ? currentTable.name : null
+                },
+                success: function(response) {
+                    if (response.success && response.oid) {
+                        // Load annotation for this OID
+                        $.ajax({
+                            url: '/annotation/api/annotation/' + response.oid,
+                            method: 'GET',
+                            success: function(annotationResponse) {
+                                if (annotationResponse.success && annotationResponse.annotation) {
+                                    const annotationDiv = $(`#annotation_${indexNum}`);
+                                    const annotationText = annotationDiv.find('.annotation-text');
+                                    annotationText.text(annotationResponse.annotation);
+                                    annotationDiv.show();
+
+                                    // Set the annotation as placeholder if input is empty
+                                    const inputField = $(`#index_${indexNum}`);
+                                    if (!inputField.val()) {
+                                        inputField.attr('placeholder', annotationResponse.annotation);
+                                    }
+                                }
+                            },
+                            error: function() {
+                                // Silently fail if annotation can't be loaded
+                            }
+                        });
+                    }
+                },
+                error: function() {
+                    // Silently fail if OID can't be found
+                }
+            });
+        });
     }
 
     // Validate index fields

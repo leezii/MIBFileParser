@@ -74,10 +74,16 @@ class MibService:
                         # Get file metadata
                         stat = file_path.stat()
 
+                        try:
+                            relative_path = str(file_path.relative_to(self.output_dir.parent))
+                        except ValueError:
+                            # If file is not in the expected subpath, use absolute path
+                            relative_path = str(file_path)
+
                         mib_info = {
                             'name': mib_name,
                             'filename': file_path.name,
-                            'file_path': str(file_path.relative_to(self.output_dir.parent)),
+                            'file_path': relative_path,
                             'size': stat.st_size,
                             'last_modified': datetime.fromtimestamp(stat.st_mtime).isoformat(),
                             'description': None,

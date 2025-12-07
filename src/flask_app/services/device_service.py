@@ -96,28 +96,32 @@ class DeviceService:
 
     def create_device(self, device_name: str, display_name: str = None, description: str = None) -> bool:
         """Create a new device"""
-        # Sanitize device name
-        device_name = "".join(c for c in device_name if c.isalnum() or c in ('-', '_')).lower()
-
-        if not device_name:
+        # Use user-provided name as both directory name and display name
+        # This allows for user-friendly naming with spaces and special characters
+        if not device_name or not device_name.strip():
             raise ValueError("Invalid device name")
+
+        # Use the original device name as provided by user
+        device_name = device_name.strip()
 
         registry = self._load_registry()
 
-        # Check if device already exists
+        # Check if device already exists (both by name and display_name)
         existing_devices = [d["name"] for d in registry.get("devices", [])]
-        if device_name in existing_devices:
+        existing_display_names = [d["display_name"] for d in registry.get("devices", [])]
+        if device_name in existing_devices or device_name in existing_display_names:
             return False
 
-        # Create device directories
+        # Create device directories using user-friendly name
         device_dir = self.devices_dir / device_name
         device_dir.mkdir(parents=True, exist_ok=True)
         (device_dir / "compiled_mibs").mkdir(exist_ok=True)
+        (device_dir / "mibs_for_pysmi").mkdir(exist_ok=True)
         (device_dir / "output").mkdir(exist_ok=True)
 
         # Add to registry
         if display_name is None:
-            display_name = device_name.replace('-', ' ').replace('_', ' ').title()
+            display_name = device_name
 
         new_device = {
             "name": device_name,

@@ -8,7 +8,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:39:37.157147",
+  "last_updated": "2025-12-07T12:42:14.673358",
   "root_oids": [],
   "nodes": {
     "huawei": {
@@ -157,7 +157,7 @@
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:39:37.157237",
+    "exported_at": "2025-12-07T12:42:14.673500",
     "version": "1.0",
     "type": "single_mib"
   }

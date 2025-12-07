@@ -10,7 +10,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:39:37.589183",
+  "last_updated": "2025-12-07T12:42:15.185416",
   "root_oids": [],
   "nodes": {
     "optixGlobalPER": {
@@ -203,7 +203,7 @@
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:39:37.589246",
+    "exported_at": "2025-12-07T12:42:15.185461",
     "version": "1.0",
     "type": "single_mib"
   }

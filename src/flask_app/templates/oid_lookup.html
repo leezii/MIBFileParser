@@ -177,6 +177,54 @@
     text-align: left;
 }
 
+.field-name-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.field-name {
+    font-weight: 600;
+    color: #495057;
+    min-width: 120px;
+}
+
+.field-description {
+    color: #6c757d;
+    font-style: italic;
+    margin: 0;
+}
+
+.input-container {
+    width: 100%;
+}
+
+.index-field {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.index-field:hover {
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+.field-description {
+    font-size: 0.85em;
+    color: #666;
+    font-style: italic;
+}
+
+.input-container {
+    flex: 1;
+    min-width: 0;
+}
+
 .card-header {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     font-weight: bold;
@@ -819,30 +867,30 @@ $(document).ready(function() {
         indexes.forEach(function(index, indexNum) {
             const fieldHtml = `
                 <div class="index-field">
-                    <div class="index-field-label">
-                        ${index.name}
-                        ${index.required ? '<span class="badge bg-danger ms-2">Required</span>' : '<span class="badge bg-secondary ms-2">Optional</span>'}
-                    </div>
-                    ${index.description ? `<div class="index-field-description">${index.description}</div>` : ''}
                     <div class="index-input-container">
-                        <input type="${index.display_type}"
-                               class="form-control"
-                               id="index_${indexNum}"
-                               name="${index.name}"
-                               placeholder="${index.placeholder}"
-                               data-index-name="${index.name}"
-                               ${index.required ? 'required' : ''}>
-                        <div class="annotation-display" id="annotation_${indexNum}" style="display: none;">
-                            <small class="text-info">
-                                <i class="fas fa-tag"></i>
-                                <span class="annotation-text"></span>
-                            </small>
+                        <div class="field-name-container">
+                            <span class="field-name">${index.name}:</span>
+                            ${index.description ? `<small class="field-description">${index.description}</small>` : ''}
                         </div>
-                        <div class="annotation-hint" id="annotation_hint_${indexNum}" style="display: none;">
-                            <small><i class="fas fa-info-circle"></i> 值来自标注，可直接修改</small>
+                        <div class="input-container">
+                            <input type="${index.display_type}"
+                                   class="form-control"
+                                   id="index_${indexNum}"
+                                   name="${index.name}"
+                                   placeholder="${index.placeholder}"
+                                   data-index-name="${index.name}"
+                                   ${index.required ? 'required' : ''}>
+                            <div class="annotation-display" id="annotation_${indexNum}" style="display: none;">
+                                <small class="text-info">
+                                    <i class="fas fa-tag"></i>
+                                    <span class="annotation-text"></span>
+                                </small>
+                            </div>
+                            <div class="annotation-hint" id="annotation_hint_${indexNum}" style="display: none;">
+                                <small><i class="fas fa-info-circle"></i> 值来自标注，可直接修改</small>
+                            </div>
                         </div>
                     </div>
-                    ${index.syntax ? `<small class="text-muted">Syntax: ${index.syntax}</small>` : ''}
                     <div class="validation-error" id="error_${indexNum}" style="display: none;"></div>
                 </div>
             `;

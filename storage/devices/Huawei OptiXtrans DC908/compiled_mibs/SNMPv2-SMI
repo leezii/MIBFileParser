@@ -50,7 +50,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///Users/zhili/Develop/python/MIBFileParser/storage/global/mibs_for_pysmi/SNMPv2-SMI.mib",
-      "Produced by pysmi-1.6.2 at Sun Dec  7 15:05:19 2025",
+      "Produced by pysmi-1.6.2 at Sun Dec  7 17:46:46 2025",
       "On host zhideMac-mini.local platform Darwin version 25.1.0 by user zhili",
       "Using Python version 3.12.11 (main, Aug 18 2025, 19:02:39) [Clang 20.1.4 ]"
     ],

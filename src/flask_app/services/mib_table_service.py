@@ -669,12 +669,21 @@ class MibTableService:
                 # Extract type information from syntax or node type
                 column_type = node_data.get('type') or self._extract_type_from_syntax(node_data.get('syntax', {}))
 
+                # Handle missing description gracefully
+                description = node_data.get('description', '')
+                if not description or description == 'null':
+                    # Generate a helpful description based on the name
+                    description = f"SNMP object: {node_name}"
+
+                # Handle missing access gracefully
+                access = node_data.get('access') or node_data.get('max_access', 'read-only')
+
                 column = {
                     'name': node_name,
                     'oid': node_data.get('oid', ''),
                     'syntax': str(node_data.get('syntax', {})),
-                    'description': node_data.get('description', ''),
-                    'access': node_data.get('access', 'read-only') or node_data.get('max_access', 'read-only'),
+                    'description': description,
+                    'access': access,
                     'type': column_type
                 }
                 structure['columns'].append(column)

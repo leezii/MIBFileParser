@@ -924,9 +924,13 @@ $(document).ready(function() {
                         <td><strong>${column.name}</strong></td>
                         <td><code class="oid-segment">${column.oid}</code></td>
                         <td><code class="oid-segment complete-oid">${column.complete_oid || 'N/A'}</code></td>
-                        <td><span class="badge bg-secondary">${column.type}</span></td>
-                        <td><span class="${accessClass}">${column.access || 'N/A'}</span></td>
-                        <td class="text-muted small">${column.description || 'N/A'}</td>
+                        <td><span class="badge bg-secondary">${column.type || 'Unknown'}</span></td>
+                        <td><span class="${accessClass}">${column.access || 'Unknown'}</span></td>
+                        <td class="text-muted small" title="${column.description || 'No description available'}">
+                            ${column.description && column.description.length > 50 ?
+                                column.description.substring(0, 50) + '...' :
+                                (column.description || 'No description available')}
+                        </td>
                         <td>
                             ${column.complete_oid ? `
                                 <button class="btn btn-outline-primary btn-sm" onclick="copyToClipboard('${column.complete_oid}')" title="Copy complete OID">

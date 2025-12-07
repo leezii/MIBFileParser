@@ -666,12 +666,16 @@ class MibTableService:
                 is_column = True
 
             if is_column:
+                # Extract type information from syntax or node type
+                column_type = node_data.get('type') or self._extract_type_from_syntax(node_data.get('syntax', {}))
+
                 column = {
                     'name': node_name,
                     'oid': node_data.get('oid', ''),
                     'syntax': str(node_data.get('syntax', {})),
                     'description': node_data.get('description', ''),
-                    'access': node_data.get('access', 'read-only')
+                    'access': node_data.get('access', 'read-only') or node_data.get('max_access', 'read-only'),
+                    'type': column_type
                 }
                 structure['columns'].append(column)
 
@@ -785,9 +789,11 @@ class MibTableService:
 
     def _extract_type_from_syntax(self, syntax: Dict) -> str:
         """Extract type from syntax dictionary."""
+        if syntax is None:
+            return "Unknown"
         if isinstance(syntax, dict):
             return syntax.get('type', str(syntax))
-        return str(syntax)
+        return str(syntax) or "Unknown"
 
     def _extract_constraints(self, syntax: Dict) -> Dict[str, Any]:
         """Extract constraints from syntax."""

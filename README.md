@@ -63,12 +63,14 @@ uv install
 Start the Flask web application:
 
 ```bash
+# Run Flask module directly
 uv run python -m flask_app.app
-# Or with custom host/port:
+
+# With custom host/port
 FLASK_HOST=0.0.0.0 FLASK_PORT=8080 uv run python -m flask_app.app
 ```
 
-Then open your browser and navigate to `http://localhost:8080`
+Then open your browser and navigate to `http://localhost:8080` (or your custom port)
 
 #### Web Interface Features
 - **Dashboard**: Overview of all loaded MIB files and devices
@@ -192,10 +194,10 @@ MIBFileParser/
 │   ├── test_tree.py           # Tree tools tests
 │   ├── test_models.py         # Model tests
 │   └── fixtures/              # Test MIB files
-├── examples/                  # Usage examples
-│   ├── basic_usage.py         # Basic usage examples
-│   ├── oid_lookup.py          # OID lookup examples
-│   └── tree_visualizer.py     # Tree visualization examples
+├── storage/                   # Data storage
+│   ├── devices/               # Device-specific MIB files
+│   ├── parsed/                # Parsed MIB data (JSON)
+│   └── annotations/           # User annotations and metadata
 └── device_registry.json       # Device configuration
 ```
 

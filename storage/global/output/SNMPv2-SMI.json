@@ -1,0 +1,91 @@
+{
+  "name": "SNMPv2-SMI",
+  "description": "SNMPv2 Management Information Base for the Simple Network Management Protocol (SNMP)",
+  "imports": ["SNMPv2-CONF"],
+  "nodes": {
+    "iso": {
+      "oid": "1",
+      "name": "iso",
+      "description": "ISO(1) :: {joint-iso-ccitt(2) member-body(2) us(840) 1}",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "org": {
+      "oid": "1.3",
+      "name": "org",
+      "description": "ISO Organization Identified by OIDs",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "dod": {
+      "oid": "1.3.6",
+      "name": "dod",
+      "description": "US Department of Defense",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "internet": {
+      "oid": "1.3.6.1",
+      "name": "internet",
+      "description": "Internet OID hierarchy",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "directory": {
+      "oid": "1.3.6.1.1",
+      "name": "directory",
+      "description": "Directory OID subtree",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "mgmt": {
+      "oid": "1.3.6.1.2",
+      "name": "mgmt",
+      "description": "Management OID subtree",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "experimental": {
+      "oid": "1.3.6.1.3",
+      "name": "experimental",
+      "description": "Experimental OID subtree",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "private": {
+      "oid": "1.3.6.1.4",
+      "name": "private",
+      "description": "Private enterprises OID subtree",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "enterprises": {
+      "oid": "1.3.6.1.4.1",
+      "name": "enterprises",
+      "description": "Private enterprises OID subtree",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "security": {
+      "oid": "1.3.6.1.5",
+      "name": "security",
+      "description": "Security OID subtree",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "snmpV2": {
+      "oid": "1.3.6.1.6",
+      "name": "snmpV2",
+      "description": "SNMPv2 OID subtree",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "snmpDomains": {
+      "oid": "1.3.6.1.6.1",
+      "name": "snmpDomains",
+      "description": "SNMP transport domains",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "snmpProxys": {
+      "oid": "1.3.6.1.6.2",
+      "name": "snmpProxys",
+      "description": "SNMP proxy parties",
+      "syntax": "OBJECT IDENTIFIER"
+    },
+    "snmpModules": {
+      "oid": "1.3.6.1.6.3",
+      "name": "snmpModules",
+      "description": "SNMP module registrations",
+      "syntax": "OBJECT IDENTIFIER"
+    }
+  }
+}

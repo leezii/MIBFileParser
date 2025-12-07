@@ -22,7 +22,7 @@ from src.mib_parser.dependency_resolver import MibDependencyResolver
 class MibParser:
     """Main class for parsing MIB files using pysmi with proper compilation."""
 
-    def __init__(self, mib_sources: Optional[List[str]] = None, debug_mode: bool = False, resolve_dependencies: bool = True):
+    def __init__(self, mib_sources: Optional[List[str]] = None, debug_mode: bool = False, resolve_dependencies: bool = True, device_type: str = "default"):
         """
         Initialize the MIB parser.
 
@@ -30,10 +30,13 @@ class MibParser:
             mib_sources: List of directories to search for MIB files
             debug_mode: Enable debug output
             resolve_dependencies: Whether to resolve MIB dependencies
+            device_type: Device type for device-specific MIB storage
         """
         if debug_mode:
             debug.set_logger(debug.Debug('reader', 'compiler'))
 
+        self.device_type = device_type
+        self.device_base_path = Path.cwd() / "storage" / "devices" / device_type
         self.mib_sources = mib_sources or self._get_default_mib_sources()
         self.resolve_dependencies = resolve_dependencies
         self.dependency_resolver = MibDependencyResolver() if resolve_dependencies else None
@@ -46,19 +49,20 @@ class MibParser:
         """Get default MIB source directories."""
         sources = []
 
-        # Add current directory
-        if os.path.exists('.'):
-            sources.append(os.getcwd())
+        # Add global MIB directory first (highest priority for standard MIBs)
+        global_mibs_dir = Path.cwd() / "storage" / "global" / "mibs_for_pysmi"
+        if global_mibs_dir.exists():
+            sources.append(str(global_mibs_dir))
 
-        # Add project-specific MIB directories (critical for dependency resolution)
-        project_dirs = [
-            str(Path.cwd() / "mibs_for_pysmi"),
-            str(Path.cwd() / "storage" / "shared_mibs"),
-        ]
+        # Add device-specific MIB directory
+        device_mibs_dir = self.device_base_path / "mibs_for_pysmi"
+        if device_mibs_dir.exists():
+            sources.append(str(device_mibs_dir))
 
-        for dir_path in project_dirs:
-            if os.path.exists(dir_path):
-                sources.append(dir_path)
+        # Add shared MIBs directory
+        shared_mibs_dir = Path.cwd() / "storage" / "shared_mibs"
+        if shared_mibs_dir.exists():
+            sources.append(str(shared_mibs_dir))
 
         # Add common MIB directories
         common_dirs = [
@@ -81,8 +85,13 @@ class MibParser:
         # Setup JSON code generation
         json_codegen = JsonCodeGen()
 
+        # For now, use device-specific compiled_mibs directory
+        # TODO: Make this configurable to decide between global vs device-specific
+        device_compiled_dir = self.device_base_path / "compiled_mibs"
+        device_compiled_dir.mkdir(parents=True, exist_ok=True)
+
         # Create writer (directory-based) for JSON output
-        writer = FileWriter(str(Path.cwd() / "compiled_mibs"))
+        writer = FileWriter(str(device_compiled_dir))
 
         # Create compiler with required components
         self.mib_compiler = MibCompiler(parser, json_codegen, writer)
@@ -98,6 +107,12 @@ class MibParser:
             if os.path.exists(source):
                 borrower = AnyFileBorrower(FileReader(source))
                 self.mib_compiler.add_borrowers(borrower)
+
+        # Add global compiled_mibs as borrower for standard MIB dependencies
+        global_compiled_dir = Path.cwd() / "storage" / "global" / "compiled_mibs"
+        if global_compiled_dir.exists():
+            global_borrower = AnyFileBorrower(FileReader(str(global_compiled_dir)))
+            self.mib_compiler.add_borrowers(global_borrower)
 
     def parse_mib_file(self, file_path: str) -> MibData:
         """
@@ -138,9 +153,9 @@ class MibParser:
             parser = SmiStarParser()
             json_codegen = JsonCodeGen()
 
-            # Ensure compiled_mibs directory exists and is accessible
-            compiled_dir = Path.cwd() / "compiled_mibs"
-            compiled_dir.mkdir(exist_ok=True)
+            # Ensure device-specific compiled_mibs directory exists and is accessible
+            compiled_dir = self.device_base_path / "compiled_mibs"
+            compiled_dir.mkdir(parents=True, exist_ok=True)
             writer = FileWriter(str(compiled_dir))
             compiler = MibCompiler(parser, json_codegen, writer)
 
@@ -162,10 +177,10 @@ class MibParser:
                     borrower = AnyFileBorrower(reader)
                     compiler.add_borrowers(borrower)
 
-            # Add the shared MIBs directory
-            mibs_dir = Path.cwd() / "mibs_for_pysmi"
-            if mibs_dir.exists():
-                mibs_reader = FileReader(str(mibs_dir))
+            # Add the device-specific MIBs directory
+            device_mibs_dir = self.device_base_path / "mibs_for_pysmi"
+            if device_mibs_dir.exists():
+                mibs_reader = FileReader(str(device_mibs_dir))
                 compiler.add_sources(mibs_reader)
                 mibs_borrower = AnyFileBorrower(mibs_reader)
                 compiler.add_borrowers(mibs_borrower)
@@ -246,10 +261,10 @@ class MibParser:
                 shutil.rmtree(temp_dir, ignore_errors=True)
 
             if success:
-                # Copy the original MIB file to a shared directory with correct MIB name for future dependency resolution
-                mibs_dir = Path.cwd() / "mibs_for_pysmi"
-                mibs_dir.mkdir(exist_ok=True)
-                original_mib_file = mibs_dir / f"{mib_name}.mib"
+                # Copy the original MIB file to device-specific directory with correct MIB name for future dependency resolution
+                device_mibs_dir = self.device_base_path / "mibs_for_pysmi"
+                device_mibs_dir.mkdir(parents=True, exist_ok=True)
+                original_mib_file = device_mibs_dir / f"{mib_name}.mib"
                 if not original_mib_file.exists():
                     shutil.copy2(file_path, original_mib_file)
 

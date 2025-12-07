@@ -30,6 +30,9 @@ class MibService:
         self._mib_cache = {}  # Simple in-memory cache
         self._last_cache_update = {}
 
+        # Add global output directory for standard MIBs
+        self.global_output_dir = Path.cwd() / "storage" / "global" / "output"
+
     def list_mibs(self) -> List[Dict[str, Any]]:
         """
         List all available MIB files with metadata.
@@ -40,46 +43,65 @@ class MibService:
         mibs = []
 
         try:
-            for file_path in self.output_dir.glob("*.json"):
-                # Skip auxiliary files like _oids.json, _tree.json
-                if any(suffix in file_path.name for suffix in ['_oids', '_tree', 'all_', 'statistics']):
-                    continue
+            # Collect all output directories to scan
+            output_dirs = []
 
-                try:
-                    # Try to get basic info from file name first
+            # Add global output directory first (standard MIBs)
+            if self.global_output_dir.exists():
+                output_dirs.append(self.global_output_dir)
+
+            # Add device-specific output directory
+            if self.output_dir.exists():
+                output_dirs.append(self.output_dir)
+
+            # Track seen MIB names to avoid duplicates
+            seen_mibs = set()
+
+            # Scan all output directories
+            for scan_dir in output_dirs:
+                for file_path in scan_dir.glob("*.json"):
+                    # Skip auxiliary files like _oids.json, _tree.json
+                    if any(suffix in file_path.name for suffix in ['_oids', '_tree', 'all_', 'statistics']):
+                        continue
+
                     mib_name = file_path.stem
+                    if mib_name in seen_mibs:
+                        continue  # Skip duplicates
 
-                    # Get file metadata
-                    stat = file_path.stat()
+                    seen_mibs.add(mib_name)
 
-                    mib_info = {
-                        'name': mib_name,
-                        'filename': file_path.name,
-                        'file_path': str(file_path.relative_to(self.output_dir.parent)),
-                        'size': stat.st_size,
-                        'last_modified': datetime.fromtimestamp(stat.st_mtime).isoformat(),
-                        'description': None,
-                        'nodes_count': None,
-                        'imports_count': None
-                    }
-
-                    # Try to get more detailed info from the JSON content
                     try:
-                        mib_data = self.get_mib_data(mib_name)
-                        if mib_data:
-                            mib_info.update({
-                                'description': mib_data.get('description'),
-                                'nodes_count': len(mib_data.get('nodes', {})),
-                                'imports_count': len(mib_data.get('imports', []))
-                            })
+                        # Get file metadata
+                        stat = file_path.stat()
+
+                        mib_info = {
+                            'name': mib_name,
+                            'filename': file_path.name,
+                            'file_path': str(file_path.relative_to(self.output_dir.parent)),
+                            'size': stat.st_size,
+                            'last_modified': datetime.fromtimestamp(stat.st_mtime).isoformat(),
+                            'description': None,
+                            'nodes_count': None,
+                            'imports_count': None
+                        }
+
+                        # Try to get more detailed info from the JSON content
+                        try:
+                            mib_data = self.get_mib_data(mib_name)
+                            if mib_data:
+                                mib_info.update({
+                                    'description': mib_data.get('description'),
+                                    'nodes_count': len(mib_data.get('nodes', {})),
+                                    'imports_count': len(mib_data.get('imports', []))
+                                })
+                        except Exception as e:
+                            logger.warning(f"Could not read detailed info for {mib_name}: {e}")
+
+                        mibs.append(mib_info)
+
                     except Exception as e:
-                        logger.warning(f"Could not read detailed info for {mib_name}: {e}")
-
-                    mibs.append(mib_info)
-
-                except Exception as e:
-                    logger.warning(f"Error processing file {file_path}: {e}")
-                    continue
+                        logger.warning(f"Error processing file {file_path}: {e}")
+                        continue
 
         except Exception as e:
             logger.error(f"Error listing MIB files: {e}")
@@ -102,17 +124,25 @@ class MibService:
         # Check cache first
         if use_cache and mib_name in self._mib_cache:
             cache_time = self._last_cache_update.get(mib_name, 0)
-            file_path = self.output_dir / f"{mib_name}.json"
+            # Check both global and device-specific directories
+            for check_dir in [self.global_output_dir, self.output_dir]:
+                file_path = check_dir / f"{mib_name}.json"
+                if file_path.exists() and file_path.stat().st_mtime <= cache_time:
+                    return self._mib_cache[mib_name]
 
-            # Check if file is newer than cache
-            if file_path.exists() and file_path.stat().st_mtime <= cache_time:
-                return self._mib_cache[mib_name]
-
-        # Try to find the file
-        json_file = self.output_dir / f"{mib_name}.json"
+        # Try to find the file in both directories
+        # First check global directory (standard MIBs)
+        json_file = self.global_output_dir / f"{mib_name}.json"
         if not json_file.exists():
-            # Try with .mib.json extension (if original was .mib file)
-            json_file = self.output_dir / f"{mib_name}.mib.json"
+            # Try with .mib.json extension
+            json_file = self.global_output_dir / f"{mib_name}.mib.json"
+
+        if not json_file.exists():
+            # Then check device-specific directory
+            json_file = self.output_dir / f"{mib_name}.json"
+            if not json_file.exists():
+                # Try with .mib.json extension
+                json_file = self.output_dir / f"{mib_name}.mib.json"
 
         if not json_file.exists():
             logger.error(f"MIB file not found: {mib_name}")
@@ -410,9 +440,8 @@ class MibService:
 
             # 1. Add shared MIB directories (most important for dependencies)
             shared_dirs = [
-                str(Path.cwd() / "mibs_for_pysmi"),
+                str(Path.cwd() / "storage" / "global" / "mibs_for_pysmi"),  # Global standard MIBs
                 str(Path.cwd() / "storage" / "shared_mibs"),
-                str(Path.cwd() / "compiled_mibs"),
             ]
 
             for shared_dir in shared_dirs:
@@ -447,7 +476,7 @@ class MibService:
             logger.info(f"Total MIB sources: {len(mib_sources)} directories")
 
             # Initialize parser with debug mode enabled for better error reporting
-            parser = MibParser(mib_sources=mib_sources, debug_mode=True, resolve_dependencies=True)
+            parser = MibParser(mib_sources=mib_sources, debug_mode=True, resolve_dependencies=True, device_type=self.device_type or "default")
 
             # Process each MIB file with enhanced error handling
             for mib_file in mib_files:

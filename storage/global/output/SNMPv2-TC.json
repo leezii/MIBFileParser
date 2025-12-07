@@ -1,0 +1,255 @@
+{
+  "AutonomousType": {
+    "class": "textualconvention",
+    "name": "AutonomousType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "tcbase": false,
+      "type": "OBJECT IDENTIFIER"
+    }
+  },
+  "DateAndTime": {
+    "class": "textualconvention",
+    "displayhint": "2d-1d-1d,1d:1d:1d.1d,1d:1d",
+    "name": "DateAndTime",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 8
+          },
+          {
+            "max": 11,
+            "min": 11
+          }
+        ]
+      },
+      "tcbase": false,
+      "type": "OCTET STRING"
+    }
+  },
+  "DisplayString": {
+    "class": "textualconvention",
+    "displayhint": "255a",
+    "name": "DisplayString",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "tcbase": false,
+      "type": "OCTET STRING"
+    }
+  },
+  "InstancePointer": {
+    "class": "textualconvention",
+    "name": "InstancePointer",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "tcbase": false,
+      "type": "OBJECT IDENTIFIER"
+    }
+  },
+  "MacAddress": {
+    "class": "textualconvention",
+    "displayhint": "1x:",
+    "name": "MacAddress",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "fixed": 6,
+        "size": [
+          {
+            "max": 6,
+            "min": 6
+          }
+        ]
+      },
+      "tcbase": false,
+      "type": "OCTET STRING"
+    }
+  },
+  "PhysAddress": {
+    "class": "textualconvention",
+    "displayhint": "1x:",
+    "name": "PhysAddress",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "tcbase": false,
+      "type": "OCTET STRING"
+    }
+  },
+  "RowPointer": {
+    "class": "textualconvention",
+    "name": "RowPointer",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "tcbase": false,
+      "type": "OBJECT IDENTIFIER"
+    }
+  },
+  "RowStatus": {
+    "class": "textualconvention",
+    "name": "RowStatus",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "createAndGo": 4,
+          "createAndWait": 5,
+          "destroy": 6,
+          "notInService": 2,
+          "notReady": 3
+        }
+      },
+      "tcbase": false,
+      "type": "INTEGER"
+    }
+  },
+  "StorageType": {
+    "class": "textualconvention",
+    "name": "StorageType",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonVolatile": 3,
+          "other": 1,
+          "permanent": 4,
+          "readOnly": 5,
+          "volatile": 2
+        }
+      },
+      "tcbase": false,
+      "type": "INTEGER"
+    }
+  },
+  "TestAndIncr": {
+    "class": "textualconvention",
+    "name": "TestAndIncr",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 2147483647,
+            "min": 0
+          }
+        ]
+      },
+      "tcbase": false,
+      "type": "Integer32"
+    }
+  },
+  "TimeInterval": {
+    "class": "textualconvention",
+    "displayhint": "2d-1d-1d,1d:1d:1d.1d,1d:1d",
+    "name": "TimeInterval",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "tcbase": false,
+      "type": "TimeTicks"
+    }
+  },
+  "TimeStamp": {
+    "class": "textualconvention",
+    "displayhint": "2d-1d-1d,1d:1d:1d.1d,1d:1d",
+    "name": "TimeStamp",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "tcbase": false,
+      "type": "TimeTicks"
+    }
+  },
+  "TruthValue": {
+    "class": "textualconvention",
+    "name": "TruthValue",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "false": 2,
+          "true": 1
+        }
+      },
+      "tcbase": false,
+      "type": "INTEGER"
+    }
+  },
+  "VariablePointer": {
+    "class": "textualconvention",
+    "name": "VariablePointer",
+    "status": "current",
+    "type": {
+      "class": "type",
+      "tcbase": false,
+      "type": "OBJECT IDENTIFIER"
+    }
+  },
+  "imports": {
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///Users/zhili/Develop/python/MIBFileParser/storage/devices/default/mibs_for_pysmi/SNMPv2-TC.mib",
+      "Produced by pysmi-1.6.2 at Sun Dec  7 12:02:14 2025",
+      "On host zhideMac-mini.local platform Darwin version 25.1.0 by user zhili",
+      "Using Python version 3.12.11 (main, Aug 18 2025, 19:02:39) [Clang 20.1.4 ]"
+    ],
+    "module": "SNMPv2-TC"
+  }
+}

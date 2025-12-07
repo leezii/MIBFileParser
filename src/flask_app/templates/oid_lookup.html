@@ -1,0 +1,681 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block extra_css %}
+<style>
+.oid-input-container {
+    position: relative;
+}
+
+.oid-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.oid-suggestion {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.oid-suggestion:hover {
+    background-color: #f5f5f5;
+}
+
+.oid-suggestion:last-child {
+    border-bottom: none;
+}
+
+.suggestion-name {
+    font-weight: bold;
+}
+
+.suggestion-details {
+    font-size: 0.9em;
+    color: #666;
+    margin-left: 10px;
+}
+
+.index-field {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.index-field-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.index-field-description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.validation-error {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.validation-warning {
+    color: #ffc107;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.loading-spinner {
+    display: none;
+    margin-left: 10px;
+}
+
+.table-info-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.result-card {
+    border-left: 4px solid #28a745;
+    background-color: #f8f9fa;
+}
+
+.error-card {
+    border-left: 4px solid #dc3545;
+    background-color: #f8f9fa;
+}
+
+.index-section {
+    display: none;
+}
+
+.complete-oid-display {
+    font-family: 'Courier New', monospace;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    word-break: break-all;
+    margin-top: 10px;
+}
+
+.btn-lookup {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+}
+
+.btn-lookup:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    color: white;
+}
+
+.input-group-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    font-weight: bold;
+}
+
+.badge-oid {
+    background-color: #6c757d;
+}
+
+.badge-mib {
+    background-color: #17a2b8;
+}
+
+.badge-match {
+    background-color: #28a745;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1><i class="fas fa-search"></i> MIB OID Lookup</h1>
+                <div class="text-muted">
+                    <i class="fas fa-microchip"></i> Current Device: <strong>{{ current_device }}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OID Input Section -->
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <i class="fas fa-fingerprint"></i> Enter OID or Table Name
+                </div>
+                <div class="card-body">
+                    <form id="oidLookupForm">
+                        <div class="oid-input-container">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fas fa-hashtag"></i>
+                                </span>
+                                <input type="text"
+                                       class="form-control form-control-lg"
+                                       id="oidInput"
+                                       placeholder="Enter OID (e.g., 1.3.6.1.2.1.2.2) or table name"
+                                       autocomplete="off">
+                                <button class="btn btn-lookup btn-lg" type="submit" id="lookupBtn">
+                                    <i class="fas fa-search"></i> Lookup
+                                </button>
+                                <div class="loading-spinner">
+                                    <div class="spinner-border spinner-border-sm text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Suggestions Dropdown -->
+                            <div class="oid-suggestions" id="oidSuggestions">
+                                <div class="text-muted p-3">Start typing to see suggestions...</div>
+                            </div>
+                        </div>
+
+                        <div class="text-muted small">
+                            <i class="fas fa-info-circle"></i>
+                            Enter an OID to find the corresponding table, or start typing a table name for suggestions.
+                            Examples: <code>1.3.6.1.2.1.2.2</code> (ifTable), <code>1.3.6.1.2.1.4.22</code> (ipNetToMediaTable)
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table Information Section -->
+    <div class="row" id="tableInfoSection" style="display: none;">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm table-info-card" id="tableInfoCard">
+                <div class="card-body">
+                    <h3><i class="fas fa-table"></i> Table Information</h3>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Table Name</h5>
+                            <p class="h4" id="tableName"></p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Table OID</h5>
+                            <p class="h4"><code id="tableOid" class="badge badge-oid"></code></p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h5>MIB Module</h5>
+                            <p><span class="badge badge-mib" id="mibName"></span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Match Type</h5>
+                            <p><span class="badge badge-match" id="matchType"></span></p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <h5>Description</h5>
+                            <p id="tableDescription"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Index Fields Section -->
+    <div class="row index-section" id="indexSection">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <i class="fas fa-key"></i> Index Fields
+                    <small class="text-muted ms-2">Enter values to build complete OID</small>
+                </div>
+                <div class="card-body">
+                    <form id="indexForm">
+                        <div id="indexFieldsContainer">
+                            <!-- Index fields will be dynamically inserted here -->
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success btn-lg" id="validateBtn">
+                                <i class="fas fa-check-circle"></i> Validate & Build OID
+                            </button>
+                            <div class="loading-spinner d-inline-block ms-2" id="indexLoadingSpinner">
+                                <div class="spinner-border spinner-border-sm text-success" role="status">
+                                    <span class="visually-hidden">Validating...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Section -->
+    <div class="row" id="resultSection" style="display: none;">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm result-card" id="resultCard">
+                <div class="card-header">
+                    <i class="fas fa-check-circle text-success"></i> Validation Result
+                </div>
+                <div class="card-body">
+                    <div id="resultContent">
+                        <!-- Results will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Section -->
+    <div class="row" id="errorSection" style="display: none;">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm error-card" id="errorCard">
+                <div class="card-header">
+                    <i class="fas fa-exclamation-circle text-danger"></i> Error
+                </div>
+                <div class="card-body">
+                    <div id="errorContent">
+                        <!-- Error messages will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    let currentTable = null;
+    let currentIndexes = [];
+    let suggestionTimeout = null;
+
+    // Form submissions
+    $('#oidLookupForm').on('submit', function(e) {
+        e.preventDefault();
+        lookupTable();
+    });
+
+    $('#indexForm').on('submit', function(e) {
+        e.preventDefault();
+        validateIndexes();
+    });
+
+    // OID input events
+    $('#oidInput').on('input', function() {
+        const value = $(this).val().trim();
+
+        // Clear previous timeout
+        if (suggestionTimeout) {
+            clearTimeout(suggestionTimeout);
+        }
+
+        if (value.length >= 2) {
+            // Wait for user to stop typing
+            suggestionTimeout = setTimeout(function() {
+                getSuggestions(value);
+            }, 300);
+        } else {
+            hideSuggestions();
+        }
+    });
+
+    $('#oidInput').on('focus', function() {
+        const value = $(this).val().trim();
+        if (value.length >= 2) {
+            getSuggestions(value);
+        }
+    });
+
+    // Hide suggestions when clicking outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.oid-input-container').length) {
+            hideSuggestions();
+        }
+    });
+
+    // Lookup table by OID
+    function lookupTable() {
+        const oid = $('#oidInput').val().trim();
+
+        if (!oid) {
+            showError('Please enter an OID or table name');
+            return;
+        }
+
+        showLoading(true);
+        hideError();
+        hideResult();
+
+        $.ajax({
+            url: '/api/lookup-table',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ oid: oid }),
+            success: function(response) {
+                showLoading(false);
+                if (response.success) {
+                    displayTableInfo(response.table);
+                    displayIndexFields(response.indexes);
+                    currentTable = response.table;
+                    currentIndexes = response.indexes;
+                } else {
+                    showError(response.error || 'Failed to lookup table');
+                }
+            },
+            error: function(xhr) {
+                showLoading(false);
+                let errorMsg = 'An error occurred while looking up the table';
+                if (xhr.responseJSON && xhr.responseJSON.error) {
+                    errorMsg = xhr.responseJSON.error;
+                }
+                showError(errorMsg);
+            }
+        });
+    }
+
+    // Get suggestions for autocomplete
+    function getSuggestions(query) {
+        $.ajax({
+            url: '/api/suggest-tables',
+            method: 'GET',
+            data: { q: query, limit: 10 },
+            success: function(response) {
+                if (response.success && response.suggestions.length > 0) {
+                    showSuggestions(response.suggestions);
+                } else {
+                    hideSuggestions();
+                }
+            },
+            error: function() {
+                hideSuggestions();
+            }
+        });
+    }
+
+    // Display suggestions
+    function showSuggestions(suggestions) {
+        const container = $('#oidSuggestions');
+        container.empty();
+
+        suggestions.forEach(function(suggestion) {
+            const item = $(`
+                <div class="oid-suggestion" data-oid="${suggestion.oid}" data-name="${suggestion.name}">
+                    <div class="suggestion-name">${suggestion.name}</div>
+                    <div class="suggestion-details">
+                        ${suggestion.description ? suggestion.description.substring(0, 80) + '...' : ''}
+                        <span class="badge badge-mib ms-2">${suggestion.mib_name}</span>
+                    </div>
+                </div>
+            `);
+
+            item.on('click', function() {
+                $('#oidInput').val(suggestion.oid);
+                hideSuggestions();
+                lookupTable();
+            });
+
+            container.append(item);
+        });
+
+        container.show();
+    }
+
+    // Hide suggestions
+    function hideSuggestions() {
+        $('#oidSuggestions').hide();
+    }
+
+    // Display table information
+    function displayTableInfo(table) {
+        $('#tableName').text(table.name);
+        $('#tableOid').text(table.oid);
+        $('#mibName').text(table.mib_name || 'Unknown');
+        $('#matchType').text(table.match_type || 'exact');
+        $('#tableDescription').text(table.description || 'No description available');
+
+        $('#tableInfoSection').slideDown();
+    }
+
+    // Display index fields
+    function displayIndexFields(indexes) {
+        const container = $('#indexFieldsContainer');
+        container.empty();
+
+        if (indexes.length === 0) {
+            container.html('<p class="text-muted">No index fields found for this table.</p>');
+            $('#indexSection').slideDown();
+            return;
+        }
+
+        indexes.forEach(function(index, indexNum) {
+            const fieldHtml = `
+                <div class="index-field">
+                    <div class="index-field-label">
+                        ${index.name}
+                        ${index.required ? '<span class="badge bg-danger ms-2">Required</span>' : '<span class="badge bg-secondary ms-2">Optional</span>'}
+                    </div>
+                    ${index.description ? `<div class="index-field-description">${index.description}</div>` : ''}
+                    <input type="${index.display_type}"
+                           class="form-control"
+                           id="index_${indexNum}"
+                           name="${index.name}"
+                           placeholder="${index.placeholder}"
+                           ${index.required ? 'required' : ''}>
+                    ${index.syntax ? `<small class="text-muted">Syntax: ${index.syntax}</small>` : ''}
+                    <div class="validation-error" id="error_${indexNum}" style="display: none;"></div>
+                </div>
+            `;
+            container.append(fieldHtml);
+        });
+
+        $('#indexSection').slideDown();
+    }
+
+    // Validate index fields
+    function validateIndexes() {
+        if (!currentTable) {
+            showError('No table selected');
+            return;
+        }
+
+        // Collect index values
+        const indexValues = {};
+        $('.index-field input').each(function() {
+            const name = $(this).attr('name');
+            const value = $(this).val().trim();
+            if (value) {
+                indexValues[name] = value;
+            }
+        });
+
+        showIndexLoading(true);
+        hideError();
+        hideResult();
+
+        $.ajax({
+            url: '/api/validate-indexes',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                table_name: currentTable.name,
+                indexes: indexValues
+            }),
+            success: function(response) {
+                showIndexLoading(false);
+                if (response.success) {
+                    displayValidationResult(response);
+                } else {
+                    displayValidationErrors(response);
+                }
+            },
+            error: function(xhr) {
+                showIndexLoading(false);
+                let errorMsg = 'An error occurred while validating the indexes';
+                if (xhr.responseJSON && xhr.responseJSON.error) {
+                    errorMsg = xhr.responseJSON.error;
+                }
+                showError(errorMsg);
+            }
+        });
+    }
+
+    // Display successful validation result
+    function displayValidationResult(response) {
+        let html = '<div class="alert alert-success"><h5><i class="fas fa-check-circle"></i> Validation Successful!</h5></div>';
+
+        if (response.complete_oid) {
+            html += `
+                <div class="mt-3">
+                    <h6><i class="fas fa-fingerprint"></i> Complete OID:</h6>
+                    <div class="complete-oid-display">${response.complete_oid}</div>
+                    <button class="btn btn-outline-primary btn-sm mt-2" onclick="copyToClipboard('${response.complete_oid}')">
+                        <i class="fas fa-copy"></i> Copy OID
+                    </button>
+                </div>
+            `;
+        }
+
+        if (response.normalized_values) {
+            html += '<div class="mt-3"><h6><i class="fas fa-info-circle"></i> Normalized Values:</h6><ul>';
+            for (const [field, value] of Object.entries(response.normalized_values)) {
+                html += `<li><strong>${field}:</strong> ${value}</li>`;
+            }
+            html += '</ul></div>';
+        }
+
+        if (response.warnings && response.warnings.length > 0) {
+            html += '<div class="mt-3"><h6><i class="fas fa-exclamation-triangle"></i> Warnings:</h6><ul class="text-warning">';
+            response.warnings.forEach(function(warning) {
+                html += `<li>${warning}</li>`;
+            });
+            html += '</ul></div>';
+        }
+
+        $('#resultContent').html(html);
+        $('#resultSection').slideDown();
+    }
+
+    // Display validation errors
+    function displayValidationErrors(response) {
+        let html = '<div class="alert alert-danger"><h5><i class="fas fa-exclamation-triangle"></i> Validation Failed</h5></div>';
+
+        if (response.errors && response.errors.length > 0) {
+            html += '<div class="mt-3"><h6>Errors:</h6><ul>';
+            response.errors.forEach(function(error) {
+                html += `<li><strong>${error.field}:</strong> ${error.message}</li>`;
+
+                // Show field-specific error
+                const fieldInput = $(`input[name="${error.field}"]`);
+                if (fieldInput.length > 0) {
+                    const errorDiv = fieldInput.siblings('.validation-error');
+                    errorDiv.text(error.message).show();
+                }
+            });
+            html += '</ul></div>';
+        }
+
+        if (response.warnings && response.warnings.length > 0) {
+            html += '<div class="mt-3"><h6>Warnings:</h6><ul class="text-warning">';
+            response.warnings.forEach(function(warning) {
+                html += `<li>${warning}</li>`;
+            });
+            html += '</ul></div>';
+        }
+
+        $('#resultContent').html(html);
+        $('#resultSection').slideDown();
+    }
+
+    // Utility functions
+    function showLoading(show) {
+        if (show) {
+            $('#lookupBtn').prop('disabled', true);
+            $('.loading-spinner').show();
+        } else {
+            $('#lookupBtn').prop('disabled', false);
+            $('.loading-spinner').hide();
+        }
+    }
+
+    function showIndexLoading(show) {
+        if (show) {
+            $('#validateBtn').prop('disabled', true);
+            $('#indexLoadingSpinner').show();
+        } else {
+            $('#validateBtn').prop('disabled', false);
+            $('#indexLoadingSpinner').hide();
+        }
+    }
+
+    function showError(message) {
+        $('#errorContent').html(`<div class="alert alert-danger">${message}</div>`);
+        $('#errorSection').slideDown();
+    }
+
+    function hideError() {
+        $('#errorSection').hide();
+        // Clear field-specific errors
+        $('.validation-error').hide();
+    }
+
+    function hideResult() {
+        $('#resultSection').hide();
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            // Show success message
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(function() {
+                btn.innerHTML = originalText;
+            }, 2000);
+        }).catch(function() {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+        });
+    }
+});
+</script>
+{% endblock %}

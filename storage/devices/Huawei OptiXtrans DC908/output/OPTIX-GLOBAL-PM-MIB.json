@@ -10,7 +10,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:45:56.549154",
+  "last_updated": "2025-12-07T15:05:18.678574",
   "root_oids": [],
   "nodes": {
     "optixGlobalPER": {
@@ -29,7 +29,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "moduleidentity"
+      "class": "moduleidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGlobalPM": {
       "name": "optixGlobalPM",
@@ -47,7 +49,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "moduleidentity"
+      "class": "moduleidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "pmHistCtr": {
       "name": "pmHistCtr",
@@ -65,7 +69,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "pmHistCtrEnableFlag": {
       "name": "pmHistCtrEnableFlag",
@@ -88,11 +94,13 @@
       "module": "OPTIX-GLOBAL-PM-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-write",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmHistCtrEntry": {
       "name": "pmHistCtrEntry",
@@ -101,16 +109,26 @@
       "syntax": null,
       "access": null,
       "status": "current",
-      "parent_name": null,
+      "parent_name": "pmHistCtrTable",
       "children": [],
       "module": "OPTIX-GLOBAL-PM-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": true,
+      "is_table": false,
+      "table_name": "pmHistCtrTable",
+      "index_fields": [
+        {
+          "name": "pmHistCtrPeriod",
+          "type": "INTEGER",
+          "syntax": "{'class': 'type', 'constraints': {'enumeration': {'period30m': 18, 'period30s': 17, 'periodPrdvar': 19, 'periodPrdvar2': 20}}, 'type': 'INTEGER'} ({'enumeration': {'period30m': 18, 'period30s': 17, 'periodPrdvar': 19, 'periodPrdvar2': 20}})"
+        }
+      ]
     },
     "pmHistCtrInterval": {
       "name": "pmHistCtrInterval",
@@ -127,11 +145,13 @@
       "module": "OPTIX-GLOBAL-PM-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-write",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmHistCtrPeriod": {
       "name": "pmHistCtrPeriod",
@@ -156,11 +176,13 @@
       "module": "OPTIX-GLOBAL-PM-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmHistCtrRecNum": {
       "name": "pmHistCtrRecNum",
@@ -177,11 +199,13 @@
       "module": "OPTIX-GLOBAL-PM-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-write",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmHistCtrTable": {
       "name": "pmHistCtrTable",
@@ -191,19 +215,24 @@
       "access": null,
       "status": "current",
       "parent_name": null,
-      "children": [],
+      "children": [
+        "pmHistCtrEntry"
+      ],
       "module": "OPTIX-GLOBAL-PM-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": true,
+      "entry_name": "pmHistCtrEntry"
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:45:56.549202",
+    "exported_at": "2025-12-07T15:05:18.678635",
     "version": "1.0",
     "type": "single_mib"
   }

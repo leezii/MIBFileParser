@@ -10,7 +10,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:45:56.276666",
+  "last_updated": "2025-12-07T15:05:18.405516",
   "root_oids": [],
   "nodes": {
     "optixGlobalTrap": {
@@ -29,7 +29,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "moduleidentity"
+      "class": "moduleidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixTrapsCommon": {
       "name": "optixTrapsCommon",
@@ -47,7 +49,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixTrapsPM": {
       "name": "optixTrapsPM",
@@ -65,7 +69,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixTrapsTrPer": {
       "name": "optixTrapsTrPer",
@@ -83,7 +89,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "rptAlmName": {
       "name": "rptAlmName",
@@ -100,11 +108,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtDataPmName": {
       "name": "rptEvtDataPmName",
@@ -121,11 +131,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtDateTime": {
       "name": "rptEvtDateTime",
@@ -142,11 +154,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtEndTime": {
       "name": "rptEvtEndTime",
@@ -163,11 +177,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtMonValue": {
       "name": "rptEvtMonValue",
@@ -184,11 +200,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtNtfcnCde": {
       "name": "rptEvtNtfcnCde",
@@ -205,11 +223,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtNumber": {
       "name": "rptEvtNumber",
@@ -226,11 +246,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtObjType": {
       "name": "rptEvtObjType",
@@ -247,11 +269,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtPara": {
       "name": "rptEvtPara",
@@ -268,11 +292,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtParaLen": {
       "name": "rptEvtParaLen",
@@ -289,11 +315,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtPeriod": {
       "name": "rptEvtPeriod",
@@ -317,11 +345,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtSrvEff": {
       "name": "rptEvtSrvEff",
@@ -338,11 +368,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtStartTime": {
       "name": "rptEvtStartTime",
@@ -359,11 +391,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtState": {
       "name": "rptEvtState",
@@ -386,11 +420,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtThValue": {
       "name": "rptEvtThValue",
@@ -407,11 +443,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtValue": {
       "name": "rptEvtValue",
@@ -428,11 +466,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptEvtVldty": {
       "name": "rptEvtVldty",
@@ -449,11 +489,13 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "rptPmName": {
       "name": "rptPmName",
@@ -470,15 +512,17 @@
       "module": "OPTIX-GLOBAL-TRAPS-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "accessible-for-notify",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:45:56.276729",
+    "exported_at": "2025-12-07T15:05:18.405594",
     "version": "1.0",
     "type": "single_mib"
   }

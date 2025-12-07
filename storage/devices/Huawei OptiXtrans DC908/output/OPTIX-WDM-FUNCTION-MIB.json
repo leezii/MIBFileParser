@@ -9,7 +9,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:45:57.376440",
+  "last_updated": "2025-12-07T15:05:19.534499",
   "root_oids": [],
   "nodes": {
     "optixGetBid": {
@@ -35,11 +35,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGetBidAndBdtype": {
       "name": "optixGetBidAndBdtype",
@@ -64,11 +66,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGetPortInfoEntry": {
       "name": "optixGetPortInfoEntry",
@@ -77,16 +81,31 @@
       "syntax": null,
       "access": null,
       "status": "current",
-      "parent_name": null,
+      "parent_name": "optixGetPortInfoTable",
       "children": [],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": true,
+      "is_table": false,
+      "table_name": "optixGetPortInfoTable",
+      "index_fields": [
+        {
+          "name": "optixGetBidAndBdtype",
+          "type": "OCTET STRING",
+          "syntax": "{'class': 'type', 'constraints': {'size': [{'max': 40, 'min': 0}]}, 'type': 'OCTET STRING'} ({'size': [{'max': 40, 'min': 0}]})"
+        },
+        {
+          "name": "optixGetPortInfoPort",
+          "type": "INTEGER",
+          "syntax": "{'class': 'type', 'constraints': {'range': [{'max': 255, 'min': 0}]}, 'type': 'INTEGER'} ({'range': [{'max': 255, 'min': 0}]})"
+        }
+      ]
     },
     "optixGetPortInfoName": {
       "name": "optixGetPortInfoName",
@@ -111,11 +130,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-write",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGetPortInfoPaylodType": {
       "name": "optixGetPortInfoPaylodType",
@@ -232,11 +253,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGetPortInfoPort": {
       "name": "optixGetPortInfoPort",
@@ -261,11 +284,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGetPortInfoTable": {
       "name": "optixGetPortInfoTable",
@@ -275,15 +300,20 @@
       "access": null,
       "status": "current",
       "parent_name": null,
-      "children": [],
+      "children": [
+        "optixGetPortInfoEntry"
+      ],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": true,
+      "entry_name": "optixGetPortInfoEntry"
     },
     "optixGetPortInfoType": {
       "name": "optixGetPortInfoType",
@@ -338,11 +368,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGetPortInfoWorkMode": {
       "name": "optixGetPortInfoWorkMode",
@@ -407,11 +439,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGetPortState": {
       "name": "optixGetPortState",
@@ -436,11 +470,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGetPortStateEntry": {
       "name": "optixGetPortStateEntry",
@@ -449,16 +485,36 @@
       "syntax": null,
       "access": null,
       "status": "current",
-      "parent_name": null,
+      "parent_name": "optixGetPortStateTable",
       "children": [],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": true,
+      "is_table": false,
+      "table_name": "optixGetPortStateTable",
+      "index_fields": [
+        {
+          "name": "optixGetBidAndBdtype",
+          "type": "OCTET STRING",
+          "syntax": "{'class': 'type', 'constraints': {'size': [{'max': 40, 'min': 0}]}, 'type': 'OCTET STRING'} ({'size': [{'max': 40, 'min': 0}]})"
+        },
+        {
+          "name": "optixLogSubCardId",
+          "type": null,
+          "syntax": null
+        },
+        {
+          "name": "optixGetPortStatusPort",
+          "type": null,
+          "syntax": null
+        }
+      ]
     },
     "optixGetPortStatePort": {
       "name": "optixGetPortStatePort",
@@ -483,11 +539,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixGetPortStateTable": {
       "name": "optixGetPortStateTable",
@@ -497,15 +555,20 @@
       "access": null,
       "status": "current",
       "parent_name": null,
-      "children": [],
+      "children": [
+        "optixGetPortStateEntry"
+      ],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": true,
+      "entry_name": "optixGetPortStateEntry"
     },
     "optixWDMBdFunction": {
       "name": "optixWDMBdFunction",
@@ -523,7 +586,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMDeviceMgr": {
       "name": "optixWDMDeviceMgr",
@@ -541,7 +606,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMFanEntry": {
       "name": "optixWDMFanEntry",
@@ -550,16 +617,26 @@
       "syntax": null,
       "access": null,
       "status": "current",
-      "parent_name": null,
+      "parent_name": "optixWDMFanTable",
       "children": [],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": true,
+      "is_table": false,
+      "table_name": "optixWDMFanTable",
+      "index_fields": [
+        {
+          "name": "optixWDMGetFanBID",
+          "type": "INTEGER",
+          "syntax": "{'class': 'type', 'constraints': {'range': [{'max': 65535, 'min': 0}]}, 'type': 'INTEGER'} ({'range': [{'max': 65535, 'min': 0}]})"
+        }
+      ]
     },
     "optixWDMFanMgr": {
       "name": "optixWDMFanMgr",
@@ -577,7 +654,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMFanTable": {
       "name": "optixWDMFanTable",
@@ -587,15 +666,20 @@
       "access": null,
       "status": "current",
       "parent_name": null,
-      "children": [],
+      "children": [
+        "optixWDMFanEntry"
+      ],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": true,
+      "entry_name": "optixWDMFanEntry"
     },
     "optixWDMFunction": {
       "name": "optixWDMFunction",
@@ -613,7 +697,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMGetBdInfoBID": {
       "name": "optixWDMGetBdInfoBID",
@@ -638,11 +724,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMGetBdInfoData": {
       "name": "optixWDMGetBdInfoData",
@@ -667,11 +755,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMGetBdInfoEntry": {
       "name": "optixWDMGetBdInfoEntry",
@@ -680,16 +770,26 @@
       "syntax": null,
       "access": null,
       "status": "current",
-      "parent_name": null,
+      "parent_name": "optixWDMGetBdInfoTable",
       "children": [],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": true,
+      "is_table": false,
+      "table_name": "optixWDMGetBdInfoTable",
+      "index_fields": [
+        {
+          "name": "optixWDMGetBdInfoBID",
+          "type": "OCTET STRING",
+          "syntax": "{'class': 'type', 'constraints': {'size': [{'max': 8, 'min': 0}]}, 'type': 'OCTET STRING'} ({'size': [{'max': 8, 'min': 0}]})"
+        }
+      ]
     },
     "optixWDMGetBdInfoTable": {
       "name": "optixWDMGetBdInfoTable",
@@ -699,15 +799,20 @@
       "access": null,
       "status": "current",
       "parent_name": null,
-      "children": [],
+      "children": [
+        "optixWDMGetBdInfoEntry"
+      ],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": true,
+      "entry_name": "optixWDMGetBdInfoEntry"
     },
     "optixWDMGetFanBID": {
       "name": "optixWDMGetFanBID",
@@ -732,11 +837,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMGetFanSpeed": {
       "name": "optixWDMGetFanSpeed",
@@ -767,11 +874,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMGetPsuBID": {
       "name": "optixWDMGetPsuBID",
@@ -796,11 +905,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMGetPsuPowerConsumption": {
       "name": "optixWDMGetPsuPowerConsumption",
@@ -825,11 +936,13 @@
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-only",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMPsuEntry": {
       "name": "optixWDMPsuEntry",
@@ -838,16 +951,26 @@
       "syntax": null,
       "access": null,
       "status": "current",
-      "parent_name": null,
+      "parent_name": "optixWDMPsuTable",
       "children": [],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": true,
+      "is_table": false,
+      "table_name": "optixWDMPsuTable",
+      "index_fields": [
+        {
+          "name": "optixWDMGetPsuBID",
+          "type": "INTEGER",
+          "syntax": "{'class': 'type', 'constraints': {'range': [{'max': 65535, 'min': 0}]}, 'type': 'INTEGER'} ({'range': [{'max': 65535, 'min': 0}]})"
+        }
+      ]
     },
     "optixWDMPsuMgr": {
       "name": "optixWDMPsuMgr",
@@ -865,7 +988,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixWDMPsuTable": {
       "name": "optixWDMPsuTable",
@@ -875,19 +1000,24 @@
       "access": null,
       "status": "current",
       "parent_name": null,
-      "children": [],
+      "children": [
+        "optixWDMPsuEntry"
+      ],
       "module": "OPTIX-WDM-FUNCTION-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "not-accessible",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": true,
+      "entry_name": "optixWDMPsuEntry"
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:45:57.376514",
+    "exported_at": "2025-12-07T15:05:19.534616",
     "version": "1.0",
     "type": "single_mib"
   }

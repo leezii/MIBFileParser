@@ -8,7 +8,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:45:56.142108",
+  "last_updated": "2025-12-07T15:05:18.271668",
   "root_oids": [],
   "nodes": {
     "huawei": {
@@ -27,7 +27,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixCommon": {
       "name": "optixCommon",
@@ -45,7 +47,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixCommonGlobal": {
       "name": "optixCommonGlobal",
@@ -63,7 +67,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixCommonSnmp": {
       "name": "optixCommonSnmp",
@@ -81,7 +87,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixProvision": {
       "name": "optixProvision",
@@ -99,7 +107,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixProvisionWDM": {
       "name": "optixProvisionWDM",
@@ -117,7 +127,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "products": {
       "name": "products",
@@ -135,7 +147,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "transmission": {
       "name": "transmission",
@@ -153,11 +167,13 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:45:56.142170",
+    "exported_at": "2025-12-07T15:05:18.271743",
     "version": "1.0",
     "type": "single_mib"
   }

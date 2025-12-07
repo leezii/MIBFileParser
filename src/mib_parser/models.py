@@ -8,6 +8,27 @@ from datetime import datetime
 
 
 @dataclass
+class IndexField:
+    """Represents an INDEX field in a table entry."""
+    name: str
+    type: Optional[str] = None
+    syntax: Optional[str] = None
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert index field to dictionary representation."""
+        return {
+            "name": self.name,
+            "type": self.type,
+            "syntax": self.syntax
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> "IndexField":
+        """Create index field from dictionary representation."""
+        return cls(**data)
+
+
+@dataclass
 class MibNode:
     """Represents a single node in the MIB tree."""
 
@@ -27,10 +48,15 @@ class MibNode:
     defval: Optional[Any] = None
     hint: Optional[str] = None
     node_class: Optional[str] = None  # To store node class (e.g., 'textualconvention')
+    is_entry: Optional[bool] = None  # To mark if this is a table entry
+    is_table: Optional[bool] = None  # To mark if this is a table
+    table_name: Optional[str] = None  # For entries, the associated table name
+    entry_name: Optional[str] = None  # For tables, the associated entry name
+    index_fields: List[IndexField] = field(default_factory=list)  # INDEX clause information
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert node to dictionary representation."""
-        return {
+        result = {
             "name": self.name,
             "oid": self.oid,
             "description": self.description,
@@ -49,10 +75,34 @@ class MibNode:
             "class": self.node_class,
         }
 
+        # Add table/entry information if present
+        if self.is_entry is not None:
+            result["is_entry"] = self.is_entry
+        if self.is_table is not None:
+            result["is_table"] = self.is_table
+        if self.table_name is not None:
+            result["table_name"] = self.table_name
+        if self.entry_name is not None:
+            result["entry_name"] = self.entry_name
+        if self.index_fields:
+            result["index_fields"] = [field.to_dict() for field in self.index_fields]
+
+        return result
+
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "MibNode":
         """Create node from dictionary representation."""
-        return cls(**data)
+        # Extract index_fields separately if present
+        index_fields_data = data.pop('index_fields', [])
+        index_fields = [IndexField.from_dict(field_data) for field_data in index_fields_data]
+
+        # Handle the 'class' keyword conflict with Python reserved word
+        node_class = data.pop('class', None)
+
+        # Create node with remaining data
+        node = cls(**data, index_fields=index_fields, node_class=node_class)
+
+        return node
 
 
 @dataclass

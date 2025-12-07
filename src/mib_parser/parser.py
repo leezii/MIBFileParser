@@ -3,8 +3,9 @@ Core MIB parser using pysmi with proper compilation and dependency resolution.
 """
 
 import os
+import re
 from pathlib import Path
-from typing import List, Optional, Set, Dict, Any
+from typing import List, Optional, Set, Dict, Any, Tuple
 from datetime import datetime
 from pysmi.compiler import MibCompiler
 from pysmi.parser import SmiStarParser
@@ -15,7 +16,7 @@ from pysmi.borrower import AnyFileBorrower
 from pysmi import debug
 from pysmi.error import PySmiError
 
-from src.mib_parser.models import MibData, MibNode
+from src.mib_parser.models import MibData, MibNode, IndexField
 from src.mib_parser.dependency_resolver import MibDependencyResolver
 
 
@@ -387,6 +388,9 @@ class MibParser:
                     mib_node = self._extract_node_data_from_pysmi(node_name, node_data, mib_name)
                     mib_data.add_node(mib_node)
 
+        # Enhanced processing: extract INDEX information and table/entry relationships
+        self._enhance_table_entry_relationships(mib_data)
+
         return mib_data
 
     def _extract_node_data_from_pysmi(self, node_name: str, node_data: Any, module: str) -> MibNode:
@@ -404,7 +408,7 @@ class MibParser:
 
             # Extract access information
             access = node_data.get('access')
-            max_access = node_data.get('max_access')
+            max_access = node_data.get('maxaccess')  # pysmi uses 'maxaccess' (lowercase)
 
             # Extract status
             status = node_data.get('status')
@@ -430,6 +434,29 @@ class MibParser:
             # Extract node class
             node_class = node_data.get('class')
 
+            # Extract node type information from pysmi
+            nodetype = node_data.get('nodetype')
+
+            # Extract table/entry relationship information
+            is_table = nodetype == 'table'
+            is_entry = nodetype == 'row'
+
+            # Extract INDEX information for entries
+            index_fields = []
+            indices = node_data.get('indices', [])
+            if isinstance(indices, list):
+                for index_info in indices:
+                    if isinstance(index_info, dict):
+                        index_obj_name = index_info.get('object')
+                        if index_obj_name:
+                            # Create IndexField with available information
+                            index_field = IndexField(
+                                name=index_obj_name,
+                                type=None,  # Will be resolved later
+                                syntax=None  # Will be resolved later
+                            )
+                            index_fields.append(index_field)
+
         else:
             # Extract OID
             oid = getattr(node_data, 'oid', f"1.2.3.1")
@@ -444,7 +471,7 @@ class MibParser:
 
             # Extract access information
             access = getattr(node_data, 'access', None)
-            max_access = getattr(node_data, 'max_access', None)
+            max_access = getattr(node_data, 'maxaccess', None)  # pysmi uses 'maxaccess' (lowercase)
 
             # Extract status
             status = getattr(node_data, 'status', None)
@@ -472,6 +499,29 @@ class MibParser:
             # Extract node class
             node_class = getattr(node_data, 'class', None)
 
+            # Extract node type information from pysmi
+            nodetype = getattr(node_data, 'nodetype', None)
+
+            # Extract table/entry relationship information
+            is_table = nodetype == 'table'
+            is_entry = nodetype == 'row'
+
+            # Extract INDEX information for entries
+            index_fields = []
+            indices = getattr(node_data, 'indices', [])
+            if hasattr(indices, '__iter__'):
+                for index_info in indices:
+                    if hasattr(index_info, 'object'):
+                        index_obj_name = getattr(index_info, 'object')
+                        if index_obj_name:
+                            # Create IndexField with available information
+                            index_field = IndexField(
+                                name=index_obj_name,
+                                type=None,  # Will be resolved later
+                                syntax=None  # Will be resolved later
+                            )
+                            index_fields.append(index_field)
+
         return MibNode(
             name=node_name,
             oid=oid,
@@ -488,6 +538,9 @@ class MibParser:
             defval=defval,
             hint=hint,
             node_class=node_class,
+            is_table=is_table,
+            is_entry=is_entry,
+            index_fields=index_fields,
         )
 
     def _extract_mib_name_from_ast(self, ast):
@@ -793,3 +846,75 @@ class MibParser:
             hint=hint,
             node_class=node_class,
         )
+
+    def _enhance_table_entry_relationships(self, mib_data: MibData) -> None:
+        """Enhance table/entry relationships and resolve index field types using pysmi data."""
+        try:
+            # First pass: establish table/entry relationships based on OID hierarchy
+            # Table and entry relationships: Entry is usually child of Table (OID ends with .1)
+            for node_name, node in mib_data.nodes.items():
+                if node.is_table:
+                    # Look for entries directly under this table (OID + 1)
+                    expected_entry_oid = f"{node.oid}.1"
+                    for other_name, other_node in mib_data.nodes.items():
+                        if other_node.oid == expected_entry_oid and other_node.is_entry:
+                            node.entry_name = other_name
+                            other_node.table_name = node_name
+                            # Set parent-child relationship
+                            other_node.parent_name = node_name
+                            if other_name not in node.children:
+                                node.children.append(other_name)
+                            break
+
+                elif node.is_entry:
+                    # Try to find the parent table by removing the last .1 from OID
+                    if node.oid and node.oid.endswith('.1'):
+                        table_oid = node.oid[:-2]  # Remove .1
+                        for table_name, table_node in mib_data.nodes.items():
+                            if table_node.oid == table_oid and table_node.is_table:
+                                node.table_name = table_name
+                                table_node.entry_name = node_name
+                                # Set parent-child relationship
+                                node.parent_name = table_name
+                                if node_name not in table_node.children:
+                                    table_node.children.append(node_name)
+                                break
+
+            # Second pass: resolve index field types and syntax
+            for node_name, node in mib_data.nodes.items():
+                if node.is_entry and node.index_fields:
+                    for index_field in node.index_fields:
+                        # Look for the index field definition in the same MIB
+                        if index_field.name in mib_data.nodes:
+                            field_node = mib_data.nodes[index_field.name]
+
+                            # Extract type information
+                            if field_node.syntax:
+                                if isinstance(field_node.syntax, dict):
+                                    # Handle complex syntax structures from pysmi
+                                    syntax_type = field_node.syntax.get('type')
+                                    if syntax_type:
+                                        index_field.type = syntax_type
+                                        index_field.syntax = str(field_node.syntax)
+                                else:
+                                    # Handle simple syntax
+                                    index_field.type = str(field_node.syntax)
+                                    index_field.syntax = str(field_node.syntax)
+
+                            # Extract additional constraints if available
+                            if field_node.syntax and isinstance(field_node.syntax, dict):
+                                constraints = field_node.syntax.get('constraints')
+                                if constraints:
+                                    if isinstance(constraints, dict):
+                                        # Add constraint information to syntax
+                                        constraint_str = str(constraints)
+                                        if index_field.syntax:
+                                            index_field.syntax += f" ({constraint_str})"
+                                        else:
+                                            index_field.syntax = constraint_str
+
+        except Exception as e:
+            if self.debug_mode:
+                print(f"Warning: Failed to enhance table/entry relationships: {e}")
+                import traceback
+                traceback.print_exc()

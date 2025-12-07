@@ -10,7 +10,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:45:56.825622",
+  "last_updated": "2025-12-07T15:05:18.953278",
   "root_oids": [],
   "nodes": {
     "optixGlobalPER": {
@@ -29,7 +29,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "moduleidentity"
+      "class": "moduleidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "per15mMonitorEndTime": {
       "name": "per15mMonitorEndTime",
@@ -46,11 +48,13 @@
       "module": "OPTIX-GLOBAL-PER-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-write",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "per15mMonitorStartTime": {
       "name": "per15mMonitorStartTime",
@@ -67,11 +71,13 @@
       "module": "OPTIX-GLOBAL-PER-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-write",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "per15mMonitorTime": {
       "name": "per15mMonitorTime",
@@ -89,7 +95,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "per24hMonitorEndTime": {
       "name": "per24hMonitorEndTime",
@@ -106,11 +114,13 @@
       "module": "OPTIX-GLOBAL-PER-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-write",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "per24hMonitorStartTime": {
       "name": "per24hMonitorStartTime",
@@ -127,11 +137,13 @@
       "module": "OPTIX-GLOBAL-PER-MIB",
       "text_convention": null,
       "units": null,
-      "max_access": null,
+      "max_access": "read-write",
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objecttype"
+      "class": "objecttype",
+      "is_entry": false,
+      "is_table": false
     },
     "per24hMonitorTime": {
       "name": "per24hMonitorTime",
@@ -149,7 +161,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "perMonitorTime": {
       "name": "perMonitorTime",
@@ -167,11 +181,13 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:45:56.825671",
+    "exported_at": "2025-12-07T15:05:18.953324",
     "version": "1.0",
     "type": "single_mib"
   }

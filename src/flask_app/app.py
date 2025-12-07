@@ -29,10 +29,12 @@ def create_app(config_name='development'):
     from .routes.main import main_bp
     from .routes.api import api_bp
     from .routes.upload import upload_bp
+    from .routes.oid_lookup import oid_lookup_bp
 
     app.register_blueprint(main_bp)
     app.register_blueprint(api_bp, url_prefix='/api')
     app.register_blueprint(upload_bp)
+    app.register_blueprint(oid_lookup_bp)
 
     # Error handlers
     @app.errorhandler(404)

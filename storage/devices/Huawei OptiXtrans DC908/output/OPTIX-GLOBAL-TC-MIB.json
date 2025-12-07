@@ -9,7 +9,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:45:56.207966",
+  "last_updated": "2025-12-07T15:05:18.337105",
   "root_oids": [],
   "nodes": {
     "AlarmEventType": {
@@ -28,7 +28,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "AlmDataNtfcnCdeType": {
       "name": "AlmDataNtfcnCdeType",
@@ -46,7 +48,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "AlmDataSrvEffType": {
       "name": "AlmDataSrvEffType",
@@ -64,7 +68,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "DataPmEventType": {
       "name": "DataPmEventType",
@@ -82,7 +88,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "DirectionType": {
       "name": "DirectionType",
@@ -100,7 +108,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "HKContAIDType": {
       "name": "HKContAIDType",
@@ -118,7 +128,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "HKDefStateType": {
       "name": "HKDefStateType",
@@ -136,7 +148,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "HKEnvAIDType": {
       "name": "HKEnvAIDType",
@@ -154,7 +168,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "HKOprDueType": {
       "name": "HKOprDueType",
@@ -172,7 +188,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "HKOprStateType": {
       "name": "HKOprStateType",
@@ -190,7 +208,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "LocationType": {
       "name": "LocationType",
@@ -208,7 +228,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "MOD2Type": {
       "name": "MOD2Type",
@@ -226,7 +248,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "ObjType": {
       "name": "ObjType",
@@ -244,7 +268,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "PerformanceEventType": {
       "name": "PerformanceEventType",
@@ -262,7 +288,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     },
     "ValidflagType": {
       "name": "ValidflagType",
@@ -280,11 +308,13 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "textualconvention"
+      "class": "textualconvention",
+      "is_entry": false,
+      "is_table": false
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:45:56.208018",
+    "exported_at": "2025-12-07T15:05:18.337165",
     "version": "1.0",
     "type": "single_mib"
   }

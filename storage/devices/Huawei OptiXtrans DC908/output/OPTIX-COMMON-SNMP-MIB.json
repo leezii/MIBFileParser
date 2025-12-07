@@ -9,7 +9,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:45:57.407854",
+  "last_updated": "2025-12-07T15:05:19.566605",
   "root_oids": [],
   "nodes": {
     "optixSnmp": {
@@ -28,7 +28,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "moduleidentity"
+      "class": "moduleidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "optixSnmpTrap": {
       "name": "optixSnmpTrap",
@@ -46,11 +48,13 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:45:57.407883",
+    "exported_at": "2025-12-07T15:05:19.566638",
     "version": "1.0",
     "type": "single_mib"
   }

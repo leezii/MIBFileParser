@@ -9,7 +9,7 @@
     "class"
   ],
   "module_dependencies": [],
-  "last_updated": "2025-12-07T12:45:57.297180",
+  "last_updated": "2025-12-07T15:05:19.454035",
   "root_oids": [],
   "nodes": {
     "optixTrapsPM": {
@@ -28,7 +28,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "objectidentity"
+      "class": "objectidentity",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHALI": {
       "name": "pmETHALI",
@@ -46,7 +48,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHDROP": {
       "name": "pmETHDROP",
@@ -64,7 +68,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHFCS": {
       "name": "pmETHFCS",
@@ -82,7 +88,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHFRG": {
       "name": "pmETHFRG",
@@ -100,7 +108,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHJAB": {
       "name": "pmETHJAB",
@@ -118,7 +128,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHOVER": {
       "name": "pmETHOVER",
@@ -136,7 +148,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHRXTHROUGHPUTAVG": {
       "name": "pmETHRXTHROUGHPUTAVG",
@@ -154,7 +168,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHRXTHROUGHPUTMAX": {
       "name": "pmETHRXTHROUGHPUTMAX",
@@ -172,7 +188,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHRXTHROUGHPUTMIN": {
       "name": "pmETHRXTHROUGHPUTMIN",
@@ -190,7 +208,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHTXTHROUGHPUTAVG": {
       "name": "pmETHTXTHROUGHPUTAVG",
@@ -208,7 +228,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHTXTHROUGHPUTMAX": {
       "name": "pmETHTXTHROUGHPUTMAX",
@@ -226,7 +248,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHTXTHROUGHPUTMIN": {
       "name": "pmETHTXTHROUGHPUTMIN",
@@ -244,7 +268,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmETHUNDER": {
       "name": "pmETHUNDER",
@@ -262,7 +288,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmOCPRXPKT64": {
       "name": "pmOCPRXPKT64",
@@ -280,7 +308,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmOCPRXPKT65": {
       "name": "pmOCPRXPKT65",
@@ -298,7 +328,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPKT1024": {
       "name": "pmPKT1024",
@@ -316,7 +348,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPKT128": {
       "name": "pmPKT128",
@@ -334,7 +368,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPKT1519": {
       "name": "pmPKT1519",
@@ -352,7 +388,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPKT256": {
       "name": "pmPKT256",
@@ -370,7 +408,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPKT512": {
       "name": "pmPKT512",
@@ -388,7 +428,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPKT64": {
       "name": "pmPKT64",
@@ -406,7 +448,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPKT65": {
       "name": "pmPKT65",
@@ -424,7 +468,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPORTRXBWUTILIZATION": {
       "name": "pmPORTRXBWUTILIZATION",
@@ -442,7 +488,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPORTRXBWUTILIZATIONAVG": {
       "name": "pmPORTRXBWUTILIZATIONAVG",
@@ -460,7 +508,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPORTRXBWUTILIZATIONMAX": {
       "name": "pmPORTRXBWUTILIZATIONMAX",
@@ -478,7 +528,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPORTRXBWUTILIZATIONMIN": {
       "name": "pmPORTRXBWUTILIZATIONMIN",
@@ -496,7 +548,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPORTTXBWUTILIZATION": {
       "name": "pmPORTTXBWUTILIZATION",
@@ -514,7 +568,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPORTTXBWUTILIZATIONAVG": {
       "name": "pmPORTTXBWUTILIZATIONAVG",
@@ -532,7 +588,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPORTTXBWUTILIZATIONMAX": {
       "name": "pmPORTTXBWUTILIZATIONMAX",
@@ -550,7 +608,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPORTTXBWUTILIZATIONMIN": {
       "name": "pmPORTTXBWUTILIZATIONMIN",
@@ -568,7 +628,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPortrxbytesavailability868": {
       "name": "pmPortrxbytesavailability868",
@@ -586,7 +648,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmPortrxbytesavailability869": {
       "name": "pmPortrxbytesavailability869",
@@ -604,7 +668,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXBBAD": {
       "name": "pmRXBBAD",
@@ -622,7 +688,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXBGOOD": {
       "name": "pmRXBGOOD",
@@ -640,7 +708,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXBPS": {
       "name": "pmRXBPS",
@@ -658,7 +728,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXBRDCAST": {
       "name": "pmRXBRDCAST",
@@ -676,7 +748,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXBRDCASTRATIO": {
       "name": "pmRXBRDCASTRATIO",
@@ -694,7 +768,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXCTLPKTS": {
       "name": "pmRXCTLPKTS",
@@ -712,7 +788,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXDROPRATIO": {
       "name": "pmRXDROPRATIO",
@@ -730,7 +808,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXGOODFULLFRAMESPEED": {
       "name": "pmRXGOODFULLFRAMESPEED",
@@ -748,7 +828,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXMULCAST": {
       "name": "pmRXMULCAST",
@@ -766,7 +848,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXOCTETS": {
       "name": "pmRXOCTETS",
@@ -784,7 +868,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPAUSE": {
       "name": "pmRXPAUSE",
@@ -802,7 +888,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPBAD": {
       "name": "pmRXPBAD",
@@ -820,7 +908,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPGOOD": {
       "name": "pmRXPGOOD",
@@ -838,7 +928,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPKT1024": {
       "name": "pmRXPKT1024",
@@ -856,7 +948,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPKT128": {
       "name": "pmRXPKT128",
@@ -874,7 +968,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPKT1519": {
       "name": "pmRXPKT1519",
@@ -892,7 +988,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPKT256": {
       "name": "pmRXPKT256",
@@ -910,7 +1008,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPKT512": {
       "name": "pmRXPKT512",
@@ -928,7 +1028,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPKT64": {
       "name": "pmRXPKT64",
@@ -946,7 +1048,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPKT65": {
       "name": "pmRXPKT65",
@@ -964,7 +1068,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPKTS": {
       "name": "pmRXPKTS",
@@ -982,7 +1088,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPPS": {
       "name": "pmRXPPS",
@@ -1000,7 +1108,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPTPANNOUNCE": {
       "name": "pmRXPTPANNOUNCE",
@@ -1018,7 +1128,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPTPDELAYREQ": {
       "name": "pmRXPTPDELAYREQ",
@@ -1036,7 +1148,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPTPDELAYRESP": {
       "name": "pmRXPTPDELAYRESP",
@@ -1054,7 +1168,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPTPFOLLOWUP": {
       "name": "pmRXPTPFOLLOWUP",
@@ -1072,7 +1188,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPTPPDELAYREQ": {
       "name": "pmRXPTPPDELAYREQ",
@@ -1090,7 +1208,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPTPPDELAYRESP": {
       "name": "pmRXPTPPDELAYRESP",
@@ -1108,7 +1228,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPTPPDELAYRESPFUP": {
       "name": "pmRXPTPPDELAYRESPFUP",
@@ -1126,7 +1248,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXPTPSYNC": {
       "name": "pmRXPTPSYNC",
@@ -1144,7 +1268,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRXUNICAST": {
       "name": "pmRXUNICAST",
@@ -1162,7 +1288,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmRxfullbgood": {
       "name": "pmRxfullbgood",
@@ -1180,7 +1308,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXBBAD": {
       "name": "pmTXBBAD",
@@ -1198,7 +1328,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXBGOOD": {
       "name": "pmTXBGOOD",
@@ -1216,7 +1348,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXBPS": {
       "name": "pmTXBPS",
@@ -1234,7 +1368,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXBRDCAST": {
       "name": "pmTXBRDCAST",
@@ -1252,7 +1388,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXBRDCASTRATIO": {
       "name": "pmTXBRDCASTRATIO",
@@ -1270,7 +1408,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXCTLPKTS": {
       "name": "pmTXCTLPKTS",
@@ -1288,7 +1428,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXDROPRATIO": {
       "name": "pmTXDROPRATIO",
@@ -1306,7 +1448,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXETHDROP": {
       "name": "pmTXETHDROP",
@@ -1324,7 +1468,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXETHOVER": {
       "name": "pmTXETHOVER",
@@ -1342,7 +1488,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXGOODFULLFRAMESPEED": {
       "name": "pmTXGOODFULLFRAMESPEED",
@@ -1360,7 +1508,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXMULCAST": {
       "name": "pmTXMULCAST",
@@ -1378,7 +1528,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXOCTETS": {
       "name": "pmTXOCTETS",
@@ -1396,7 +1548,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPAUSE": {
       "name": "pmTXPAUSE",
@@ -1414,7 +1568,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPBAD": {
       "name": "pmTXPBAD",
@@ -1432,7 +1588,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPGOOD": {
       "name": "pmTXPGOOD",
@@ -1450,7 +1608,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPKT1024": {
       "name": "pmTXPKT1024",
@@ -1468,7 +1628,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPKT128": {
       "name": "pmTXPKT128",
@@ -1486,7 +1648,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPKT1519": {
       "name": "pmTXPKT1519",
@@ -1504,7 +1668,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPKT256": {
       "name": "pmTXPKT256",
@@ -1522,7 +1688,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPKT512": {
       "name": "pmTXPKT512",
@@ -1540,7 +1708,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPKT64": {
       "name": "pmTXPKT64",
@@ -1558,7 +1728,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPKT65": {
       "name": "pmTXPKT65",
@@ -1576,7 +1748,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPKTS": {
       "name": "pmTXPKTS",
@@ -1594,7 +1768,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPPS": {
       "name": "pmTXPPS",
@@ -1612,7 +1788,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPTPANNOUNCE": {
       "name": "pmTXPTPANNOUNCE",
@@ -1630,7 +1808,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPTPDELAYREQ": {
       "name": "pmTXPTPDELAYREQ",
@@ -1648,7 +1828,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPTPDELAYRESP": {
       "name": "pmTXPTPDELAYRESP",
@@ -1666,7 +1848,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPTPFOLLOWUP": {
       "name": "pmTXPTPFOLLOWUP",
@@ -1684,7 +1868,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPTPPDELAYREQ": {
       "name": "pmTXPTPPDELAYREQ",
@@ -1702,7 +1888,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPTPPDELAYRESP": {
       "name": "pmTXPTPPDELAYRESP",
@@ -1720,7 +1908,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPTPPDELAYRESPFUP": {
       "name": "pmTXPTPPDELAYRESPFUP",
@@ -1738,7 +1928,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXPTPSYNC": {
       "name": "pmTXPTPSYNC",
@@ -1756,7 +1948,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTXUNICAST": {
       "name": "pmTXUNICAST",
@@ -1774,7 +1968,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmTxfullbgood": {
       "name": "pmTxfullbgood",
@@ -1792,7 +1988,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXBWUTILIZATION": {
       "name": "pmVCGRXBWUTILIZATION",
@@ -1810,7 +2008,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXBWUTILIZATIONAVG": {
       "name": "pmVCGRXBWUTILIZATIONAVG",
@@ -1828,7 +2028,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXBWUTILIZATIONMAX": {
       "name": "pmVCGRXBWUTILIZATIONMAX",
@@ -1846,7 +2048,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXBWUTILIZATIONMIN": {
       "name": "pmVCGRXBWUTILIZATIONMIN",
@@ -1864,7 +2068,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXDROPPKTS": {
       "name": "pmVCGRXDROPPKTS",
@@ -1882,7 +2088,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXDROPRATIO": {
       "name": "pmVCGRXDROPRATIO",
@@ -1900,7 +2108,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXGOODPACKETS": {
       "name": "pmVCGRXGOODPACKETS",
@@ -1918,7 +2128,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXOCTETS": {
       "name": "pmVCGRXOCTETS",
@@ -1936,7 +2148,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXPACKETS": {
       "name": "pmVCGRXPACKETS",
@@ -1954,7 +2168,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGRXSPEED": {
       "name": "pmVCGRXSPEED",
@@ -1972,7 +2188,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXBWUTILIZATION": {
       "name": "pmVCGTXBWUTILIZATION",
@@ -1990,7 +2208,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXBWUTILIZATIONAVG": {
       "name": "pmVCGTXBWUTILIZATIONAVG",
@@ -2008,7 +2228,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXBWUTILIZATIONMAX": {
       "name": "pmVCGTXBWUTILIZATIONMAX",
@@ -2026,7 +2248,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXBWUTILIZATIONMIN": {
       "name": "pmVCGTXBWUTILIZATIONMIN",
@@ -2044,7 +2268,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXDROPPKTS": {
       "name": "pmVCGTXDROPPKTS",
@@ -2062,7 +2288,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXDROPRATIO": {
       "name": "pmVCGTXDROPRATIO",
@@ -2080,7 +2308,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXGOODPACKETS": {
       "name": "pmVCGTXGOODPACKETS",
@@ -2098,7 +2328,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXOCTETS": {
       "name": "pmVCGTXOCTETS",
@@ -2116,7 +2348,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXPACKETS": {
       "name": "pmVCGTXPACKETS",
@@ -2134,7 +2368,9 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     },
     "pmVCGTXSPEED": {
       "name": "pmVCGTXSPEED",
@@ -2152,11 +2388,13 @@
       "reference": null,
       "defval": null,
       "hint": null,
-      "class": "notificationtype"
+      "class": "notificationtype",
+      "is_entry": false,
+      "is_table": false
     }
   },
   "_metadata": {
-    "exported_at": "2025-12-07T12:45:57.297366",
+    "exported_at": "2025-12-07T15:05:19.454268",
     "version": "1.0",
     "type": "single_mib"
   }

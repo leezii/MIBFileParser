@@ -5,9 +5,8 @@
 {% block extra_css %}
 <style>
     .devices-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 20px;
+        /* Removed max-width to use full container-fluid width */
+        padding: 0;
     }
 
     .device-card {
@@ -146,15 +145,21 @@
 {% endblock %}
 
 {% block content %}
-<div class="devices-container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Device Management</h2>
-        <div>
-            <a href="{{ url_for('upload.upload_page') }}" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Upload New MIBs
-            </a>
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-server"></i> Device Management</h1>
+            <div>
+                <a href="{{ url_for('upload.upload_page') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Upload New MIBs
+                </a>
+            </div>
         </div>
     </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
 
     <!-- Current Device Info -->
     <div class="alert alert-info">
@@ -287,7 +292,7 @@
         <div class="mt-4 text-end">
             <button type="button" class="btn btn-secondary" id="cancelDelete">Cancel</button>
             <button type="button" class="btn btn-danger" id="confirmDelete">Delete Device</button>
-        </div>
+      </div>
     </div>
 </div>
 {% endblock %}

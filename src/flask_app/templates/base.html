@@ -184,13 +184,15 @@
 
             devices.forEach(device => {
                 const active = device.name === currentDevice ? 'active' : '';
-                const badge = `<span class="badge bg-primary float-end">${device.mib_count}</span>`;
+                const badge = `<span class="badge bg-primary">${device.mib_count}</span>`;
 
                 menuHtml += `
                     <li>
                         <a class="dropdown-item device-switch ${active}" href="#" data-device="${device.name}">
-                            ${device.display_name}
-                            ${badge}
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>${device.display_name}</span>
+                                ${badge}
+                            </div>
                         </a>
                     </li>
                 `;

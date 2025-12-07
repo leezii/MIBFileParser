@@ -197,8 +197,8 @@ MIBFileParser/
 ├── storage/                   # Data storage
 │   ├── devices/               # Device-specific MIB files
 │   ├── parsed/                # Parsed MIB data (JSON)
-│   └── annotations/           # User annotations and metadata
-└── device_registry.json       # Device configuration
+│   ├── annotations/           # User annotations and metadata
+│   └── device_registry.json   # Device configuration
 ```
 
 ## Architecture
@@ -274,7 +274,7 @@ FLASK_DEBUG=False           # Debug mode
 
 ### Device Configuration
 
-Devices are configured in `device_registry.json`:
+Devices are configured in `storage/device_registry.json`:
 
 ```json
 {

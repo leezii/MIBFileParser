@@ -18,17 +18,15 @@ class DeviceInfo:
 
 
 class DeviceService:
-    def __init__(self, storage_root: Path = None, registry_file: Path = None):
+    def __init__(self, storage_root: Path = None):
         if storage_root is None:
             storage_root = Path(__file__).parent.parent.parent.parent / "storage"
-        if registry_file is None:
-            registry_file = Path(__file__).parent.parent.parent.parent / "device_registry.json"
 
         self.storage_root = storage_root
         self.devices_dir = storage_root / "devices"
         self.uploads_dir = storage_root / "uploads"
         self.temp_dir = self.uploads_dir / "temp"
-        self.registry_file = registry_file
+        self.registry_file = storage_root / "device_registry.json"
 
         # Ensure directories exist
         self.devices_dir.mkdir(parents=True, exist_ok=True)

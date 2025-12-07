@@ -162,6 +162,19 @@
     .alert {
         margin-top: 15px;
     }
+
+    /* Device select options styling */
+    .form-select option {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    /* Ensure device name and MIB count stay on same line */
+    #deviceType {
+        min-width: 300px;
+    }
 </style>
 {% endblock %}
 

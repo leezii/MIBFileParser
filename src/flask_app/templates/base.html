@@ -17,7 +17,23 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    {% block extra_css %}{% endblock %}
+    {% block extra_css %}
+<style>
+    /* Device dropdown styling for proper alignment */
+    .dropdown-item.device-switch {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-right: 0.5rem;
+    }
+
+    .dropdown-item.device-switch .badge {
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+</style>
+{% endblock %}
 </head>
 <body>
     <!-- Navigation -->

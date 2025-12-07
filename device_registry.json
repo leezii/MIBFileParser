@@ -10,15 +10,15 @@
       "is_active": true
     },
     {
-      "name": "huaweioptixtransdc908",
+      "name": "Huawei OptiXtrans DC908",
       "display_name": "Huawei OptiXtrans DC908",
       "description": "MIB files for Huawei OptiXtrans DC908",
-      "created_at": "2025-12-07T04:31:05.825517Z",
-      "updated_at": "2025-12-07T04:34:20.859565Z",
+      "created_at": "2025-12-07T04:39:36.011738Z",
+      "updated_at": "2025-12-07T04:39:36.011755Z",
       "mib_count": 12,
       "is_active": true
     }
   ],
-  "current_device": "huaweioptixtransdc908",
+  "current_device": "Huawei OptiXtrans DC908",
   "version": "1.0"
 }

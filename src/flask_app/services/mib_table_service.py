@@ -141,7 +141,13 @@ class MibTableService:
                 self._oid_cache[cache_key] = result
                 return result
 
-            # Strategy 3: Partial OID match - find parent table by walking up the OID tree
+            # Strategy 3: Smart search - look for tables within 2 levels up or down (priority: down first)
+            result = self._find_nearby_tables(oid, device_type)
+            if result:
+                self._oid_cache[cache_key] = result
+                return result
+
+            # Strategy 4: Partial OID match - find parent table by walking up the OID tree
             result = self._find_parent_table(oid, device_type)
             if result:
                 self._oid_cache[cache_key] = result
@@ -236,6 +242,9 @@ class MibTableService:
                 return []
 
             # Get the entry node from MIB data
+            if 'nodes' not in mib_data:
+                logger.error(f"Invalid MIB data structure for {entry_result.mib_name}: missing 'nodes' key")
+                return []
             entry_node = mib_data['nodes'].get(entry_name)
             if not entry_node:
                 logger.error(f"Entry node not found in MIB data: {entry_name}")
@@ -499,7 +508,7 @@ class MibTableService:
 
         for mib_info in mibs:
             mib_data = self.mib_service.get_mib_data(mib_info['name'])
-            if not mib_data:
+            if not mib_data or 'nodes' not in mib_data:
                 continue
 
             for node_name, node_data in mib_data['nodes'].items():
@@ -523,7 +532,7 @@ class MibTableService:
 
         for mib_info in mibs:
             mib_data = self.mib_service.get_mib_data(mib_info['name'])
-            if not mib_data:
+            if not mib_data or 'nodes' not in mib_data:
                 continue
 
             for node_name, node_data in mib_data['nodes'].items():
@@ -810,5 +819,86 @@ class MibTableService:
             return r'^\d+$'
         elif field_type and 'oid' in field_type.lower():
             return r'^[\d\.]+$'
+
+    def _find_nearby_tables(self, oid: str, device_type: str) -> Optional[TableMatchResult]:
+        """
+        Smart search for tables within 2 levels up or down from the given OID.
+        Priority: downward search first, then upward search.
+
+        Args:
+            oid: The OID to search around
+            device_type: Device type for context
+
+        Returns:
+            TableMatchResult if a nearby table is found, None otherwise
+        """
+        logger.debug(f"Starting smart search for tables near OID: {oid}")
+
+        try:
+            # Convert OID to list of integers for easier manipulation
+            oid_parts = [int(x) for x in oid.split('.') if x.isdigit()]
+
+            # Strategy 3a: Search downward (add 1-2 levels)
+            downward_results = self._search_downward(oid_parts, device_type)
+            if downward_results:
+                logger.info(f"Found table downward from {oid}: {downward_results.table_name}")
+                return downward_results
+
+            # Strategy 3b: Search upward (remove 1-2 levels)
+            upward_results = self._search_upward(oid_parts, device_type)
+            if upward_results:
+                logger.info(f"Found table upward from {oid}: {upward_results.table_name}")
+                return upward_results
+
+            logger.debug(f"No nearby tables found for OID: {oid}")
+            return None
+
+        except Exception as e:
+            logger.error(f"Error in smart search for OID {oid}: {e}")
+            return None
+
+    def _search_downward(self, oid_parts: List[int], device_type: str) -> Optional[TableMatchResult]:
+        """Search for tables by adding 1-2 levels to the OID."""
+
+        # Level 1: Add .1, .2, ..., .9
+        for i in range(1, 10):
+            test_oid = '.'.join(map(str, oid_parts + [i]))
+            result = self._find_exact_table_match(test_oid, device_type)
+            if result:
+                result.match_type = "downward_1"
+                result.confidence = 0.9
+                return result
+
+        # Level 2: Add .10, .20, ..., .90 (common table pattern)
+        for i in range(1, 10):
+            test_oid = '.'.join(map(str, oid_parts + [i * 10]))
+            result = self._find_exact_table_match(test_oid, device_type)
+            if result:
+                result.match_type = "downward_2"
+                result.confidence = 0.8
+                return result
+
+        return None
+
+    def _search_upward(self, oid_parts: List[int], device_type: str) -> Optional[TableMatchResult]:
+        """Search for tables by removing 1-2 levels from the OID."""
+
+        # Level 1: Remove last level
+        if len(oid_parts) > 1:
+            test_oid = '.'.join(map(str, oid_parts[:-1]))
+            result = self._find_exact_table_match(test_oid, device_type)
+            if result:
+                result.match_type = "upward_1"
+                result.confidence = 0.7
+                return result
+
+        # Level 2: Remove last 2 levels
+        if len(oid_parts) > 2:
+            test_oid = '.'.join(map(str, oid_parts[:-2]))
+            result = self._find_exact_table_match(test_oid, device_type)
+            if result:
+                result.match_type = "upward_2"
+                result.confidence = 0.6
+                return result
 
         return None

@@ -116,7 +116,7 @@ def api_lookup_table():
             return jsonify({
                 'success': False,
                 'error': f'No table found for OID: {oid}',
-                'suggestions': 'Please check the OID and try again'
+                'suggestions': 'Please check the OID and try again. Note: The system can automatically search for tables within 2 levels of your OID.'
             }), 404
 
         # Get table structure
@@ -165,7 +165,16 @@ def api_lookup_table():
                 'oid': result.entry_oid
             }
 
-        logger.info(f"Successfully looked up table {result.table_name} for OID {oid}")
+        # Add smart search notice if this was found via nearby search
+        if result.match_type in ['downward_1', 'downward_2', 'upward_1', 'upward_2']:
+            search_direction = "downward" if 'downward' in result.match_type else "upward"
+            search_level = result.match_type.split('_')[1]
+            response_data['smart_search_notice'] = (
+                f"Table found {search_direction} (level {search_level}) from your OID: {oid} → {result.table_oid}. "
+                f"The system searched within 2 levels of your input."
+            )
+
+        logger.info(f"Successfully looked up table {result.table_name} for OID {oid} (match: {result.match_type})")
         return jsonify(response_data)
 
     except ValueError as e:

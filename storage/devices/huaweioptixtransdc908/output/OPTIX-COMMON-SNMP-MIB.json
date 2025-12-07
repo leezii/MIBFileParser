@@ -1,0 +1,57 @@
+{
+  "name": "OPTIX-COMMON-SNMP-MIB",
+  "description": "Compiled from 12_OPTIX-COMMON-SNMP-MIB.MIB",
+  "imports": [
+    "OPTIX-OID-MIB",
+    "SNMPv2-CONF",
+    "SNMPv2-SMI",
+    "SNMPv2-TC",
+    "class"
+  ],
+  "module_dependencies": [],
+  "last_updated": "2025-12-07T12:34:20.858982",
+  "root_oids": [],
+  "nodes": {
+    "optixSnmp": {
+      "name": "optixSnmp",
+      "oid": "1.3.6.1.4.1.2011.2.25.3.1.10",
+      "description": null,
+      "syntax": null,
+      "access": null,
+      "status": null,
+      "parent_name": null,
+      "children": [],
+      "module": "OPTIX-COMMON-SNMP-MIB",
+      "text_convention": null,
+      "units": null,
+      "max_access": null,
+      "reference": null,
+      "defval": null,
+      "hint": null,
+      "class": "moduleidentity"
+    },
+    "optixSnmpTrap": {
+      "name": "optixSnmpTrap",
+      "oid": "1.3.6.1.4.1.2011.2.25.3.1.10.1",
+      "description": null,
+      "syntax": null,
+      "access": null,
+      "status": null,
+      "parent_name": null,
+      "children": [],
+      "module": "OPTIX-COMMON-SNMP-MIB",
+      "text_convention": null,
+      "units": null,
+      "max_access": null,
+      "reference": null,
+      "defval": null,
+      "hint": null,
+      "class": "objectidentity"
+    }
+  },
+  "_metadata": {
+    "exported_at": "2025-12-07T12:34:20.859013",
+    "version": "1.0",
+    "type": "single_mib"
+  }
+}

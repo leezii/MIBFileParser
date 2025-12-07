@@ -1,0 +1,665 @@
+{
+  "imports": {
+    "OPTIX-OID-MIB": [
+      "optixProvisionWDM"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "Gauge32",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
+    ],
+    "class": "imports"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///var/folders/3d/b49qmsm54n3gm9wc66cnt3n40000gn/T/tmp2ho_d3hg/OPTIX-WDM-FUNCTION-MIB.mib",
+      "Produced by pysmi-1.6.2 at Sun Dec  7 12:34:20 2025",
+      "On host zhideMac-mini.local platform Darwin version 25.1.0 by user zhili",
+      "Using Python version 3.12.11 (main, Aug 18 2025, 19:02:39) [Clang 20.1.4 ]"
+    ],
+    "module": "OPTIX-WDM-FUNCTION-MIB"
+  },
+  "optixGetBid": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixGetBid",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "optixGetBidAndBdtype": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixGetBidAndBdtype",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 40,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "optixGetPortInfoEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OPTIX-WDM-FUNCTION-MIB",
+        "object": "optixGetBidAndBdtype"
+      },
+      {
+        "implied": 0,
+        "module": "OPTIX-WDM-FUNCTION-MIB",
+        "object": "optixGetPortInfoPort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "optixGetPortInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1",
+    "status": "current"
+  },
+  "optixGetPortInfoName": {
+    "class": "objecttype",
+    "maxaccess": "read-write",
+    "name": "optixGetPortInfoName",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.6",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 64,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "optixGetPortInfoPaylodType": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixGetPortInfoPaylodType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.5",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 65535,
+          "cbr10g": 3585,
+          "clo": 2818,
+          "cpri1": 3330,
+          "cpri2": 3329,
+          "cpri3": 3331,
+          "cpri4": 3332,
+          "cpri5": 3333,
+          "cpri6": 3334,
+          "cpri7": 3335,
+          "cpri8": 3338,
+          "custom": 65281,
+          "dvbasi": 2049,
+          "escon": 2305,
+          "etr": 2817,
+          "fc100": 1282,
+          "fc1000": 1285,
+          "fc1200-trunk-2": 3360,
+          "fc1200-trunk-4": 3361,
+          "fc1200-trunk-8": 3362,
+          "fc1600": 1290,
+          "fc1600-trunk-2": 3357,
+          "fc1600-trunk-4": 3358,
+          "fc1600-trunk-8": 3359,
+          "fc200": 1283,
+          "fc3200": 1291,
+          "fc3200-trunk-2": 3355,
+          "fc3200-trunk-4": 3356,
+          "fc400": 1284,
+          "fc4x1600": 3340,
+          "fc4x3200": 3341,
+          "fc50": 1281,
+          "fc800": 1289,
+          "fc800-trunk-2": 3363,
+          "fc800-trunk-4": 3364,
+          "fc800-trunk-8": 3365,
+          "fddi": 2561,
+          "fe": 260,
+          "ficon": 1537,
+          "ficon10g": 1544,
+          "ficon4g": 1539,
+          "ficon8g": 1541,
+          "ficonex": 1538,
+          "flexe-aware": 3366,
+          "ge": 257,
+          "ge-gfp-t": 261,
+          "ge200-2v": 3354,
+          "ge40": 264,
+          "ge400-4v": 3351,
+          "ge50": 3352,
+          "gefc10": 1286,
+          "gelan10": 258,
+          "gelan100": 265,
+          "gelan200": 3353,
+          "gelan25": 3344,
+          "gelan400": 3350,
+          "getttagmp": 263,
+          "gewan10": 259,
+          "gsdi": 1795,
+          "gsdi-na": 1796,
+          "hdsdi": 1793,
+          "hdsdi-na": 1794,
+          "ibqdr": 3075,
+          "infinibandddr": 3074,
+          "infinibandsdr": 3073,
+          "isc1g": 2819,
+          "isc2g": 2820,
+          "none": 0,
+          "obsai2": 3339,
+          "obsai4": 3336,
+          "obsai8": 3337,
+          "oc12": 1026,
+          "oc192": 1028,
+          "oc3": 1025,
+          "oc48": 1027,
+          "oc768": 1029,
+          "odu0": 528,
+          "odu1": 529,
+          "odu2": 530,
+          "odu3": 531,
+          "odu4": 533,
+          "oduflex": 534,
+          "otu1": 513,
+          "otu2": 514,
+          "otu2e": 518,
+          "otu3": 515,
+          "otu3e": 517,
+          "otu4": 521,
+          "otu5g": 516,
+          "packet": 3841,
+          "sdi": 2050,
+          "stm1": 769,
+          "stm16": 771,
+          "stm256": 773,
+          "stm4": 770,
+          "stm64": 772
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "optixGetPortInfoPort": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixGetPortInfoPort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "optixGetPortInfoTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "optixGetPortInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20",
+    "status": "current"
+  },
+  "optixGetPortInfoType": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixGetPortInfoType",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cbwport": 6,
+          "ccport": 7,
+          "ceport": 9,
+          "cfp10x10g": 18,
+          "cfp4x10g": 16,
+          "cfp4x25g": 17,
+          "cfp4x28g": 22,
+          "clockport": 34,
+          "cxp10x10g": 19,
+          "cxp12x25g": 36,
+          "eport": 2,
+          "flexeport": 41,
+          "lane2x4x28g": 44,
+          "lane4x112g": 38,
+          "lane4x56g": 39,
+          "lane8x10g": 40,
+          "lane8x56g": 37,
+          "lbwport": 10,
+          "lcmport": 21,
+          "lcport": 8,
+          "lcport-fixed": 11,
+          "oport": 1,
+          "oscport": 13,
+          "qsfp2x28g": 43,
+          "qsfp4x10g": 25,
+          "qsfp4x28g": 24,
+          "sfp28port": 42,
+          "unknow": 254,
+          "voaport": 12,
+          "wdm10port": 15,
+          "wdm4port": 14,
+          "wdminoutport": 28,
+          "wdminport": 26,
+          "wdmoutport": 27
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "optixGetPortInfoWorkMode": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixGetPortInfoWorkMode",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.20.1.4",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 65535,
+          "t-2xany-oduflex-trunk": 4616,
+          "t-4xany-4xodu2": 4613,
+          "t-4xany-4xoduflex": 4614,
+          "t-4xany-oduflex-trunk": 4617,
+          "t-8xany-odu2": 4615,
+          "t-8xany-oduflex-trunk": 4618,
+          "t-any-2xodu4": 57353,
+          "t-any-2xodu4-tduflex": 57360,
+          "t-any-odu0-nocross": 1,
+          "t-any-odu0-odu1-otu2": 4097,
+          "t-any-odu1-cross": 260,
+          "t-any-odu1-nocross": 261,
+          "t-any-odu1-otu2": 4354,
+          "t-any-odu2": 512,
+          "t-any-odu2-otu4": 4612,
+          "t-any-odu3_nocross": 513,
+          "t-any-odu4": 514,
+          "t-any-oduflex": 2560,
+          "t-any-oduflex-2v": 57352,
+          "t-any-oduflex-4v": 57351,
+          "t-any-oduflex-otu2": 6656,
+          "t-any-oduflex-otu4": 6660,
+          "t-any-otu2": 4608,
+          "t-any-tduflex": 57361,
+          "t-bidirectional-elecrelay-mode": 57362,
+          "t-bidirectional-optrelay-mode": 57363,
+          "t-flexe": 63489,
+          "t-general-branch-mode": 57348,
+          "t-general-elecrelay-mode": 57347,
+          "t-general-line-mode": 57345,
+          "t-general-optrelay-mode": 57346,
+          "t-odu0": 0,
+          "t-odu0-odu1": 2,
+          "t-odu1": 256,
+          "t-odu1-sdh-mode": 57350,
+          "t-odu1anyodu0": 258,
+          "t-odu1anyodu0odu1": 259,
+          "t-odu1odu0": 257,
+          "t-otu1-odu0-odu1-otu2": 4355,
+          "t-sdh-line-mode": 57349,
+          "t1-odu0": 4096,
+          "tl-odu1": 4353,
+          "tl-odu1anyodu0odu1": 4352
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "optixGetPortState": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixGetPortState",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.3",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 32,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "optixGetPortStateEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OPTIX-WDM-FUNCTION-MIB",
+        "object": "optixGetBidAndBdtype"
+      },
+      {
+        "implied": 0,
+        "module": "OPTIX-WDM-FUNCTION-MIB",
+        "object": "optixLogSubCardId"
+      },
+      {
+        "implied": 0,
+        "module": "OPTIX-WDM-FUNCTION-MIB",
+        "object": "optixGetPortStatusPort"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "optixGetPortStateEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1",
+    "status": "current"
+  },
+  "optixGetPortStatePort": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixGetPortStatePort",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 255,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "optixGetPortStateTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "optixGetPortStateTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.30",
+    "status": "current"
+  },
+  "optixWDMBdFunction": {
+    "class": "objectidentity",
+    "name": "optixWDMBdFunction",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10"
+  },
+  "optixWDMDeviceMgr": {
+    "class": "objectidentity",
+    "name": "optixWDMDeviceMgr",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20"
+  },
+  "optixWDMFanEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OPTIX-WDM-FUNCTION-MIB",
+        "object": "optixWDMGetFanBID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "optixWDMFanEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10.10.1",
+    "status": "current"
+  },
+  "optixWDMFanMgr": {
+    "class": "objectidentity",
+    "name": "optixWDMFanMgr",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10"
+  },
+  "optixWDMFanTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "optixWDMFanTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10.10",
+    "status": "current"
+  },
+  "optixWDMFunction": {
+    "class": "objectidentity",
+    "name": "optixWDMFunction",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10"
+  },
+  "optixWDMGetBdInfoBID": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixWDMGetBdInfoBID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 8,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "optixWDMGetBdInfoData": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixWDMGetBdInfoData",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "max": 9740,
+            "min": 0
+          }
+        ]
+      },
+      "type": "OCTET STRING"
+    }
+  },
+  "optixWDMGetBdInfoEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OPTIX-WDM-FUNCTION-MIB",
+        "object": "optixWDMGetBdInfoBID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "optixWDMGetBdInfoEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.10.1",
+    "status": "current"
+  },
+  "optixWDMGetBdInfoTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "optixWDMGetBdInfoTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.10.10.10",
+    "status": "current"
+  },
+  "optixWDMGetFanBID": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixWDMGetFanBID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "optixWDMGetFanSpeed": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixWDMGetFanSpeed",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.10.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 9,
+          "auto-high": 7,
+          "auto-low": 5,
+          "auto-mid": 6,
+          "high": 3,
+          "low": 1,
+          "mid": 2,
+          "mid-high": 11,
+          "mid-low": 10,
+          "stop": 4
+        }
+      },
+      "type": "INTEGER"
+    }
+  },
+  "optixWDMGetPsuBID": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixWDMGetPsuBID",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20.10.1.1",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "optixWDMGetPsuPowerConsumption": {
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "name": "optixWDMGetPsuPowerConsumption",
+    "nodetype": "column",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20.10.1.2",
+    "status": "current",
+    "syntax": {
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "max": 65535,
+            "min": 0
+          }
+        ]
+      },
+      "type": "INTEGER"
+    }
+  },
+  "optixWDMPsuEntry": {
+    "class": "objecttype",
+    "indices": [
+      {
+        "implied": 0,
+        "module": "OPTIX-WDM-FUNCTION-MIB",
+        "object": "optixWDMGetPsuBID"
+      }
+    ],
+    "maxaccess": "not-accessible",
+    "name": "optixWDMPsuEntry",
+    "nodetype": "row",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20.10.1",
+    "status": "current"
+  },
+  "optixWDMPsuMgr": {
+    "class": "objectidentity",
+    "name": "optixWDMPsuMgr",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20"
+  },
+  "optixWDMPsuTable": {
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "name": "optixWDMPsuTable",
+    "nodetype": "table",
+    "oid": "1.3.6.1.4.1.2011.2.25.4.70.20.20.10",
+    "status": "current"
+  }
+}

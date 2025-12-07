@@ -523,6 +523,23 @@ class MibService:
 
                     # Check if result is a valid MibData object
                     if result and hasattr(result, 'name') and hasattr(result, 'nodes'):
+                        # Save the parsed MIB data to JSON file
+                        try:
+                            from src.mib_parser.serializer import JsonSerializer
+                            # Ensure output directory exists
+                            self.output_dir.mkdir(parents=True, exist_ok=True)
+                            serializer = JsonSerializer()
+                            output_file = self.output_dir / f"{result.name}.json"
+                            serializer.serialize(result, str(output_file))
+                            logger.info(f"Saved JSON output: {output_file}")
+                        except Exception as save_error:
+                            logger.error(f"Failed to save JSON for {result.name}: {save_error}")
+                            # Still count as success since parsing worked, but note the save error
+                            results['errors'].append({
+                                'filename': mib_file.name,
+                                'error': f'Parsing successful but failed to save JSON: {str(save_error)}'
+                            })
+
                         results['success'].append({
                             'filename': mib_file.name,
                             'mib_name': result.name,

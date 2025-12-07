@@ -365,6 +365,46 @@ def api_validate_indexes():
         if validation_result.is_valid:
             response_data['normalized_values'] = validation_result.normalized_values
 
+            # Get all table columns with complete OIDs
+            try:
+                # Convert index values to list
+                index_values_list = []
+                for field in index_fields:
+                    field_name = field.name
+                    if field_name in validation_result.normalized_values:
+                        index_values_list.append(str(validation_result.normalized_values[field_name]))
+
+                # Get table columns with complete OIDs
+                columns_with_oids = table_service.get_table_columns_with_oids(
+                    table_name, device_name, index_values_list
+                )
+
+                response_data['table_columns'] = columns_with_oids
+
+                # Format index display with clear separation
+                index_display = {
+                    'table_oid': table_structure.get('table_oid'),
+                    'entry_oid': table_structure.get('entry_oid'),
+                    'index_values': validation_result.normalized_values,
+                    'index_display': f"{table_structure.get('entry_oid', '')}." + ".".join(index_values_list),
+                    'complete_entry_oid': complete_oid,
+                    'index_fields': [
+                        {
+                            'name': field.name,
+                            'value': validation_result.normalized_values.get(field.name),
+                            'type': field.type,
+                            'display': f"{field.name} = {validation_result.normalized_values.get(field.name)}"
+                        }
+                        for field in index_fields
+                    ]
+                }
+                response_data['index_display'] = index_display
+
+            except Exception as e:
+                logger.warning(f"Error getting table columns: {e}")
+                response_data['table_columns'] = []
+                response_data['index_display'] = None
+
         return jsonify(response_data)
 
     except Exception as e:

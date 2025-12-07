@@ -880,6 +880,60 @@ class MibTableService:
 
         return None
 
+    def get_table_columns_with_oids(self, table_name: str, device_type: str = None, index_values: List[str] = None) -> List[Dict[str, Any]]:
+        """
+        Get all table columns with their complete OIDs including index values.
+
+        Args:
+            table_name: Name of the table
+            device_type: Device type for context
+            index_values: List of index values to build complete OIDs
+
+        Returns:
+            List of dictionaries with column information and complete OIDs
+        """
+        table_structure = self.get_table_structure(table_name, device_type)
+        if not table_structure:
+            return []
+
+        columns = table_structure.get('columns', [])
+        if not columns:
+            return []
+
+        # If no index values provided, return column info without complete OIDs
+        if not index_values:
+            return [
+                {
+                    'name': col['name'],
+                    'oid': col['oid'],
+                    'syntax': col.get('syntax', ''),
+                    'access': col.get('access', ''),
+                    'description': col.get('description', ''),
+                    'type': col.get('type', 'Unknown'),
+                    'is_index': False
+                }
+                for col in columns
+            ]
+
+        # Build complete OIDs with index values
+        complete_oids = []
+        for col in columns:
+            col_oid = col['oid']
+            complete_oid = self.build_complete_oid(col_oid, index_values)
+
+            complete_oids.append({
+                'name': col['name'],
+                'oid': col_oid,
+                'complete_oid': complete_oid,
+                'syntax': col.get('syntax', ''),
+                'access': col.get('access', ''),
+                'description': col.get('description', ''),
+                'type': col.get('type', 'Unknown'),
+                'is_index': False
+            })
+
+        return complete_oids
+
     def _search_upward(self, oid_parts: List[int], device_type: str) -> Optional[TableMatchResult]:
         """Search for tables by removing 1-2 levels from the OID."""
 

@@ -151,6 +151,133 @@
 .badge-match {
     background-color: #28a745;
 }
+
+/* Enhanced Index Display Styles */
+.oid-segment {
+    font-family: 'Courier New', monospace;
+    background-color: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #dee2e6;
+    font-size: 0.9em;
+}
+
+.table-oid {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+    color: #1976d2;
+}
+
+.entry-oid {
+    background-color: #f3e5f5;
+    border-color: #9c27b0;
+    color: #7b1fa2;
+}
+
+.complete-oid {
+    background-color: #e8f5e8;
+    border-color: #4caf50;
+    color: #388e3c;
+    font-weight: bold;
+}
+
+.oid-construction {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+.oid-separator {
+    font-weight: bold;
+    color: #6c757d;
+    font-size: 1.2em;
+}
+
+.index-values {
+    font-family: 'Courier New', monospace;
+    background-color: #fff3cd;
+    padding: 4px 8px;
+    border-radius: 3px;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+    font-weight: bold;
+}
+
+.index-values-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.index-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    font-size: 0.9em;
+}
+
+.field-name {
+    font-weight: bold;
+    color: #495057;
+}
+
+.field-value {
+    color: #007bff;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.field-type {
+    color: #6c757d;
+    font-size: 0.85em;
+}
+
+.complete-oid-enhanced {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.index-display-card {
+    border-left: 4px solid #007bff;
+}
+
+.table-columns-card {
+    border-left: 4px solid #17a2b8;
+}
+
+#columnsTable {
+    font-size: 0.9em;
+}
+
+#columnsTable th {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#columnsTable td {
+    vertical-align: middle;
+}
+
+.oid-path {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+}
 </style>
 {% endblock %}
 
@@ -293,6 +420,52 @@
                 <div class="card-body">
                     <div id="resultContent">
                         <!-- Results will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Result Section -->
+    <div class="row" id="enhancedResultSection" style="display: none;">
+        <div class="col-lg-10 mx-auto">
+            <!-- Index Display Card -->
+            <div class="card shadow-sm mb-4 index-display-card">
+                <div class="card-header">
+                    <i class="fas fa-fingerprint text-primary"></i> Index Information
+                    <small class="text-muted ms-2">Complete OID breakdown with index values</small>
+                </div>
+                <div class="card-body">
+                    <div id="indexDisplayContent">
+                        <!-- Index display will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Columns Card -->
+            <div class="card shadow-sm table-columns-card">
+                <div class="card-header">
+                    <i class="fas fa-list text-info"></i> Table Columns
+                    <small class="text-muted ms-2">All column OIDs with current index values</small>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover" id="columnsTable">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Column Name</th>
+                                    <th>Base OID</th>
+                                    <th>Complete OID</th>
+                                    <th>Type</th>
+                                    <th>Access</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="columnsTableBody">
+                                <!-- Table columns will be dynamically inserted here -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -561,7 +734,7 @@ $(document).ready(function() {
         if (response.complete_oid) {
             html += `
                 <div class="mt-3">
-                    <h6><i class="fas fa-fingerprint"></i> Complete OID:</h6>
+                    <h6><i class="fas fa-fingerprint"></i> Complete Entry OID:</h6>
                     <div class="complete-oid-display">${response.complete_oid}</div>
                     <button class="btn btn-outline-primary btn-sm mt-2" onclick="copyToClipboard('${response.complete_oid}')">
                         <i class="fas fa-copy"></i> Copy OID
@@ -588,6 +761,119 @@ $(document).ready(function() {
 
         $('#resultContent').html(html);
         $('#resultSection').slideDown();
+
+        // Display enhanced results if available
+        if (response.index_display || response.table_columns) {
+            displayEnhancedResults(response);
+        }
+    }
+
+    // Display enhanced results with index information and table columns
+    function displayEnhancedResults(response) {
+        // Display index information
+        if (response.index_display) {
+            let indexHtml = '<div class="index-info">';
+
+            // Table and Entry OIDs
+            indexHtml += `
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="oid-path">
+                            <h6><i class="fas fa-table"></i> Table OID:</h6>
+                            <code class="oid-segment table-oid">${response.index_display.table_oid}</code>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="oid-path">
+                            <h6><i class="fas fa-list-alt"></i> Entry OID:</h6>
+                            <code class="oid-segment entry-oid">${response.index_display.entry_oid}</code>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Index values with clear separation
+            indexHtml += `
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <h6><i class="fas fa-fingerprint"></i> Index Values:</h6>
+                        <div class="index-values-display">
+            `;
+
+            response.index_display.index_fields.forEach(function(field) {
+                indexHtml += `
+                    <div class="index-field">
+                        <span class="field-name">${field.name}</span>
+                        <span class="field-value">= ${field.value}</span>
+                        <span class="field-type">(${field.type})</span>
+                    </div>
+                `;
+            });
+
+            indexHtml += `
+                        </div>
+                        <div class="complete-index-path mt-2">
+                            <h6><i class="fas fa-link"></i> Complete Index Path:</h6>
+                            <div class="oid-construction">
+                                <code class="oid-segment">${response.index_display.entry_oid}</code>
+                                <span class="oid-separator">.</span>
+                                <span class="index-values">${response.index_display.index_display.replace(response.index_display.entry_oid + '.', '')}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Complete Entry OID
+            if (response.index_display.complete_entry_oid) {
+                indexHtml += `
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <h6><i class="fas fa-bullseye"></i> Complete Entry OID:</h6>
+                            <div class="complete-oid-enhanced">
+                                <code class="oid-segment complete-oid">${response.index_display.complete_entry_oid}</code>
+                                <button class="btn btn-outline-primary btn-sm ms-2" onclick="copyToClipboard('${response.index_display.complete_entry_oid}')">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            indexHtml += '</div>';
+            $('#indexDisplayContent').html(indexHtml);
+        }
+
+        // Display table columns
+        if (response.table_columns && response.table_columns.length > 0) {
+            let columnsHtml = '';
+            response.table_columns.forEach(function(column) {
+                const accessClass = column.access === 'read-only' ? 'text-warning' :
+                                 column.access === 'read-write' ? 'text-info' : 'text-muted';
+
+                columnsHtml += `
+                    <tr>
+                        <td><strong>${column.name}</strong></td>
+                        <td><code class="oid-segment">${column.oid}</code></td>
+                        <td><code class="oid-segment complete-oid">${column.complete_oid || 'N/A'}</code></td>
+                        <td><span class="badge bg-secondary">${column.type}</span></td>
+                        <td><span class="${accessClass}">${column.access || 'N/A'}</span></td>
+                        <td class="text-muted small">${column.description || 'N/A'}</td>
+                        <td>
+                            ${column.complete_oid ? `
+                                <button class="btn btn-outline-primary btn-sm" onclick="copyToClipboard('${column.complete_oid}')" title="Copy complete OID">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            ` : ''}
+                        </td>
+                    </tr>
+                `;
+            });
+            $('#columnsTableBody').html(columnsHtml);
+        }
+
+        $('#enhancedResultSection').slideDown();
     }
 
     // Display validation errors

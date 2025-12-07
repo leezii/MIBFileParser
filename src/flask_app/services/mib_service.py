@@ -121,6 +121,12 @@ class MibService:
         Returns:
             MIB data dictionary or None if not found
         """
+        # Special handling for ALL_MIBS
+        if mib_name == 'ALL_MIBS':
+            # ALL_MIBS is a virtual MIB that combines all available MIBs
+            # Generate it dynamically instead of looking for a physical file
+            return self._generate_all_mibs_data()
+
         # Check cache first
         if use_cache and mib_name in self._mib_cache:
             cache_time = self._last_cache_update.get(mib_name, 0)
@@ -726,3 +732,116 @@ class MibService:
                 'error_count': len(mib_files),
                 'errors': [{'filename': f.name, 'error': str(e)} for f in mib_files]
             }
+
+    def _generate_all_mibs_data(self) -> Dict[str, Any]:
+        """
+        Generate combined data for ALL_MIBS virtual MIB.
+
+        Returns:
+            Dictionary containing combined data from all available MIBs
+        """
+        try:
+            # Get all MIBs from both device and global directories
+            all_mibs = self.list_mibs()
+            combined_nodes = {}
+            all_imports = set()
+            mib_descriptions = []
+
+            # Collect all nodes from all MIBs
+            for mib_info in all_mibs:
+                mib_name = mib_info['name']
+                # Skip ALL_MIBS to avoid recursion
+                if mib_name == 'ALL_MIBS':
+                    continue
+
+                # Load MIB data directly from file to avoid recursion
+                mib_data = self._load_mib_data_from_file(mib_name)
+
+                if mib_data and 'nodes' in mib_data:
+                    # Add nodes to combined structure
+                    for node_name, node_data in mib_data['nodes'].items():
+                        # Ensure node name includes MIB origin to avoid conflicts
+                        unique_name = f"{mib_name}.{node_name}"
+                        combined_nodes[unique_name] = {
+                            **node_data,
+                            'original_name': node_name,
+                            'mib_origin': mib_name
+                        }
+
+                    # Collect all imports
+                    if 'imports' in mib_data:
+                        if isinstance(mib_data['imports'], dict):
+                            all_imports.update(mib_data['imports'].keys())
+                        else:
+                            all_imports.update(mib_data['imports'])
+
+                    # Collect descriptions
+                    if mib_data.get('description'):
+                        mib_descriptions.append(f"{mib_name}: {mib_data['description']}")
+
+            # Create combined MIB data structure
+            combined_mib_data = {
+                'name': 'ALL_MIBS',
+                'description': f"Combined view of {len(all_mibs)} MIB modules. " +
+                               " | ".join(mib_descriptions[:3]) +  # Include first 3 descriptions
+                               ("..." if len(mib_descriptions) > 3 else ""),
+                'module': 'ALL_MIBS',
+                'nodes': combined_nodes,
+                'imports': list(all_imports),
+                'meta': {
+                    'total_mibs': len(all_mibs),
+                    'total_nodes': len(combined_nodes),
+                    'generated_at': datetime.now().isoformat()
+                }
+            }
+
+            return combined_mib_data
+
+        except Exception as e:
+            logger.error(f"Error generating ALL_MIBS data: {e}")
+            # Return a minimal structure in case of error
+            return {
+                'name': 'ALL_MIBS',
+                'description': f'Error generating combined MIB data: {str(e)}',
+                'module': 'ALL_MIBS',
+                'nodes': {},
+                'imports': [],
+                'meta': {
+                    'error': str(e),
+                    'generated_at': datetime.now().isoformat()
+                }
+            }
+
+    def _load_mib_data_from_file(self, mib_name: str) -> Optional[Dict[str, Any]]:
+        """
+        Load MIB data directly from file without using get_mib_data to avoid recursion.
+
+        Args:
+            mib_name: Name of the MIB
+
+        Returns:
+            MIB data dictionary or None if not found
+        """
+        # Try to find the file in both directories
+        # First check global directory (standard MIBs)
+        json_file = self.global_output_dir / f"{mib_name}.json"
+        if not json_file.exists():
+            # Try with .mib.json extension
+            json_file = self.global_output_dir / f"{mib_name}.mib.json"
+
+        if not json_file.exists():
+            # Then check device-specific directory
+            json_file = self.output_dir / f"{mib_name}.json"
+            if not json_file.exists():
+                # Try with .mib.json extension
+                json_file = self.output_dir / f"{mib_name}.mib.json"
+
+        if not json_file.exists():
+            return None
+
+        try:
+            with open(json_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning(f"Error loading MIB data from {json_file}: {e}")
+            return None

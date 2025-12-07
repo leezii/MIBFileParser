@@ -139,6 +139,23 @@
     box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
 }
 
+.annotation-populated {
+    border-color: #28a745 !important;
+    background-color: #f8fff9 !important;
+}
+
+.annotation-populated:focus {
+    border-color: #28a745 !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+}
+
+.annotation-hint {
+    font-size: 0.8em;
+    color: #28a745;
+    margin-top: 2px;
+    font-style: italic;
+}
+
 .card-header {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     font-weight: bold;
@@ -655,6 +672,15 @@ $(document).ready(function() {
         }
     });
 
+    // Handle input changes for annotation-populated fields
+    $(document).on('input', '.annotation-populated', function() {
+        // Remove annotation styling when user modifies the value
+        $(this).removeClass('annotation-populated');
+        // Hide the hint since user has made changes
+        const indexNum = $(this).attr('id').split('_')[1];
+        $(`#annotation_hint_${indexNum}`).hide();
+    });
+
     // Lookup table by OID
     function lookupTable() {
         const oid = $('#oidInput').val().trim();
@@ -791,6 +817,9 @@ $(document).ready(function() {
                                 <span class="annotation-text"></span>
                             </small>
                         </div>
+                        <div class="annotation-hint" id="annotation_hint_${indexNum}" style="display: none;">
+                            <small><i class="fas fa-info-circle"></i> 值来自标注，可直接修改</small>
+                        </div>
                     </div>
                     ${index.syntax ? `<small class="text-muted">Syntax: ${index.syntax}</small>` : ''}
                     <div class="validation-error" id="error_${indexNum}" style="display: none;"></div>
@@ -830,10 +859,15 @@ $(document).ready(function() {
                                     annotationText.text(annotationResponse.annotation);
                                     annotationDiv.show();
 
-                                    // Set the annotation as placeholder if input is empty
+                                    // Set the annotation as input value if input is empty
                                     const inputField = $(`#index_${indexNum}`);
                                     if (!inputField.val()) {
-                                        inputField.attr('placeholder', annotationResponse.annotation);
+                                        inputField.val(annotationResponse.annotation);
+                                        // Add a visual indicator that this is from annotation
+                                        inputField.addClass('annotation-populated');
+                                        // Show hint that value comes from annotation
+                                        const hintDiv = $(`#annotation_hint_${indexNum}`);
+                                        hintDiv.show();
                                     }
                                 }
                             },

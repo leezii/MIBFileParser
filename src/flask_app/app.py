@@ -2,7 +2,7 @@
 Flask application for MIB tree visualization.
 """
 
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 import os
 from pathlib import Path
@@ -18,6 +18,9 @@ def create_app(config_name='development'):
     app.config['MIB_DIR'] = Path(__file__).parent.parent.parent / 'MIB'
     app.config['JSON_SORT_KEYS'] = False
     app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max upload size
+
+    # Static file cache configuration
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000  # 1 year for production
 
     # Enable CORS for all routes
     CORS(app, resources={
@@ -50,6 +53,19 @@ def create_app(config_name='development'):
     @app.errorhandler(FileNotFoundError)
     def file_not_found_error(error):
         return {'error': 'File not found'}, 404
+
+    # Add cache headers for static files
+    @app.after_request
+    def add_cache_headers(response):
+        if request.endpoint and 'static' in request.endpoint:
+            # Long cache for vendor assets (1 year)
+            if 'vendor' in request.path:
+                response.cache_control.max_age = 31536000
+                response.cache_control.immutable = True
+            # Shorter cache for custom static files (1 hour)
+            else:
+                response.cache_control.max_age = 3600
+        return response
 
     return app
 

@@ -7,6 +7,7 @@ requires-python = ">=3.9"
 dependencies = [
     "flask>=3.1.2",
     "flask-cors>=6.0.1",
+    "gunicorn>=23.0.0",
     "pysmi>=0.3.4",
     "pysnmp>=4.4.12",
 ]

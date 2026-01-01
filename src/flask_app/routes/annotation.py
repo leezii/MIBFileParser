@@ -2,13 +2,30 @@
 标注页面路由 - 管理MIB叶子节点的字符串标注
 """
 
+from pathlib import Path
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for, flash
 from flask_app.services.annotation_service import AnnotationService
 
 annotation_bp = Blueprint('annotation', __name__, url_prefix='/annotation')
 
-# 全局标注服务实例
-annotation_service = AnnotationService()
+# 全局标注服务实例（延迟初始化）
+annotation_service = None
+
+
+@annotation_bp.before_app_request
+def initialize_annotation_service():
+    """初始化标注服务"""
+    global annotation_service
+    if annotation_service is None:
+        from flask import current_app
+        storage_dir = current_app.config.get('STORAGE_DIR')
+        # Use configured storage directory or default to user home
+        if storage_dir:
+            annotation_service = AnnotationService(str(storage_dir))
+        else:
+            # Fallback to user home directory
+            default_storage = Path.home() / '.mibparser' / 'storage'
+            annotation_service = AnnotationService(str(default_storage))
 
 
 @annotation_bp.route('/')

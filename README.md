@@ -56,6 +56,23 @@ cd MIBFileParser
 uv install
 ```
 
+### As a Desktop Application
+
+Build a standalone desktop application (requires desktop dependencies):
+
+```bash
+# Install desktop dependencies
+uv sync --extra desktop
+
+# Build the desktop app
+python desktop/build.py
+
+# Run the desktop app
+python desktop/app.py
+```
+
+See [desktop/README.md](desktop/README.md) for detailed desktop application documentation.
+
 ## Quick Start
 
 ### Using the Web Interface

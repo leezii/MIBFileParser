@@ -4,6 +4,8 @@ API routes for MIB data access.
 
 from flask import Blueprint, jsonify, request
 import logging
+import os
+from pathlib import Path
 
 from ..services.mib_service import MibService
 
@@ -23,7 +25,11 @@ def initialize_service():
     if mib_service is None:
         from flask import current_app
         output_dir = current_app.config.get('OUTPUT_DIR')
+        storage_dir = current_app.config.get('STORAGE_DIR')
         mib_service = MibService(output_dir)
+        # Set storage directory to avoid using Path.cwd()
+        if storage_dir:
+            mib_service.set_storage_dir(storage_dir)
 
 
 @api_bp.route('/mibs', methods=['GET'])
@@ -342,6 +348,185 @@ def clear_all_cache():
 
     except Exception as e:
         logger.error(f"Error clearing cache: {e}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@api_bp.route('/desktop/file-info', methods=['GET'])
+def get_desktop_file_info():
+    """
+    Get information about a file selected via desktop file dialog.
+    This endpoint is used by the desktop app to get file metadata.
+
+    Query Parameters:
+        - path: File path from desktop file dialog
+
+    Returns:
+        JSON object with file information
+    """
+    try:
+        file_path = request.args.get('path')
+
+        if not file_path:
+            return jsonify({
+                'success': False,
+                'error': 'File path is required'
+            }), 400
+
+        path = Path(file_path)
+
+        # Security check: ensure file exists and is readable
+        if not path.exists():
+            return jsonify({
+                'success': False,
+                'error': f'File not found: {file_path}'
+            }), 404
+
+        if not path.is_file():
+            return jsonify({
+                'success': False,
+                'error': 'Path is not a file'
+            }), 400
+
+        # Get file information
+        file_stat = path.stat()
+
+        return jsonify({
+            'success': True,
+            'name': path.name,
+            'path': str(path.absolute()),
+            'size': file_stat.st_size,
+            'extension': path.suffix
+        })
+
+    except Exception as e:
+        logger.error(f"Error getting file info: {e}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+
+@api_bp.route('/desktop/upload-by-path', methods=['POST'])
+def upload_desktop_files():
+    """
+    Upload MIB files using file paths from desktop file dialog.
+    This allows the desktop app to upload files selected via native dialog.
+
+    Request JSON:
+        {
+            "file_paths": ["path1", "path2", ...],
+            "device_type": "device_name",
+            "action": "replace" | "append",
+            "new_device_name": "name" (optional),
+            "new_device_display": "display" (optional),
+            "description": "desc" (optional)
+        }
+
+    Returns:
+        JSON response with upload results
+    """
+    try:
+        from flask import current_app
+        from ..services.device_service import DeviceService
+        import shutil
+
+        data = request.get_json()
+
+        if not data or 'file_paths' not in data:
+            return jsonify({
+                'success': False,
+                'error': 'file_paths is required'
+            }), 400
+
+        file_paths = data['file_paths']
+        device_type = data.get('device_type')
+        action = data.get('action', 'replace')
+
+        if not device_type:
+            return jsonify({
+                'success': False,
+                'error': 'device_type is required'
+            }), 400
+
+        # Initialize device service
+        storage_dir = current_app.config.get('OUTPUT_DIR')
+        device_service = DeviceService(storage_dir)
+
+        # Handle new device creation
+        if device_type == '__new__':
+            new_device_name = data.get('new_device_name')
+            if not new_device_name:
+                return jsonify({
+                    'success': False,
+                    'error': 'new_device_name is required for new device'
+                }), 400
+
+            display_name = data.get('new_device_display', new_device_name)
+            description = data.get('description', '')
+
+            device_service.create_device(new_device_name, display_name, description)
+            device_name = new_device_name
+        else:
+            device_name = device_type
+
+        # Get device storage path
+        device_path = device_service.get_device_storage_path(device_name)
+
+        # Handle replace action
+        if action == 'replace':
+            # Remove existing MIB files
+            for mib_file in device_path.glob('*.mib'):
+                mib_file.unlink()
+
+        # Copy files to device storage
+        success_files = []
+        errors = []
+
+        for file_path in file_paths:
+            try:
+                src_path = Path(file_path)
+
+                if not src_path.exists():
+                    errors.append({
+                        'filename': str(src_path),
+                        'error': 'File not found'
+                    })
+                    continue
+
+                # Copy file to device storage
+                dest_path = device_path / src_path.name
+                shutil.copy2(src_path, dest_path)
+
+                success_files.append({
+                    'filename': src_path.name,
+                    'size': src_path.stat().st_size
+                })
+
+            except Exception as e:
+                errors.append({
+                    'filename': str(file_path),
+                    'error': str(e)
+                })
+
+        return jsonify({
+            'success': True,
+            'device_name': device_name,
+            'action': action,
+            'results': {
+                'success_count': len(success_files),
+                'success_files': success_files,
+                'error_count': len(errors),
+                'errors': errors
+            }
+        })
+
+    except Exception as e:
+        logger.error(f"Error in desktop upload: {e}")
+        import traceback
+        traceback.print_exc()
         return jsonify({
             'success': False,
             'error': str(e)

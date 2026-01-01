@@ -151,3 +151,13 @@ examples/output/
 
 # UV
 .uv_cache
+
+# Desktop build artifacts
+desktop/dist/
+desktop/build/
+desktop/*.exe
+desktop/*.app/
+desktop/mib-parser
+desktop/*.dmg
+desktop/*.icns
+desktop/*.ico

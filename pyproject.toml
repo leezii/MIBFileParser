@@ -8,6 +8,7 @@ dependencies = [
     "flask>=3.1.2",
     "flask-cors>=6.0.1",
     "gunicorn>=23.0.0",
+    "pillow>=11.3.0",
     "pysmi>=0.3.4",
     "pysnmp>=4.4.12",
 ]
@@ -19,6 +20,11 @@ dev = [
     "black>=23.0.0",
     "flake8>=6.0.0",
     "mypy>=1.0.0",
+]
+
+desktop = [
+    "pywebview>=5.0.0",
+    "pyinstaller>=6.0.0",
 ]
 
 [build-system]

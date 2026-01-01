@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 class MibService:
     """Service for reading and managing MIB data from JSON files."""
 
-    def __init__(self, output_dir: Path, compiled_mibs_dir: Path = None, device_type: str = None):
+    def __init__(self, output_dir: Path, compiled_mibs_dir: Path = None, device_type: str = None, global_output_dir: Path = None):
         """
         Initialize MIB service.
 
@@ -23,6 +23,7 @@ class MibService:
             output_dir: Path to the directory containing JSON output files
             compiled_mibs_dir: Path to compiled MIBs directory (for device context)
             device_type: Device type name for context
+            global_output_dir: Path to global output directory (optional)
         """
         self.output_dir = Path(output_dir)
         self.compiled_mibs_dir = Path(compiled_mibs_dir) if compiled_mibs_dir else None
@@ -31,7 +32,19 @@ class MibService:
         self._last_cache_update = {}
 
         # Add global output directory for standard MIBs
-        self.global_output_dir = Path.cwd() / "storage" / "global" / "output"
+        if global_output_dir:
+            self.global_output_dir = Path(global_output_dir)
+        else:
+            # Default: use Path.cwd() for backward compatibility
+            self.global_output_dir = Path.cwd() / "storage" / "global" / "output"
+
+        # Store base storage directory for MIB sources (used in desktop app)
+        # This overrides Path.cwd() when set
+        self._storage_dir = None
+
+    def set_storage_dir(self, storage_dir: Path):
+        """Set the storage directory for MIB sources."""
+        self._storage_dir = Path(storage_dir)
 
     def list_mibs(self) -> List[Dict[str, Any]]:
         """
@@ -451,10 +464,19 @@ class MibService:
             mib_sources = []
 
             # 1. Add shared MIB directories (most important for dependencies)
-            shared_dirs = [
-                str(Path.cwd() / "storage" / "global" / "mibs_for_pysmi"),  # Global standard MIBs
-                str(Path.cwd() / "storage" / "shared_mibs"),
-            ]
+            shared_dirs = []
+            if self._storage_dir:
+                # Use configured storage directory
+                shared_dirs.extend([
+                    str(self._storage_dir / "global" / "mibs_for_pysmi"),
+                    str(self._storage_dir / "shared_mibs"),
+                ])
+            else:
+                # Fallback to relative path (development only)
+                shared_dirs.extend([
+                    str(self.output_dir.parent.parent / "storage" / "global" / "mibs_for_pysmi"),
+                    str(self.output_dir.parent.parent / "storage" / "shared_mibs"),
+                ])
 
             for shared_dir in shared_dirs:
                 if Path(shared_dir).exists():

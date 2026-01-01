@@ -5,17 +5,69 @@ Flask application for MIB tree visualization.
 from flask import Flask, request
 from flask_cors import CORS
 import os
+import sys
 from pathlib import Path
+
+
+def get_bundle_dir():
+    """
+    Get the base directory for resource files.
+
+    In PyInstaller bundles, this returns sys._MEIPASS.
+    In development, this returns the project root.
+    """
+    if getattr(sys, 'frozen', False):
+        # Running in PyInstaller bundle
+        return Path(sys._MEIPASS)
+    else:
+        # Running in development
+        return Path(__file__).parent.parent.parent
 
 
 def create_app(config_name='development'):
     """Application factory pattern."""
-    app = Flask(__name__)
+    # Determine base directory for templates and static files
+    bundle_dir = get_bundle_dir()
+
+    # For PyInstaller bundles, we need to set template and static folder paths
+    if getattr(sys, 'frozen', False):
+        # In PyInstaller bundle, resources are in sys._MEIPASS
+        template_folder = bundle_dir / 'src' / 'flask_app' / 'templates'
+        static_folder = bundle_dir / 'src' / 'flask_app' / 'static'
+        app = Flask(__name__, template_folder=str(template_folder), static_folder=str(static_folder))
+    else:
+        # In development, use default paths
+        app = Flask(__name__)
 
     # Configuration
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
-    app.config['OUTPUT_DIR'] = Path(__file__).parent.parent.parent / 'output'
-    app.config['MIB_DIR'] = Path(__file__).parent.parent.parent / 'MIB'
+
+    # Set output and MIB directories based on environment
+    if getattr(sys, 'frozen', False):
+        # In PyInstaller bundle, use user home directory for all writable data
+        output_dir = Path.home() / '.mibparser' / 'output'
+        mib_dir = Path.home() / '.mibparser' / 'mib'
+        storage_dir = Path.home() / '.mibparser' / 'storage'
+
+        # Copy storage files from bundle to user directory if needed
+        bundle_storage = bundle_dir / 'storage'
+        if bundle_storage.exists() and not storage_dir.exists():
+            import shutil
+            shutil.copytree(bundle_storage, storage_dir)
+    else:
+        # In development, use project directories
+        output_dir = Path(__file__).parent.parent.parent / 'output'
+        mib_dir = Path(__file__).parent.parent.parent / 'MIB'
+        storage_dir = Path(__file__).parent.parent.parent / 'storage'
+
+    # Create directories if they don't exist
+    output_dir.mkdir(parents=True, exist_ok=True)
+    mib_dir.mkdir(parents=True, exist_ok=True)
+    storage_dir.mkdir(parents=True, exist_ok=True)
+
+    app.config['OUTPUT_DIR'] = output_dir
+    app.config['MIB_DIR'] = mib_dir
+    app.config['STORAGE_DIR'] = storage_dir
     app.config['JSON_SORT_KEYS'] = False
     app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max upload size
 

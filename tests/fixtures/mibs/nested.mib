@@ -1,0 +1,60 @@
+-- NESTED-MIB
+-- MIB file with nested structure for testing
+
+NESTED-TEST-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    OBJECT-TYPE
+        FROM SNMPv2-SMI
+    Integer32, DisplayString
+        FROM SNMPv2-TC;
+
+-- Root OID
+nestedTest OBJECT IDENTIFIER ::= { 1 3 6 1 4 1 9997 }
+
+-- Level 1 branches
+system OBJECT IDENTIFIER ::= { nestedTest 1 }
+interfaces OBJECT IDENTIFIER ::= { nestedTest 2 }
+routing OBJECT IDENTIFIER ::= { nestedTest 3 }
+
+-- System subtree (nested under system)
+systemGroup OBJECT IDENTIFIER ::= { system 1 }
+systemBasic OBJECT IDENTIFIER ::= { system 2 }
+
+sysUpTime OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "System uptime"
+    ::= { systemBasic 1 }
+
+sysDate OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "System date"
+    ::= { systemBasic 2 }
+
+-- Interfaces subtree
+ifGroup OBJECT IDENTIFIER ::= { interfaces 1 }
+
+ifNumber OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Number of interfaces"
+    ::= { ifGroup 1 }
+
+-- Routing subtree (deeply nested)
+routingCore OBJECT IDENTIFIER ::= { routing 1 }
+routingCoreProtocols OBJECT IDENTIFIER ::= { routingCore 1 }
+routingCoreIP OBJECT IDENTIFIER ::= { routingCoreProtocols 1 }
+
+routingDefaultRoute OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION "Default routing gateway"
+    ::= { routingCoreIP 1 }
+
+END
